@@ -110,6 +110,11 @@ public class CasesSystem extends javax.swing.JFrame {
         jButtonCLEAR.setText("Clear");
 
         jButtonDELETE.setText("Delete Case");
+        jButtonDELETE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDELETEActionPerformed(evt);
+            }
+        });
 
         jButtonSAVE.setText("Save case");
         jButtonSAVE.addActionListener(new java.awt.event.ActionListener() {
@@ -460,6 +465,11 @@ public class CasesSystem extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButtonSAVEActionPerformed
+
+    private void jButtonDELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDELETEActionPerformed
+        death_or_restore obj = new death_or_restore();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jButtonDELETEActionPerformed
 
     /**
      * @param args the command line arguments
