@@ -5,6 +5,8 @@
  */
 package covid;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kosta
@@ -110,6 +112,11 @@ public class CasesSystem extends javax.swing.JFrame {
         jButtonDELETE.setText("Delete Case");
 
         jButtonSAVE.setText("Save case");
+        jButtonSAVE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSAVEActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Case Info"));
 
@@ -413,6 +420,46 @@ public class CasesSystem extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonSAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSAVEActionPerformed
+        try{
+           //ring quer = "SELECT COUNT(*) FROM CURRENTCASES WHERE AMKA = 
+            if(jTextFieldPHONENUMBER.getText().equals("") || jTextFieldNAME.getText().equals("") || jTextFieldSURNAME.getText().equals("")
+                || jTextFieldNAME.getText().equals("") || jTextFieldADDRES.getText().equals("") || jTextFieldAMKA.getText().equals("")){
+                JOptionPane.showMessageDialog(null,"Παρακαλώ συμπληρώστε όλα τα πεδία");
+            }else if(Integer.parseInt(jTextFieldAGE.getText()) != 0 && Integer.parseInt(jTextFieldAGE.getText()) > 0
+                && Integer.parseInt(jTextFieldAGE.getText()) < 120 ){
+                try{
+                int length = String.valueOf(jTextFieldPHONENUMBER.getText()).length();
+                if(length == 10) {
+                    try{    
+                    int Alength = String.valueOf(jTextFieldAMKA.getText()).length();
+                    if(Alength == 12){
+                        ProbableCases prob = new ProbableCases();
+                        prob.setVisible(true);
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο δωδεκαψήφιο αριθμό AMKA");
+                    }
+                    }catch (Exception e){
+                       JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο δωδεκαψήφιο αριθμό AMKA"); 
+                        
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό τηλεφώνου");
+                }
+                    
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό τηλεφώνου");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρη ηλικία");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρη ηλικία");
+        }
+
+    }//GEN-LAST:event_jButtonSAVEActionPerformed
 
     /**
      * @param args the command line arguments
