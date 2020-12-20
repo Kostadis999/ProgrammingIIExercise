@@ -5,7 +5,12 @@
  */
 package covid;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -13,11 +18,34 @@ import javax.swing.JOptionPane;
  */
 public class CasesSystem extends javax.swing.JFrame {
 
+    static Connection conn = null;
+    static ResultSet rs = null;
+    static PreparedStatement pst = null;
+
     /**
      * Creates new form CasesSystem
      */
     public CasesSystem() {
         initComponents();
+        Update_table();
+    }
+    
+    
+public static void Update_table(){
+        
+        try {
+        String sql = "Select ID,AMKA,NAME,SURNAME,AGE from CURRENTCASES ";
+        pst  = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        pst.close();
+        rs.close();
+        jTextField1.setText("Κρούσματα κορονοιού(ΤΩΡΑ)");
+        
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
     }
 
     /**
@@ -561,8 +589,8 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    public static javax.swing.JTable jTable1;
+    public static javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldADDRES;
     private javax.swing.JTextField jTextFieldAGE;
     private javax.swing.JTextField jTextFieldAMKA;
