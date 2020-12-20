@@ -47,6 +47,22 @@ public static void Update_table(){
             
         }
     }
+public static void setAverageAge(){
+        try{
+            String sql = "select avg(AGE) from CURRENTCASES";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            int x = rs.getInt("avg(AGE)");
+            jLabelAvgAge.setText(String.valueOf(x));
+            pst.close();
+            rs.close();
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -567,7 +583,7 @@ public static void Update_table(){
     private javax.swing.JLabel jLabelADDRES;
     private javax.swing.JLabel jLabelAGE;
     private javax.swing.JLabel jLabelAMKA;
-    private javax.swing.JLabel jLabelAvgAge;
+    public static javax.swing.JLabel jLabelAvgAge;
     private javax.swing.JLabel jLabelCITY;
     private javax.swing.JLabel jLabelNAME;
     private javax.swing.JLabel jLabelOverallcases;
