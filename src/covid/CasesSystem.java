@@ -120,6 +120,38 @@ public class CasesSystem extends javax.swing.JFrame {
             
         }
     }
+    public static void setnumberofodeaths(){
+        try{
+            String sql = "select count(*) from PASSED";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            int x = rs.getInt("count(*)");
+            jLabeldeaths.setText(String.valueOf(x));
+            pst.close();
+            rs.close();
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }
+    public static void setnumberofoheals(){
+        try{
+            String sql = "select count(*) from HEAL";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            int x = rs.getInt("count(*)");
+            jLabelheals.setText(String.valueOf(x));
+            pst.close();
+            rs.close();
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -436,7 +468,9 @@ public class CasesSystem extends javax.swing.JFrame {
                                 .addComponent(jTextFieldPHONENUMBER)
                                 .addComponent(jTextFieldADDRES))
                             .addComponent(jTextFieldAMKA, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -486,14 +520,15 @@ public class CasesSystem extends javax.swing.JFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jMenu1.setText("Data tabels");
@@ -646,8 +681,8 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPHONENUMBER;
     private javax.swing.JLabel jLabelSURNAME;
     public static javax.swing.JLabel jLabelcurrcases;
-    private javax.swing.JLabel jLabeldeaths;
-    private javax.swing.JLabel jLabelheals;
+    public static javax.swing.JLabel jLabeldeaths;
+    public static javax.swing.JLabel jLabelheals;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
