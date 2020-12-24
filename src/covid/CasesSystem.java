@@ -21,6 +21,7 @@ public class CasesSystem extends javax.swing.JFrame {
     static Connection conn = null;
     static ResultSet rs = null;
     static PreparedStatement pst = null;
+    public static int getValue;
 
     /**
      * Creates new form CasesSystem
@@ -31,7 +32,7 @@ public class CasesSystem extends javax.swing.JFrame {
     }
     
     
-public static void Update_table(){
+    public static void Update_table(){
         
         try {
         String sql = "Select ID,AMKA,NAME,SURNAME,AGE from CURRENTCASES ";
@@ -47,7 +48,7 @@ public static void Update_table(){
             
         }
     }
-public static void setAverageAge(){
+    public static void setAverageAge(){
         try{
             String sql = "select avg(AGE) from CURRENTCASES";
             pst = conn.prepareStatement(sql);
@@ -63,7 +64,25 @@ public static void setAverageAge(){
             
         }
     }
-
+    public static int generateserialId(){
+        
+        String sql = "select count(ID)+1 from OVERALLCASES";
+        try{
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            rs = pst.executeQuery();
+            if(rs.next()){
+                getValue = Integer.parseInt(rs.getString(1)); 
+            }
+            pst.close();
+            rs.close();
+         
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        return getValue;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
