@@ -32,6 +32,11 @@ public class CasesSystem extends javax.swing.JFrame {
         setnumberofcurrentcases();
         setnumberofoverallcases();
         setAverageAge();
+        FillcomboCity();
+        setnumberofoheals();
+        setnumberofodeaths();
+        
+        
     }
     
     
@@ -151,6 +156,22 @@ public class CasesSystem extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
             
         }
+    }
+    private void FillcomboCity(){
+        try{
+            String sql = "Select * from REGIONS";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            jComboBoxCITY.insertItemAt("", 0);
+            while(rs.next()){
+                String City = rs.getString("REGION");
+                jComboBoxCITY.addItem(City);
+                            }
+            rs.close();
+            pst.close();
+            }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            }
     }
     /**
      * This method is called from within the constructor to initialize the form.
