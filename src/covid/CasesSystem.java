@@ -35,7 +35,7 @@ public class CasesSystem extends javax.swing.JFrame {
         FillcomboCity();
         setnumberofoheals();
         setnumberofodeaths();
-        
+         conn = covid.javaconnect.ConnectDB();
         
     }
     
@@ -554,10 +554,20 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jMenu1.setText("Data tabels");
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setText("Κρούσματα τώρα");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.setText("Πιθανά κρούσματα");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("jMenuItem3");
@@ -641,6 +651,41 @@ public class CasesSystem extends javax.swing.JFrame {
         jTextFieldCITY.setText("");
         jTextFieldAMKA.setText("");
     }//GEN-LAST:event_jButtonCLEARActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+      try {
+        String sql = "Select ID,AMKA,NAME,SURNAME,AGE from CURRENTCASES ";
+        pst  = conn.prepareStatement(sql);
+        rs = pst.executeQuery(); 
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        pst.close();
+        rs.close();
+        jTextField1.setText("Κρούσματα κορονοιού που νοσούν τώρα");
+        
+        
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        try {
+        String sql = "Select AMKA,NAME,SURNAME from PROB ";
+        pst  = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        pst.close();
+        rs.close();
+        jTextField1.setText("Πιθανά κρούσματα");
+      
+        
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
