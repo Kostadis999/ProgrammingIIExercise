@@ -496,6 +496,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel6"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
@@ -506,6 +509,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel7"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelheals">
               <Properties>

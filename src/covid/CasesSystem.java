@@ -29,6 +29,9 @@ public class CasesSystem extends javax.swing.JFrame {
     public CasesSystem() {
         initComponents();
         Update_table();
+        setnumberofcurrentcases();
+        setnumberofoverallcases();
+        setAverageAge();
     }
     
     
@@ -82,6 +85,40 @@ public class CasesSystem extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
         return getValue;
+    }
+    
+    public static void setnumberofcurrentcases(){
+        try{
+            String sql = "select count(*) from CURRENTCASES";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            int x = rs.getInt("count(*)");
+            jLabelcurrcases.setText(String.valueOf(x));
+            pst.close();
+            rs.close();
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }
+    
+    public static void setnumberofoverallcases(){
+        try{
+            String sql = "select count(*) from Totalcases";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            int x = rs.getInt("count(*)");
+            jLabelOverallcases.setText(String.valueOf(x));
+            pst.close();
+            rs.close();
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -605,10 +642,10 @@ public class CasesSystem extends javax.swing.JFrame {
     public static javax.swing.JLabel jLabelAvgAge;
     private javax.swing.JLabel jLabelCITY;
     private javax.swing.JLabel jLabelNAME;
-    private javax.swing.JLabel jLabelOverallcases;
+    public static javax.swing.JLabel jLabelOverallcases;
     private javax.swing.JLabel jLabelPHONENUMBER;
     private javax.swing.JLabel jLabelSURNAME;
-    private javax.swing.JLabel jLabelcurrcases;
+    public static javax.swing.JLabel jLabelcurrcases;
     private javax.swing.JLabel jLabeldeaths;
     private javax.swing.JLabel jLabelheals;
     private javax.swing.JMenu jMenu1;
