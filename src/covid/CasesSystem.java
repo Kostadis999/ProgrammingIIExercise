@@ -585,7 +585,12 @@ public class CasesSystem extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem4);
 
-        jMenuItem5.setText("jMenuItem5");
+        jMenuItem5.setText("Συνολικά κρούσματα");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem5);
 
         jMenuBar1.add(jMenu1);
@@ -728,6 +733,23 @@ public class CasesSystem extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+         try {
+        String sql = "Select ID,AMKA,NAME,SURNAME,AGE from OVERALLCASES ";
+        pst  = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        pst.close();
+        rs.close();
+        jTextField1.setText("Συνολική καταγραφή κρουσμάτων");
+        
+        
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
