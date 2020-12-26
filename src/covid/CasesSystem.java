@@ -36,10 +36,24 @@ public class CasesSystem extends javax.swing.JFrame {
         FillcomboCity();
         setnumberofoheals();
         setnumberofodeaths();
-        
-        
+        Fillcombosearch();   
     }
-    
+    public static void Fillcombosearch(){
+        try{
+            String sql = "Select * from OVERALLCASES";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            jComboBoxSEARCHID.insertItemAt("", 0);
+            while(rs.next()){
+                String ID = rs.getString("ID");
+                CasesSystem.jComboBoxSEARCHID.addItem(ID);
+            }
+            rs.close();
+            pst.close();
+            }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            }
+    }
     
     public static void Update_table(){
         
@@ -795,7 +809,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSAVE;
     private javax.swing.JButton jButtonSEARCHID;
     private javax.swing.JComboBox<String> jComboBoxCITY;
-    private javax.swing.JComboBox<String> jComboBoxSEARCHID;
+    public static javax.swing.JComboBox<String> jComboBoxSEARCHID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
