@@ -36,7 +36,20 @@ public class CasesSystem extends javax.swing.JFrame {
         FillcomboCity();
         setnumberofoheals();
         setnumberofodeaths();
-        Fillcombosearch();   
+        Fillcombosearch();
+        delete_basedontime();
+    }
+    public static void delete_basedontime(){
+        try{
+            String qq= "DELETE FROM PROB WHERE (DATE < DATETIME('NOW', '-14 days'))";  
+
+            pst= conn.prepareStatement(qq);
+            pst.execute();
+            pst.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+
     }
     public static void Fillcombosearch(){
         try{
