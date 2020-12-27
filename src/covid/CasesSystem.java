@@ -5,6 +5,7 @@
  */
 package covid;
 
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -367,14 +368,29 @@ public class CasesSystem extends javax.swing.JFrame {
         jTextFieldSURNAME.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jTextFieldAGE.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextFieldAGE.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAGEKeyTyped(evt);
+            }
+        });
 
         jTextFieldADDRES.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jTextFieldCITY.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jTextFieldAMKA.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextFieldAMKA.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAMKAKeyTyped(evt);
+            }
+        });
 
         jTextFieldPHONENUMBER.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextFieldPHONENUMBER.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldPHONENUMBERKeyTyped(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("DATA"));
@@ -777,6 +793,27 @@ public class CasesSystem extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jTextFieldAGEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAGEKeyTyped
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c)) || c==KeyEvent.VK_BACK_SPACE || c==KeyEvent.VK_DELETE){
+        evt.consume();    
+        }
+    }//GEN-LAST:event_jTextFieldAGEKeyTyped
+
+    private void jTextFieldAMKAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAMKAKeyTyped
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c)) || c==KeyEvent.VK_BACK_SPACE || c==KeyEvent.VK_DELETE){
+        evt.consume();    
+        }
+    }//GEN-LAST:event_jTextFieldAMKAKeyTyped
+
+    private void jTextFieldPHONENUMBERKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPHONENUMBERKeyTyped
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c)) || c==KeyEvent.VK_BACK_SPACE || c==KeyEvent.VK_DELETE){
+        evt.consume();    
+        }   
+    }//GEN-LAST:event_jTextFieldPHONENUMBERKeyTyped
 
     /**
      * @param args the command line arguments
