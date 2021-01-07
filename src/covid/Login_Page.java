@@ -23,8 +23,9 @@ public class Login_Page extends javax.swing.JFrame {
      * Creates new form Login_Page
      */
     public Login_Page() {
-        initComponents();
         conn = covid.javaconnect.ConnectDB();
+        initComponents();
+        
     }
 
     /**
@@ -120,20 +121,16 @@ public class Login_Page extends javax.swing.JFrame {
             rs = pst.executeQuery();
             if (rs.next()){
                 JOptionPane.showMessageDialog(null,"Username and Password is correct");
-                covid.CasesSystem s = new CasesSystem();
                 pst.close();
                 rs.close();
-                
+                covid.CasesSystem s = new CasesSystem();
                 s.setVisible(true);
-                this.dispose();
-                
-                
+                this.dispose();    
             }
             else {
                 JOptionPane.showMessageDialog(null,"Username and Password is not correct");
             }
-            pst.close();
-            rs.close();
+            
             }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
