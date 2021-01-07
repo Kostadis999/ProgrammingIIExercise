@@ -5,17 +5,25 @@
  */
 package covid;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kosta
  */
 public class death_or_restore extends javax.swing.JFrame {
-
+Connection conn = null;
+ResultSet rs = null;
+PreparedStatement pst = null;
     /**
      * Creates new form death_or_restore
      */
     public death_or_restore() {
         initComponents();
+        conn = javaconnect.ConnectDB();
     }
 
     /**
@@ -27,7 +35,7 @@ public class death_or_restore extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        PassedButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -36,7 +44,12 @@ public class death_or_restore extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Απεβίωσε");
+        PassedButton.setText("Απεβίωσε");
+        PassedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PassedButtonActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Ανάρρωσε");
 
@@ -57,7 +70,7 @@ public class death_or_restore extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(jTextField1)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(PassedButton)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
@@ -79,7 +92,7 @@ public class death_or_restore extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1)
+                    .addComponent(PassedButton)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addContainerGap())
@@ -87,6 +100,42 @@ public class death_or_restore extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PassedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PassedButtonActionPerformed
+        try{
+            String sql = "select count(*) from CURRENTCASES where ID =  '"+jTextField1.getText()+"' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            int count = rs.getInt(1);
+            rs.close();
+            pst.close();
+            if(jTextField1.getText().equals("") ){
+                JOptionPane.showMessageDialog(null, "Πληκτρολογίστε το ID του ασθενή που επιθυμείς να διαγράψεις");
+            } 
+            else if (count == 0) {
+                JOptionPane.showMessageDialog(null, "Το ID που πληκτρολογίσατε δεν αντιστοιχεί σε κάποιο ασθενή");
+            }
+            else {
+                String quer = "insert into PASSED select * from CURRENTCASES where ID    = '"+jTextField1.getText()+"' ";
+                pst = conn.prepareStatement(quer);
+                pst.execute();
+                String query= "delete from CURRENTCASES where ID = '" +jTextField1.getText()+ "' ";
+                pst = conn.prepareStatement(query);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Data Deleted");
+                pst.close();	
+                CasesSystem.Update_table();
+                dispose();
+                CasesSystem.setnumberofodeaths();
+                CasesSystem.setAverageAge();
+                CasesSystem.setnumberofcurrentcases();
+            }
+            }catch(Exception e){
+          JOptionPane.showMessageDialog(null,e);
+                
+        }
+    }//GEN-LAST:event_PassedButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,7 +173,7 @@ public class death_or_restore extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton PassedButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
