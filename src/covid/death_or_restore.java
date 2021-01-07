@@ -36,7 +36,7 @@ PreparedStatement pst = null;
     private void initComponents() {
 
         PassedButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        HealButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -51,7 +51,12 @@ PreparedStatement pst = null;
             }
         });
 
-        jButton2.setText("Ανάρρωσε");
+        HealButton.setText("Ανάρρωσε");
+        HealButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HealButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Case id:");
 
@@ -72,7 +77,7 @@ PreparedStatement pst = null;
                         .addGap(18, 18, 18)
                         .addComponent(PassedButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2))
+                        .addComponent(HealButton))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +96,7 @@ PreparedStatement pst = null;
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(HealButton)
                     .addComponent(PassedButton)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -137,6 +142,47 @@ PreparedStatement pst = null;
         }
     }//GEN-LAST:event_PassedButtonActionPerformed
 
+    private void HealButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HealButtonActionPerformed
+        try{
+            String que = "select count(*) from CURRENTCASES where ID =  '"+jTextField1.getText()+"' ";
+            pst = conn.prepareStatement(que);
+            rs = pst.executeQuery();
+            rs.next();
+            int count = rs.getInt(1);
+            rs.close();
+            pst.close();
+            if(jTextField1.getText().equals("") ) {
+                JOptionPane.showMessageDialog(null, "Πληκτρολογίστε το ID του ασθενή που επιθυμείς να διαγράψεις");
+            }
+            else if (count == 0) {
+                JOptionPane.showMessageDialog(null, "Το ID που πληκτρολογίσατε δεν αντιστοιχεί σε κάποιο ασθενή");
+            }
+            else {
+                String quer = "insert into HEAL select * from CURRENTCASES where ID = '"+jTextField1.getText()+"' ";
+                
+                pst = conn.prepareStatement(quer);
+                pst.execute();
+                
+                
+                String query= "delete from CURRENTCASES where ID = '" +jTextField1.getText()+ "' ";
+                pst = conn.prepareStatement(query);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Data Deleted");
+                pst.close();	
+                CasesSystem.Update_table();
+                CasesSystem.setnumberofoheals();
+                dispose();
+                CasesSystem.setAverageAge();
+                CasesSystem.setnumberofcurrentcases();
+                
+            }
+            
+        }catch(Exception e){
+          JOptionPane.showMessageDialog(null,e);
+                
+        }
+    }//GEN-LAST:event_HealButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -173,8 +219,8 @@ PreparedStatement pst = null;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton HealButton;
     private javax.swing.JButton PassedButton;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
