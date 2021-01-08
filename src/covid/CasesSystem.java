@@ -907,7 +907,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDELETE;
     private javax.swing.JButton jButtonSAVE;
     private javax.swing.JButton jButtonSEARCHID;
-    private javax.swing.JComboBox<String> jComboBoxCITY;
+    public static javax.swing.JComboBox<String> jComboBoxCITY;
     public static javax.swing.JComboBox<String> jComboBoxSEARCHID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -941,12 +941,12 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable1;
     public static javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldADDRES;
-    private javax.swing.JTextField jTextFieldAGE;
-    private javax.swing.JTextField jTextFieldAMKA;
+    public static javax.swing.JTextField jTextFieldADDRES;
+    public static javax.swing.JTextField jTextFieldAGE;
+    public static javax.swing.JTextField jTextFieldAMKA;
     private javax.swing.JTextField jTextFieldCITY;
-    private javax.swing.JTextField jTextFieldNAME;
-    private javax.swing.JTextField jTextFieldPHONENUMBER;
-    private javax.swing.JTextField jTextFieldSURNAME;
+    public static javax.swing.JTextField jTextFieldNAME;
+    public static javax.swing.JTextField jTextFieldPHONENUMBER;
+    public static javax.swing.JTextField jTextFieldSURNAME;
     // End of variables declaration//GEN-END:variables
 }
