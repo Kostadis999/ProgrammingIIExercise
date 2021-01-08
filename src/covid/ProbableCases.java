@@ -29,7 +29,10 @@ public class ProbableCases extends javax.swing.JFrame {
         initComponents();
         conn = javaconnect.ConnectDB();
     }
-
+    private static java.sql.Timestamp getCurrentTimeStamp() {
+    java.util.Date today = new java.util.Date();
+    return new java.sql.Timestamp(today.getTime());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -287,12 +290,75 @@ public class ProbableCases extends javax.swing.JFrame {
             pst = conn.prepareStatement(sqql);
             pst.setInt(1,1);
             pst.execute();
+            String sqqqql = "insert into Totalcases (id) values (?)";
+            pst = conn.prepareStatement(sqqqql);
+            pst.setInt(1,1);
+            pst.execute();
+            String query= "insert into PROB (RelatedID, NAME, SURNAME,DATE) values (?,?,?,?)";
+            pst = conn.prepareStatement(query);
+            pst.setString(1,(CasesSystem.jTextFieldAMKA.getText()));
+            pst.setString(2,jTextField1.getText() );
+            pst.setString(3,jTextField2.getText() );
+            pst.setTimestamp(4,getCurrentTimeStamp());
+            pst.execute();
+            String querry= "insert into PROB (RelatedID,NAME, SURNAME,DATE) values (?,?,?,?)";
+            pst = conn.prepareStatement(querry);
+            pst.setString(2,jTextField3.getText() );
+            pst.setString(3,jTextField4.getText() );
+            pst.setString(1,(CasesSystem.jTextFieldAMKA.getText()));
+            pst.setTimestamp(4,getCurrentTimeStamp());
+            pst.execute();
+            String querrry= "insert into PROB (RelatedID,NAME, SURNAME,DATE) values (?,?,?,?)";
+            pst = conn.prepareStatement(querrry);
+            pst.setString(2,jTextField5.getText() );
+            pst.setString(3,jTextField6.getText() );
+            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setTimestamp(4,getCurrentTimeStamp());
+            pst.execute();
+            String querrrry= "insert into PROB (RelatedID,NAME, SURNAME,DATE) values (?,?,?,?)";
+            pst = conn.prepareStatement(querrrry);
+            pst.setString(2,jTextField7.getText() );
+            pst.setString(3,jTextField8.getText() );
+            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setTimestamp(4,getCurrentTimeStamp());
+            pst.execute();
+            String quer= "insert into PROB (RelatedID,NAME, SURNAME, DATE) values (?,?,?,?)";
+            pst = conn.prepareStatement(quer);
+            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setTimestamp(4,getCurrentTimeStamp());
+            pst.setString(2,jTextField16.getText() );
+            pst.setString(3,jTextField15.getText() );
+            pst.execute();
+            String que= "insert into PROB (RelatedID,NAME, SURNAME,DATE) values (?,?,?,?)";
+            pst = conn.prepareStatement(que);
+            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setTimestamp(4,getCurrentTimeStamp());
+            pst.setString(2,jTextField14.getText() );
+            pst.setString(3,jTextField13.getText() );
+            pst.execute();
+            String q= "insert into PROB (RelatedID,NAME, SURNAME, DATE) values (?,?,?,?)";
+            pst = conn.prepareStatement(q);
+            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setTimestamp(4,getCurrentTimeStamp());
+            pst.setString(2,jTextField12.getText() );
+            pst.setString(3,jTextField11.getText() );
+            pst.execute();
+            String qu= "insert into PROB (RelatedID,NAME, SURNAME,DATE) values (?,?,?,?)";
+            pst = conn.prepareStatement(qu);
+            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setTimestamp(4,getCurrentTimeStamp());
+            pst.setString(2,jTextField10.getText() );
+            pst.setString(3,jTextField9.getText() );
+            pst.execute();
+            JOptionPane.showMessageDialog(null,"Data saved Succesfully");
+            String qq= "delete from PROB where NAME = '' AND SURNAME = '' "; 
+            pst = conn.prepareStatement(qq);
+            pst.execute();
             CasesSystem.Update_table();
             CasesSystem.setnumberofcurrentcases();
             CasesSystem.setnumberofoverallcases();
             CasesSystem.setAverageAge();
             dispose();
-            
         }catch(HeadlessException | SQLException e){
             JOptionPane.showMessageDialog(null,e);
         }
