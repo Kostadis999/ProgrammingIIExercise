@@ -5,17 +5,29 @@
  */
 package covid;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kosta
  */
 public class ProbableCases extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ProbableCases
-     */
+    static Connection conn = null;
+    static ResultSet rs=null; ;
+    static PreparedStatement pst = null;
+    
+     
     public ProbableCases() {
         initComponents();
+        conn = javaconnect.ConnectDB();
     }
 
     /**
@@ -99,6 +111,11 @@ public class ProbableCases extends javax.swing.JFrame {
         jLabel16.setText("5: Name");
 
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -239,6 +256,54 @@ public class ProbableCases extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+CasesSystem.generateserialId();        
+        try{
+            String sqqql = "Insert into OVERALLCASES (ID,NAME,SURNAME,AGE,ADDRES,REGION,AMKA,PHONE) values(?,?,?,?,?,?,?,?)";
+            pst = conn.prepareStatement(sqqql);
+            pst.setString(1,Serial);
+            pst.setString(2,CasesSystem.jTextFieldNAME.getText());
+            pst.setString(3,CasesSystem.jTextFieldSURNAME.getText());    
+            pst.setString(4,CasesSystem.jTextFieldAGE.getText());
+            pst.setString(5,CasesSystem.jTextFieldADDRES.getText());
+            pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
+            pst.setString(7,CasesSystem.jTextFieldAMKA.getText());
+            pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
+            pst.execute(); 
+            String sql = "Insert into CURRENTCASES (ID,NAME,SURNAME, AGE, ADDRES, REGION, AMKA, PHONE) values (?,?,?,?,?,?,?,?)";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1,Serial);
+            pst.setString(2,CasesSystem.jTextFieldNAME.getText());
+            pst.setString(3,CasesSystem.jTextFieldSURNAME.getText());
+            pst.setString(4,CasesSystem.jTextFieldAGE.getText());
+            pst.setString(5,CasesSystem.jTextFieldADDRES.getText());
+            pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
+            pst.setString(7,CasesSystem.jTextFieldAMKA.getText());           
+            pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
+            pst.execute();
+            CasesSystem.jComboBoxSEARCHID.addItem(Serial);
+            String sqql = "insert into Totalcases (id) values (?)";
+            pst = conn.prepareStatement(sqql);
+            pst.setInt(1,1);
+            pst.execute();
+            CasesSystem.Update_table();
+            CasesSystem.setnumberofcurrentcases();
+            CasesSystem.setnumberofoverallcases();
+            CasesSystem.setAverageAge();
+            dispose();
+            
+        }catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        finally{
+            try {
+                pst.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,ex);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
