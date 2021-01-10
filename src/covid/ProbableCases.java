@@ -167,7 +167,7 @@ public class ProbableCases extends javax.swing.JFrame {
                         .addComponent(jTextField11)
                         .addComponent(jTextField10)
                         .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +239,7 @@ public class ProbableCases extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(31, 31, 31))
         );
@@ -248,13 +248,11 @@ public class ProbableCases extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -296,7 +294,7 @@ public class ProbableCases extends javax.swing.JFrame {
             pst.execute();
             String query= "insert into PROB (RelatedID, NAME, SURNAME,DATE) values (?,?,?,?)";
             pst = conn.prepareStatement(query);
-            pst.setString(1,(CasesSystem.jTextFieldAMKA.getText()));
+            pst.setString(1,Serial);
             pst.setString(2,jTextField1.getText() );
             pst.setString(3,jTextField2.getText() );
             pst.setTimestamp(4,getCurrentTimeStamp());
@@ -305,47 +303,47 @@ public class ProbableCases extends javax.swing.JFrame {
             pst = conn.prepareStatement(querry);
             pst.setString(2,jTextField3.getText() );
             pst.setString(3,jTextField4.getText() );
-            pst.setString(1,(CasesSystem.jTextFieldAMKA.getText()));
+            pst.setString(1,Serial);
             pst.setTimestamp(4,getCurrentTimeStamp());
             pst.execute();
             String querrry= "insert into PROB (RelatedID,NAME, SURNAME,DATE) values (?,?,?,?)";
             pst = conn.prepareStatement(querrry);
             pst.setString(2,jTextField5.getText() );
             pst.setString(3,jTextField6.getText() );
-            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setString(1,Serial);
             pst.setTimestamp(4,getCurrentTimeStamp());
             pst.execute();
             String querrrry= "insert into PROB (RelatedID,NAME, SURNAME,DATE) values (?,?,?,?)";
             pst = conn.prepareStatement(querrrry);
             pst.setString(2,jTextField7.getText() );
             pst.setString(3,jTextField8.getText() );
-            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setString(1,Serial);
             pst.setTimestamp(4,getCurrentTimeStamp());
             pst.execute();
             String quer= "insert into PROB (RelatedID,NAME, SURNAME, DATE) values (?,?,?,?)";
             pst = conn.prepareStatement(quer);
-            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setString(1,Serial);
             pst.setTimestamp(4,getCurrentTimeStamp());
             pst.setString(2,jTextField16.getText() );
             pst.setString(3,jTextField15.getText() );
             pst.execute();
             String que= "insert into PROB (RelatedID,NAME, SURNAME,DATE) values (?,?,?,?)";
             pst = conn.prepareStatement(que);
-            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setString(1,Serial);
             pst.setTimestamp(4,getCurrentTimeStamp());
             pst.setString(2,jTextField14.getText() );
             pst.setString(3,jTextField13.getText() );
             pst.execute();
             String q= "insert into PROB (RelatedID,NAME, SURNAME, DATE) values (?,?,?,?)";
             pst = conn.prepareStatement(q);
-            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setString(1,Serial);
             pst.setTimestamp(4,getCurrentTimeStamp());
             pst.setString(2,jTextField12.getText() );
             pst.setString(3,jTextField11.getText() );
             pst.execute();
             String qu= "insert into PROB (RelatedID,NAME, SURNAME,DATE) values (?,?,?,?)";
             pst = conn.prepareStatement(qu);
-            pst.setString(1,CasesSystem.jTextFieldAMKA.getText());
+            pst.setString(1,Serial);
             pst.setTimestamp(4,getCurrentTimeStamp());
             pst.setString(2,jTextField10.getText() );
             pst.setString(3,jTextField9.getText() );

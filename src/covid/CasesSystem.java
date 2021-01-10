@@ -79,7 +79,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         pst.close();
         rs.close();
-        jTextField1.setText("Κρούσματα κορονοιού(ΤΩΡΑ)");
+        jLabel6.setText("Κρούσματα κορονοιού(ΤΩΡΑ)");
         
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,e);
@@ -250,9 +250,9 @@ public class CasesSystem extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -474,8 +474,6 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jButton3.setText("jButton3");
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 255));
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -489,25 +487,28 @@ public class CasesSystem extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(198, 198, 198)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(191, 191, 191)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -662,40 +663,35 @@ public class CasesSystem extends javax.swing.JFrame {
 
     private void jButtonSAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSAVEActionPerformed
         try{
-           //ring quer = "SELECT COUNT(*) FROM CURRENTCASES WHERE AMKA = 
+            String quer = "SELECT COUNT(*) FROM OVERALLCASES WHERE AMKA = '"+jTextFieldAMKA.getText()+"'";
+            pst = conn.prepareStatement(quer);
+            rs = pst.executeQuery();
+            rs.next();
+            int x = rs.getInt("COUNT(*)");
+            pst.close();
+            rs.close();
+            try{
             if(jTextFieldPHONENUMBER.getText().equals("") || jTextFieldNAME.getText().equals("") || jTextFieldSURNAME.getText().equals("")
-                || jTextFieldNAME.getText().equals("") || jTextFieldADDRES.getText().equals("") || jTextFieldAMKA.getText().equals("")){
-                JOptionPane.showMessageDialog(null,"Παρακαλώ συμπληρώστε όλα τα πεδία");
-            }else if(Integer.parseInt(jTextFieldAGE.getText()) != 0 && Integer.parseInt(jTextFieldAGE.getText()) > 0
-                && Integer.parseInt(jTextFieldAGE.getText()) < 120 ){
-                try{
-                int length = String.valueOf(jTextFieldPHONENUMBER.getText()).length();
-                if(length == 10) {
-                    try{    
-                    int Alength = String.valueOf(jTextFieldAMKA.getText()).length();
-                    if(Alength == 12){
-                        ProbableCases prob = new ProbableCases();
-                        prob.setVisible(true);
-                    }else{
-                        JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο δωδεκαψήφιο αριθμό AMKA");
-                    }
-                    }catch (Exception e){
-                       JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο δωδεκαψήφιο αριθμό AMKA"); 
-                        
-                    }
-                }else{
-                    JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό τηλεφώνου");
-                }
-                    
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό τηλεφώνου");
-                }
-            }
+                || jTextFieldNAME.getText().equals("") || jTextFieldADDRES.getText().equals("") || jTextFieldAMKA.getText().equals("") || jComboBoxCITY.getSelectedItem().toString().equals("")){
+                JOptionPane.showMessageDialog(null,"Παρακαλώ συμπληρώστε όλα τα πεδία");}
+            else if (Integer.parseInt(jTextFieldAGE.getText()) <= 0 || Integer.parseInt(jTextFieldAGE.getText()) >120){
+                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρη ηλικία");}
+            else if (String.valueOf(jTextFieldPHONENUMBER.getText()).length() != 10){
+                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό τηλεφώνου");}
+            else if (String.valueOf(jTextFieldAMKA.getText()).length() != 12 ){
+                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό AMKA");}
+            else if (x == 1){
+                JOptionPane.showMessageDialog(null,"Παρακαλώ ο αριθμός AMKA που εισάγατε αντιστοιχεί σε άλλο ασθενή παρακαλώ εισάγετε έγκυρο AMKA");}
             else{
-                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρη ηλικία");
+                ProbableCases prob = new ProbableCases();
+                prob.setVisible(true);
             }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,"Παρακαλώ συμπληρώστε όλα τα πεδία");
+            }
+            
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρη ηλικία");
+            JOptionPane.showMessageDialog(null,e);
         }
 
     }//GEN-LAST:event_jButtonSAVEActionPerformed
@@ -723,7 +719,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         pst.close();
         rs.close();
-        jTextField1.setText("Κρούσματα κορονοιού που νοσούν τώρα");
+        jLabel6.setText("Κρούσματα κορονοιού που νοσούν τώρα");
         
         
         }catch(SQLException e){
@@ -740,7 +736,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         pst.close();
         rs.close();
-        jTextField1.setText("Πιθανά κρούσματα");
+        jLabel6.setText("Πιθανά κρούσματα");
       
         
         }catch(SQLException e){
@@ -758,7 +754,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         pst.close();
         rs.close();
-        jTextField1.setText("Αποθανόντες");
+        jLabel6.setText("Αποθανόντες");
         
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,e);
@@ -774,7 +770,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         pst.close();
         rs.close();
-        jTextField1.setText("Θεραπευμένοι");
+        jLabel6.setText("Θεραπευμένοι");
         
         
         }catch(SQLException e){
@@ -791,7 +787,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         pst.close();
         rs.close();
-        jTextField1.setText("Συνολική καταγραφή κρουσμάτων");
+        jLabel6.setText("Συνολική καταγραφή κρουσμάτων");
         
         
         }catch(Exception e){
@@ -914,6 +910,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelADDRES;
     private javax.swing.JLabel jLabelAGE;
     private javax.swing.JLabel jLabelAMKA;
@@ -940,7 +937,6 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable1;
-    public static javax.swing.JTextField jTextField1;
     public static javax.swing.JTextField jTextFieldADDRES;
     public static javax.swing.JTextField jTextFieldAGE;
     public static javax.swing.JTextField jTextFieldAMKA;

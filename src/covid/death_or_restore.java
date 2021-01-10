@@ -180,9 +180,6 @@ static PreparedStatement pst = null;
                 String quer = "insert into HEAL select * from CURRENTCASES where ID = '"+jComboBox1.getSelectedItem().toString()+"' ";
                 
                 pst = conn.prepareStatement(quer);
-                pst.execute();
-                
-                
                 String query= "delete from CURRENTCASES where ID = '" +jComboBox1.getSelectedItem().toString()+ "' ";
                 pst = conn.prepareStatement(query);
                 pst.execute();
