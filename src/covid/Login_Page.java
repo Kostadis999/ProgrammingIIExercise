@@ -43,6 +43,7 @@ public class Login_Page extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         USERNAMETextField = new javax.swing.JTextField();
         LOGINButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +89,13 @@ public class Login_Page extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Sign up");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,7 +103,10 @@ public class Login_Page extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LOGINButton)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LOGINButton)
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton2))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
@@ -105,7 +116,9 @@ public class Login_Page extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(LOGINButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LOGINButton)
+                    .addComponent(jButton2))
                 .addContainerGap(105, Short.MAX_VALUE))
         );
 
@@ -137,6 +150,12 @@ public class Login_Page extends javax.swing.JFrame {
         }
                 
     }//GEN-LAST:event_LOGINButtonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Signup_Page sgn = new Signup_Page();
+        sgn.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,6 +196,7 @@ public class Login_Page extends javax.swing.JFrame {
     private javax.swing.JButton LOGINButton;
     private javax.swing.JPasswordField PASSWORDTextField;
     private javax.swing.JTextField USERNAMETextField;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
