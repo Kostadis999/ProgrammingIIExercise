@@ -4,21 +4,26 @@
  * and open the template in the editor.
  */
 package covid;
+import java.sql.ResultSet;
+
 
 /**
  *
  * @author stefm
  */
 public class Case {
+    private String ID;
     private String name;
     private String surname;
     private int age;
     private String address;
     private String city;
-    private int AMKA;
-    private int phone;
-    private String gender;
-    public Case(String name,String sname,int age, String ad, String city, int amka, int phone,String gender){
+    private String AMKA;
+    private String phone;
+    private String Date;
+    
+    public Case(String ID,String name ,String sname,int age, String ad, String city, String amka, String phone, String Date){
+        this.ID = ID;
         this.name=name;
         this.surname=sname;
         this.age=age;
@@ -26,7 +31,25 @@ public class Case {
         this.city=city;
         this.AMKA=amka;
         this.phone=phone;
-        this.gender=gender;
+        this.Date = Date;
+    }
+
+ 
+
+    Case(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public String getID(){
+        return this.ID;
+    }
+    public void setID(String n){
+        this.ID=n;
+    }
+    public String getDATE(){
+        return this.Date;
+    }
+    public void setDATE(String n){
+        this.Date=n;
     }
     public String getName(){
         return this.name;
@@ -58,23 +81,21 @@ public class Case {
     public void setCity(String c){
         this.city=c;
     }
-    public int getAmka(){
+    public String getAmka(){
         return this.AMKA;
     }
-    public void setAmka(int a){
+    public void setAmka(String a){
         this.AMKA=a;
     }
-    public int getPhone(){
+    public String getPhone(){
         return this.phone;
     }
-    public void setPhone(int p){
+    public void setPhone(String p){
         this.phone=p;
     }
-    public String getGender(){
-        return this.gender;
-    }
-    public void setGender(String g){
-        this.gender=g;
-    }   
+  
+   
+   
+   
 }
 
