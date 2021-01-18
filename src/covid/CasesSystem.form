@@ -215,8 +215,14 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField1_3">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField1_2">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel34">
                   <Properties>
@@ -224,6 +230,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField1_1">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
@@ -246,10 +255,19 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField1">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField3">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField4">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
@@ -311,9 +329,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="11" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\kosta\Downloads\Button-Add-icon.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
               <Events>
@@ -324,9 +339,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="11" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\kosta\Downloads\Button-Delete-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Remove"/>
               </Properties>

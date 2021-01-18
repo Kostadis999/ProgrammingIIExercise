@@ -38,6 +38,7 @@ public class CasesSystem extends javax.swing.JFrame {
     int count;
     int count1;
     covid.DAO a = new covid.DAO();
+    int COUNT1;
 
     /**
      * Creates new form CasesSystem
@@ -55,13 +56,22 @@ public class CasesSystem extends javax.swing.JFrame {
         setnumberofoheals();
         setnumberofodeaths();
         Fillcombosearch();
-        count = 0;
-        count1 = 0;
+        COUNT1 = 0;
         
     }
     private static java.sql.Timestamp getCurrentTimeStamp() {
     java.util.Date today = new java.util.Date();// generates and returns current Timestamp
     return new java.sql.Timestamp(today.getTime());}
+    
+    private static void clearprobdialodtextfields(){
+            jTextField1_1.setText("");
+            jTextField1_2.setText("");
+            jTextField1_3.setText("");
+            jTextField1.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+         
+    }
     
     private void FillcomboCity(){
         try{
@@ -449,7 +459,6 @@ public class CasesSystem extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         jButtonAdd.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        jButtonAdd.setIcon(new javax.swing.ImageIcon("C:\\Users\\kosta\\Downloads\\Button-Add-icon.png")); // NOI18N
         jButtonAdd.setText("Add");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -458,7 +467,6 @@ public class CasesSystem extends javax.swing.JFrame {
         });
 
         jButtonRemove.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        jButtonRemove.setIcon(new javax.swing.ImageIcon("C:\\Users\\kosta\\Downloads\\Button-Delete-icon.png")); // NOI18N
         jButtonRemove.setText("Remove");
         jButtonRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -935,33 +943,48 @@ public class CasesSystem extends javax.swing.JFrame {
 
     private void jButtonSAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSAVEActionPerformed
         try{
+            String quer1 = "SELECT COUNT(*) FROM PROB WHERE AMKA = '"+jTextFieldAMKA.getText()+"' AND PHONE = '"+jTextFieldPHONENUMBER.getText()+"'";
             String quer = "SELECT COUNT(*) FROM OVERALLCASES WHERE AMKA = '"+jTextFieldAMKA.getText()+"'";
             pst = conn.prepareStatement(quer);
             rs = pst.executeQuery();
             rs.next();
-            int x = rs.getInt("COUNT(*)");
-            pst.close();
-            rs.close();
-            try{
+            int COUNT = rs.getInt("COUNT(*)");
+            /* η μεταβλητη COUNT περιέχει τον αριθμό των γραμμών του πίνακα των συνολικών κρουσμάτων 
+            της βάσης που το ΑΜΚΑ τους ταυτίζεται με το AMKA που εχει εισάγει ο χρήστης στο πεδίο jTextFieldAMKA 
+            αρα αν count = 1 το ID που ειχε εισαγει ο χρήστης δεν ειανι εγκυρο*/
+            pst = conn.prepareStatement(quer1);
+            rs = pst.executeQuery();
+            rs.next();
+            COUNT1 = rs.getInt("COUNT(*)");
+            //αντιστοιχα η COUNT1 περιεχει τον αριθμο των στοιχείων των πιθανων κρουσμάτων που έχουν ΑΜΚΑ και τηλεφωνο 
+            //ομοια με αυτα που εισήγαγε ο χρήστης. Χρησιμοποιείτε δηλαδή για την επιβεβαίωση πιθανων κρουσμάτων
+            //ελεγχος εγκυρότητας δεδομένων 
             if(jTextFieldPHONENUMBER.getText().equals("") || jTextFieldNAME.getText().equals("") || jTextFieldSURNAME.getText().equals("")
-                || jTextFieldNAME.getText().equals("") || jTextFieldADDRES.getText().equals("") || jTextFieldAMKA.getText().equals("") || jComboBoxCITY.getSelectedItem().toString().equals("")){
+                || jTextFieldNAME.getText().equals("") || jTextFieldADDRES.getText().equals("") || jTextFieldAMKA.getText().equals("") 
+                || jComboBoxCITY.getSelectedItem().toString().equals("")){
                 JOptionPane.showMessageDialog(null,"Παρακαλώ συμπληρώστε όλα τα πεδία");}
             else if (Integer.parseInt(jTextFieldAGE.getText()) <= 0 || Integer.parseInt(jTextFieldAGE.getText()) >120){
                 JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρη ηλικία");}
             else if (String.valueOf(jTextFieldPHONENUMBER.getText()).length() != 10){
-                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό τηλεφώνου");}
+                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό τηλεφώνου");
+                }
             else if (String.valueOf(jTextFieldAMKA.getText()).length() != 12 ){
                 JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό AMKA");}
-            else if (x == 1){
-                JOptionPane.showMessageDialog(null,"Παρακαλώ ο αριθμός AMKA που εισάγατε αντιστοιχεί σε άλλο ασθενή παρακαλώ εισάγετε έγκυρο AMKA");}
-            else{
+            else if ( COUNT == 1){
+                JOptionPane.showMessageDialog(null,"Παρακαλώ ο αριθμός AMKA που εισάγατε αντιστοιχεί \nσε άλλο ασθενή παρακαλώ εισάγετε έγκυρο AMKA");}
+            else if (COUNT1 == 1) {
+                /*για να εκτελεστεί ο κώδικας που βρίσκεται σε αυτό το 'else if' σημαίνει ότι ο χρήστης έχει καταχωρίσει AMKA και τηλέφωνο 
+                που αντιστοιχεί σε κάποιο πιθανό κρούσμα, το προγραμμα θα ενημερώσει για την επιβεβαίωση του πιθανού κρούσματος*/
+                JOptionPane.showMessageDialog(null,"Επιβεβαίωση πιθανού κρούσματος !!\n\n" 
+                        + "Το κρούσμα που επιθημείτε να εισάγετε\n"
+                        +"βρισκεται καταχωριμένο στα πιθανά κρούσματα");
+                       jDialogProbableCases.setVisible(true);
+            }else{
                 jDialogProbableCases.setVisible(true);
+                /*για να εκτελεστεί ο κώδικας που βρίσκεται σε αυτό το 'else if' σημαίνει ότι ο χρήστης έχει καταχωρίσει 
+                έγκυρα δεδομένα στα πεδία και δεν αντιστοιχουν τα δεδομένα σε πιθανό κρούσμα*/
             }
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null,"Παρακαλώ συμπληρώστε όλα τα πεδία");
-            }
-            
-        }catch(Exception e){
+            }catch(SQLException e){
             JOptionPane.showMessageDialog(null,e);
         }
         
@@ -1249,20 +1272,10 @@ public class CasesSystem extends javax.swing.JFrame {
                 }catch(Exception e){
                     
                 }
-                jTextField1_1.setText("");
-                jTextField1_2.setText("");
-                jTextField1_3.setText("");
-                jTextField1.setText("");
-                jTextField3.setText("");
-                jTextField4.setText("");
+                clearprobdialodtextfields();
                 jDialogProbableCases.setVisible(false);
             }else{
-                jTextField1_1.setText("");
-                jTextField1_2.setText("");
-                jTextField1_3.setText("");
-                jTextField1.setText("");
-                jTextField3.setText("");
-                jTextField4.setText("");
+                clearprobdialodtextfields();
                 jDialogProbableCases.setVisible(false);
             }
             
@@ -1331,12 +1344,7 @@ public class CasesSystem extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"data saved");
             count1 = count1++;
             
-            jTextField1_1.setText("");
-            jTextField1_2.setText("");
-            jTextField1_3.setText("");
-            jTextField1.setText("");
-            jTextField3.setText("");
-            jTextField4.setText("");
+            clearprobdialodtextfields();
             DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
             model.setRowCount(0);
             jDialogProbableCases.setVisible(false);
@@ -1364,12 +1372,7 @@ public class CasesSystem extends javax.swing.JFrame {
             "\nRegion: "+jTextFieldAGE.getText()+"\nId: "+Serial+"\n\nEίστε σίγουροι οτι θέλετε να αποθηκευθεί το κρούσμα? ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION)
             {
-            jTextField1_1.setText("");
-            jTextField1_2.setText("");
-            jTextField1_3.setText("");
-            jTextField1.setText("");
-            jTextField3.setText("");
-            jTextField4.setText("");
+                clearprobdialodtextfields();
             try{
                 String sqqql = "Insert into OVERALLCASES (ID,NAME,SURNAME,AGE,ADDRES,REGION,AMKA,PHONE,DATE) values(?,?,?,?,?,?,?,?,?)";
                 pst = conn.prepareStatement(sqqql);
@@ -1403,23 +1406,13 @@ public class CasesSystem extends javax.swing.JFrame {
            
         }else{
                 
-        jTextField1_1.setText("");
-        jTextField1_2.setText("");
-        jTextField1_3.setText("");
-        jTextField1.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jDialogProbableCases.setVisible(false);
+            clearprobdialodtextfields();
+            jDialogProbableCases.setVisible(false);
         }
             
         }else{
-        jTextField1_1.setText("");
-        jTextField1_2.setText("");
-        jTextField1_3.setText("");
-        jTextField1.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jDialogProbableCases.setVisible(false);
+            clearprobdialodtextfields();
+            jDialogProbableCases.setVisible(false);
         }
         
     }//GEN-LAST:event_jDialogProbableCasesWindowClosing
@@ -1515,12 +1508,12 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField1_1;
-    private javax.swing.JTextField jTextField1_2;
-    private javax.swing.JTextField jTextField1_3;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private static javax.swing.JTextField jTextField1;
+    private static javax.swing.JTextField jTextField1_1;
+    private static javax.swing.JTextField jTextField1_2;
+    private static javax.swing.JTextField jTextField1_3;
+    private static javax.swing.JTextField jTextField3;
+    private static javax.swing.JTextField jTextField4;
     public static javax.swing.JTextField jTextFieldADDRES;
     public static javax.swing.JTextField jTextFieldAGE;
     public static javax.swing.JTextField jTextFieldAMKA;
