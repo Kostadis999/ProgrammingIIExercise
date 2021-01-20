@@ -30,7 +30,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author kosta
  */
 public class CasesSystem extends javax.swing.JFrame {
-
+    static String genre;
     static Connection conn = null;
     static ResultSet rs = null;
     static PreparedStatement pst = null;
@@ -70,7 +70,7 @@ public class CasesSystem extends javax.swing.JFrame {
             pst.setString(6,jComboBoxCITY.getSelectedItem().toString());
             pst.setString(7,jTextFieldAMKA.getText());
             pst.setString(8,jTextFieldPHONENUMBER.getText());
-            pst.setString(9,jcombogenre.getSelectedItem().toString());
+            pst.setString(9,genre);
             pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
             pst.execute(); 
             if(COUNT1 == 1 ){
@@ -88,7 +88,7 @@ public class CasesSystem extends javax.swing.JFrame {
             pst.setString(6,jComboBoxCITY.getSelectedItem().toString());
             pst.setString(7,jTextFieldAMKA.getText());
             pst.setString(8,jTextFieldPHONENUMBER.getText());
-            pst.setString(9,jcombogenre.getSelectedItem().toString());
+            pst.setString(9,genre);
             pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
             jComboBoxSEARCHID.addItem(Serial);
             pst.execute();
@@ -305,6 +305,8 @@ public class CasesSystem extends javax.swing.JFrame {
         HealButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanelIDSEARCH = new javax.swing.JPanel();
         jButtonSEARCHID = new javax.swing.JButton();
@@ -334,19 +336,22 @@ public class CasesSystem extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCases = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
-        jcombogenre = new javax.swing.JComboBox<>();
+        jCheckBoxCurrentCases = new javax.swing.JCheckBox();
+        jCheckBoxProbCases = new javax.swing.JCheckBox();
+        jCheckBoxTottalCases = new javax.swing.JCheckBox();
+        jCheckBoxPassed = new javax.swing.JCheckBox();
+        jCheckBoxHealed = new javax.swing.JCheckBox();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jCheckBox7 = new javax.swing.JCheckBox();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jDialogProbableCases.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         jDialogProbableCases.setTitle("Καταχώριση πιθανών κρουσμάτων");
@@ -358,7 +363,7 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         });
 
-        jPanelDialog.setBackground(new java.awt.Color(204, 255, 255));
+        jPanelDialog.setBackground(new java.awt.Color(255, 204, 204));
         jPanelDialog.setForeground(new java.awt.Color(204, 255, 255));
 
         jPanelProbableInfo.setBorder(javax.swing.BorderFactory.createTitledBorder("Probable Case Info"));
@@ -515,7 +520,7 @@ public class CasesSystem extends javax.swing.JFrame {
                             .addComponent(jButtonAddProb, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDialogLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -546,9 +551,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jDialogProbableCases.getContentPane().setLayout(jDialogProbableCasesLayout);
         jDialogProbableCasesLayout.setHorizontalGroup(
             jDialogProbableCasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialogProbableCasesLayout.createSequentialGroup()
-                .addComponent(jPanelDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanelDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDialogProbableCasesLayout.setVerticalGroup(
             jDialogProbableCasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -732,7 +735,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
         jPanelIDSEARCH.setBorder(javax.swing.BorderFactory.createTitledBorder("ID SEARCH"));
 
@@ -894,6 +897,46 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 13)); // NOI18N
 
+        buttonGroup1.add(jCheckBoxCurrentCases);
+        jCheckBoxCurrentCases.setText("Κρούσματα");
+        jCheckBoxCurrentCases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxCurrentCasesActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jCheckBoxProbCases);
+        jCheckBoxProbCases.setText("Πιθανά κρούσματα");
+        jCheckBoxProbCases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxProbCasesActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jCheckBoxTottalCases);
+        jCheckBoxTottalCases.setText("Συνολικά Κρούσματα");
+        jCheckBoxTottalCases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxTottalCasesActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jCheckBoxPassed);
+        jCheckBoxPassed.setText("Αποθανόντες");
+        jCheckBoxPassed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxPassedActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jCheckBoxHealed);
+        jCheckBoxHealed.setText("Θεραπευμένοι");
+        jCheckBoxHealed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxHealedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPaneltableLayout = new javax.swing.GroupLayout(jPaneltable);
         jPaneltable.setLayout(jPaneltableLayout);
         jPaneltableLayout.setHorizontalGroup(
@@ -901,150 +944,148 @@ public class CasesSystem extends javax.swing.JFrame {
             .addGroup(jPaneltableLayout.createSequentialGroup()
                 .addGroup(jPaneltableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPaneltableLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(197, 197, 197)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPaneltableLayout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addContainerGap()
+                        .addGroup(jPaneltableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPaneltableLayout.createSequentialGroup()
+                                .addComponent(jCheckBoxCurrentCases, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jCheckBoxProbCases)
+                                .addGap(18, 18, 18)
+                                .addComponent(jCheckBoxTottalCases, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBoxPassed, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBoxHealed, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPaneltableLayout.setVerticalGroup(
             jPaneltableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPaneltableLayout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPaneltableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBoxTottalCases, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPaneltableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jCheckBoxPassed)
+                        .addComponent(jCheckBoxHealed))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPaneltableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jCheckBoxCurrentCases)
+                        .addComponent(jCheckBoxProbCases)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(213, 213, 213))
         );
 
-        jcombogenre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        jCheckBox6.setBackground(new java.awt.Color(255, 204, 204));
+        buttonGroup2.add(jCheckBox6);
+        jCheckBox6.setText("Male");
+        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox6ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox7.setBackground(new java.awt.Color(255, 204, 204));
+        buttonGroup2.add(jCheckBox7);
+        jCheckBox7.setText("Female");
+        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelIDSEARCH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanelIDSEARCH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jButtonSAVE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonCLEAR, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonDELETE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jButtonSAVE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButtonCLEAR, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButtonDELETE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jPanelCaseInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldNAME)
+                                    .addComponent(jTextFieldSURNAME)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jPanelCaseInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jComboBoxCITY, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextFieldNAME)
-                                            .addComponent(jTextFieldSURNAME)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jComboBoxCITY, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextFieldCITY, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jTextFieldAGE)
-                                            .addComponent(jTextFieldPHONENUMBER)
-                                            .addComponent(jTextFieldADDRES)
-                                            .addComponent(jTextFieldAMKA)
-                                            .addComponent(jcombogenre, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(jTextFieldCITY, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldAGE)
+                                    .addComponent(jTextFieldPHONENUMBER)
+                                    .addComponent(jTextFieldADDRES)
+                                    .addComponent(jTextFieldAMKA)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jCheckBox6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jCheckBox7)
+                                        .addGap(36, 36, 36)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                         .addComponent(jPaneltable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40))
+                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jPanelIDSEARCH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPaneltable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanelIDSEARCH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addComponent(jTextFieldNAME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldSURNAME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldAGE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldADDRES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jComboBoxCITY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldCITY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldAMKA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldPHONENUMBER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jcombogenre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(jButtonCLEAR)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonDELETE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButtonSAVE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanelCaseInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addGap(171, 171, 171)
+                        .addComponent(jTextFieldNAME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldSURNAME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldAGE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldADDRES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxCITY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldCITY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldAMKA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextFieldPHONENUMBER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckBox6)
+                            .addComponent(jCheckBox7)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jButtonCLEAR)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonDELETE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonSAVE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanelCaseInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPaneltable, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
                 .addComponent(jButton2)
-                .addGap(21, 21, 21))
+                .addGap(33, 33, 33))
         );
 
-        jMenu1.setText("Data tabels");
-
-        jMenuItem1.setText("Κρούσματα τώρα");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Πιθανά κρούσματα");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("Αποθανόντες");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
-
-        jMenuItem4.setText("Θεραπευμένοι");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem4);
-
-        jMenuItem5.setText("Συνολικά κρούσματα");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Dataview");
+        jMenu2.setText("Reports");
 
         jMenuItem6.setText("Κρούσματα(τώρα)");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -1080,6 +1121,16 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu1.setText("Diagrams");
+
+        jMenuItem1.setText("jMenuItem1");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("jMenuItem2");
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1093,7 +1144,7 @@ public class CasesSystem extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setBounds(0, 0, 1154, 623);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSAVEActionPerformed
@@ -1151,6 +1202,7 @@ public class CasesSystem extends javax.swing.JFrame {
         }catch(SQLException e ){
             JOptionPane.showMessageDialog(null,e);
         }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null,"παρακαλώ συμπληρώστε όλα τα πεδία");
             /*Αν ο χρήστης επιλέξει το κενο στοιχείο στο jComboBoxCITY η εντολή 
             'jComboBoxCITY.getSelectedItem().toString().equals("")' δημιουργεί NullPointerException
             */
@@ -1187,85 +1239,6 @@ public class CasesSystem extends javax.swing.JFrame {
         jTextFieldCITY.setText("");
         jTextFieldAMKA.setText("");
     }//GEN-LAST:event_jButtonCLEARActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        try{//γεμίζει τον πίνακα jTableCases με τα CURRENTCASES
-        jTableCases.setModel(DbUtils.resultSetToTableModel(a.getCurrentcases()));
-        jLabel6.setText("Κρούσματα κορονοιού(ΤΩΡΑ)"); 
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        try {//γεμίζει τον πίνακα jTableCases με τα πιθανά κρούσματα
-        String sql = "Select * from PROB ";
-        pst  = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
-        pst.close();
-        rs.close();
-        jLabel6.setText("Πιθανά κρούσματα");
-      
-        
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }
-
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        try {//γεμίζει τον πίνακα jTableCases με τους αποθανόντες
-        String sql = "Select ID,NAME,SURNAME,AGE from PASSED ";
-        pst  = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
-        pst.close();
-        rs.close();
-        jLabel6.setText("Αποθανόντες");
-        
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        //γεμίζει τον πίνακα jTableCases με τους θεραπευμένους
-        try {
-        String sql = "Select ID,NAME,SURNAME,AGE from HEAL ";
-        pst  = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
-        pst.close();
-        rs.close();
-        jLabel6.setText("Θεραπευμένοι");
-        
-        
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        //γεμίζει τον πίνακα jTableCases με τα συνολικα κρούσματα
-        try {
-        String sql = "Select ID,AMKA,NAME,SURNAME,AGE from OVERALLCASES ";
-        pst  = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
-        pst.close();
-        rs.close();
-        jLabel6.setText("Συνολική καταγραφή κρουσμάτων");
-        
-        
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jTextFieldAGEKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAGEKeyTyped
         char c = evt.getKeyChar();//εμποδίζει την εισαγωγή χαρακτήρων στο πεδίο jTextFieldAGE 
@@ -1345,8 +1318,8 @@ public class CasesSystem extends javax.swing.JFrame {
         int j = jTableProbableCases.getRowCount();
         if(jTextFieldProbPhonNumbr.getText().equals("") || jTextFieldProbName.getText().equals("") || jTextFieldProbSurname.getText().equals("")
              || jTextFieldProbAge.getText().equals("") || jTextFieldProbAddres.getText().equals("") || jTextFieldProbAmka.getText().equals("")){    
-            JDialog x = new JDialog(jDialogProbableCases);
-        x.setVisible(true);}
+            JOptionPane.showMessageDialog(jDialogProbableCases, "Παρακαλώ συμπληρώστε όλα τα πεδία ");
+        }
         else if (Integer.parseInt(jTextFieldProbAge.getText()) <= 0 || Integer.parseInt(jTextFieldProbAge.getText()) >120){
                
             JOptionPane.showMessageDialog(jDialogProbableCases, "Invalid Age ");}
@@ -1438,7 +1411,7 @@ public class CasesSystem extends javax.swing.JFrame {
                     pst.setString(6,jComboBoxCITY.getSelectedItem().toString());
                     pst.setString(7,jTextFieldAMKA.getText());
                     pst.setString(8,jTextFieldPHONENUMBER.getText());
-                    pst.setString(9,jcombogenre.getSelectedItem().toString());
+                    pst.setString(9,genre);
                     pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
                     pst.execute(); 
                     if(COUNT1 == 1 ){
@@ -1456,7 +1429,7 @@ public class CasesSystem extends javax.swing.JFrame {
                     pst.setString(6,jComboBoxCITY.getSelectedItem().toString());
                     pst.setString(7,jTextFieldAMKA.getText());
                     pst.setString(8,jTextFieldPHONENUMBER.getText());
-                    pst.setString(9,jcombogenre.getSelectedItem().toString());
+                    pst.setString(9,genre);
                     pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
                     jComboBoxSEARCHID.addItem(Serial);
                     pst.close();
@@ -1483,7 +1456,7 @@ public class CasesSystem extends javax.swing.JFrame {
            pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
            pst.setString(7,CasesSystem.jTextFieldAMKA.getText());
            pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
-           pst.setString(9,jcombogenre.getSelectedItem().toString());
+           pst.setString(9,genre);
            pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
            
            pst.execute(); 
@@ -1502,7 +1475,7 @@ public class CasesSystem extends javax.swing.JFrame {
             pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
             pst.setString(7,CasesSystem.jTextFieldAMKA.getText());           
             pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
-            pst.setString(9,jcombogenre.getSelectedItem().toString());
+            pst.setString(9,genre);
             pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
             pst.execute();
             CasesSystem.jComboBoxSEARCHID.addItem(Serial);
@@ -1934,6 +1907,92 @@ public class CasesSystem extends javax.swing.JFrame {
        }        
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jCheckBoxCurrentCasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxCurrentCasesActionPerformed
+        try{//γεμίζει τον πίνακα jTableCases με τα CURRENTCASES
+        jTableCases.setModel(DbUtils.resultSetToTableModel(a.getCurrentcases()));
+        jLabel6.setText("Κρούσματα κορονοιού(ΤΩΡΑ)"); 
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_jCheckBoxCurrentCasesActionPerformed
+
+    private void jCheckBoxProbCasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxProbCasesActionPerformed
+        try {//γεμίζει τον πίνακα jTableCases με τα πιθανά κρούσματα
+        String sql = "Select * from PROB ";
+        pst  = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
+        pst.close();
+        rs.close();
+        jLabel6.setText("Πιθανά κρούσματα");
+      
+        
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }//GEN-LAST:event_jCheckBoxProbCasesActionPerformed
+
+    private void jCheckBoxTottalCasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTottalCasesActionPerformed
+        //γεμίζει τον πίνακα jTableCases με τα συνολικα κρούσματα
+        try {
+        String sql = "Select ID,AMKA,NAME,SURNAME,AGE from OVERALLCASES ";
+        pst  = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
+        pst.close();
+        rs.close();
+        jLabel6.setText("Συνολική καταγραφή κρουσμάτων");
+        
+        
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }//GEN-LAST:event_jCheckBoxTottalCasesActionPerformed
+
+    private void jCheckBoxPassedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPassedActionPerformed
+        try {//γεμίζει τον πίνακα jTableCases με τους αποθανόντες
+        String sql = "Select ID,NAME,SURNAME,AGE from PASSED ";
+        pst  = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
+        pst.close();
+        rs.close();
+        jLabel6.setText("Αποθανόντες");
+        
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }//GEN-LAST:event_jCheckBoxPassedActionPerformed
+
+    private void jCheckBoxHealedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxHealedActionPerformed
+        //γεμίζει τον πίνακα jTableCases με τους θεραπευμένους
+        try {
+        String sql = "Select ID,NAME,SURNAME,AGE from HEAL ";
+        pst  = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
+        pst.close();
+        rs.close();
+        jLabel6.setText("Θεραπευμένοι");
+        
+        
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }//GEN-LAST:event_jCheckBoxHealedActionPerformed
+
+    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+        genre ="Male";
+    }//GEN-LAST:event_jCheckBox6ActionPerformed
+
+    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+        genre ="Female";
+    }//GEN-LAST:event_jCheckBox7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1972,6 +2031,8 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JLabel MalecasesLabel;
     private javax.swing.JLabel Minagecaselabel;
     private javax.swing.JButton PassedButton;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel casescountlabel;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAddProb;
@@ -1981,6 +2042,13 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRemove;
     private javax.swing.JButton jButtonSAVE;
     private javax.swing.JButton jButtonSEARCHID;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JCheckBox jCheckBoxCurrentCases;
+    private javax.swing.JCheckBox jCheckBoxHealed;
+    private javax.swing.JCheckBox jCheckBoxPassed;
+    private javax.swing.JCheckBox jCheckBoxProbCases;
+    private javax.swing.JCheckBox jCheckBoxTottalCases;
     public static javax.swing.JComboBox<String> jComboBoxCITY;
     public static javax.swing.JComboBox<String> jComboBoxDeleteId;
     private javax.swing.JComboBox<String> jComboBoxProbCity;
@@ -2015,9 +2083,6 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
@@ -2048,7 +2113,6 @@ public class CasesSystem extends javax.swing.JFrame {
     private static javax.swing.JTextField jTextFieldProbPhonNumbr;
     private static javax.swing.JTextField jTextFieldProbSurname;
     public static javax.swing.JTextField jTextFieldSURNAME;
-    private static javax.swing.JComboBox<String> jcombogenre;
     private javax.swing.JLabel maxagecaselabel;
     // End of variables declaration//GEN-END:variables
 }
