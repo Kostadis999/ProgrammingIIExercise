@@ -124,7 +124,7 @@ public class Login_Page extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("Αντωνόπουλος Κωνσταντίνος\nΜαρία Gord\nΒασίλης Μίχας\nΧριστίνα Ιωάννα Σμυρλόγλου\nΠαναγιώτης Σερεμέτης \nΧριστίνα Βραγχλιότη\n\n\n\n");
+        jTextArea1.setText("Αντωνόπουλος Κωνσταντίνος\nΜαρία Gord\nΒασίλης Μίχας\nΧριστίνα Ιωάννα Σμυρλόγλου\nΠαναγιώτης Σερεμέτης \nΧριστίνα Βραγχλιότη\nΜαγδαλινή Λάη \n\n\n\n");
         jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "COLLABORATORS :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 0, 18))); // NOI18N
         jTextArea1.setPreferredSize(new java.awt.Dimension(256, 150));
         jScrollPane2.setViewportView(jTextArea1);
@@ -151,7 +151,7 @@ public class Login_Page extends javax.swing.JFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34))
         );
 
