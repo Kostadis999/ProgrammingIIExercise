@@ -98,6 +98,55 @@ public class CasesSystem extends javax.swing.JFrame {
         }
         
     }
+    private static void SaveProbCases(){
+        try{
+            String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+generateserialId();
+            int rows=jTableProbableCases.getRowCount();
+            String sqql = "Insert into PROB (RelatedID,NAME,SURNAME,AGE,ADDRES,REGION, AMKA, PHONE, GENRE,DATE) values (?,?,?,?,?,?,?,?,?,?)";
+            pst = conn.prepareStatement(sqql);
+            for(int roww = 0; roww< rows; roww++){
+           // getting from Jtable1 
+                String RelatedID = Serial;
+                String Name = (String)jTableProbableCases.getValueAt(roww, 0);
+                String Surname = (String)jTableProbableCases.getValueAt(roww, 1);
+                String Age = (String)jTableProbableCases.getValueAt(roww, 2);
+                String Addres = (String)jTableProbableCases.getValueAt(roww, 3);
+                String Region = (String)jTableProbableCases.getValueAt(roww, 4);
+                String Amka = (String)jTableProbableCases.getValueAt(roww, 5);
+                String Phone = (String)jTableProbableCases.getValueAt(roww, 6);
+                String Genre = (String)jTableProbableCases.getValueAt(roww, 7);
+                // setting to database
+                pst.setString(1,RelatedID);
+                pst.setString(2,Name);
+                pst.setString(3,Surname);
+                pst.setString(4,Age);
+                pst.setString(5,Addres);
+                pst.setString(6,Region);
+                pst.setString(7,Amka);
+                pst.setString(8,Phone);
+                pst.setString(9,Genre);
+                pst.setTimestamp(10,getCurrentTimeStamp());
+                pst.addBatch();
+            }
+            pst.executeBatch();
+            pst.close();
+            Update_table();
+            JOptionPane.showMessageDialog(null,"data saved");
+            clearprobdialodtextfields();//clear dialog fields
+            DefaultTableModel model = (DefaultTableModel) jTableProbableCases.getModel();
+            model.setRowCount(0);//clear table
+            jDialogProbableCases.setVisible(false);
+        }catch( SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        finally{
+            try {
+                pst.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,ex);
+            }
+        } 
+    }
     private static void clearprobdialodtextfields(){
             jTextFieldProbName.setText("");
             jTextFieldProbSurname.setText("");
@@ -374,7 +423,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jLabel34.setText(" Name");
 
-        jLabel7.setText("Addres:");
+        jLabel7.setText("Address");
 
         jLabel8.setText("City:");
 
@@ -482,7 +531,6 @@ public class CasesSystem extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTableProbableCases);
 
         jButtonAddProb.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        jButtonAddProb.setIcon(new javax.swing.ImageIcon("C:\\Users\\kosta\\Downloads\\Button-Add-icon.png")); // NOI18N
         jButtonAddProb.setText("Add");
         jButtonAddProb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -491,7 +539,6 @@ public class CasesSystem extends javax.swing.JFrame {
         });
 
         jButtonRemove.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
-        jButtonRemove.setIcon(new javax.swing.ImageIcon("C:\\Users\\kosta\\Downloads\\Button-Delete-icon.png")); // NOI18N
         jButtonRemove.setText("Remove");
         jButtonRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1393,138 +1440,25 @@ public class CasesSystem extends javax.swing.JFrame {
         /*η μεθοδος αποθηκεύει τα πιθανα κρούσματα και το κρούσμα που κατασώρισε ο χρήστης. 
         Σε περιπτωση που ο χρήστης δεν έχει καταχορίσει πιθανά κρούσματα εμφανίζεται ανάλογο μήνυμα*/
         String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+CasesSystem.generateserialId();
-        if(jTableProbableCases.getRowCount() ==0){
-            String ObjButtons[] = {"Yes","No"};
+        if(jTableProbableCases.getRowCount() ==0){//αν δεν εχουν καταχωριθεί πιθανα κρούσματα
+            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
             int PromptResult = JOptionPane.showOptionDialog(null,"Δεν έχετε καταχωρίσει πιθανά κρούσματα\nγια το κρούσμα με στοιχεία\n"
                     + "\nName:  "+jTextFieldNAME.getText()+
             "\nSurname: "+jTextFieldSURNAME.getText()+"\nAMKA: "+jTextFieldAMKA.getText()+"\nAge: "+jTextFieldAGE.getText()+"\nAddres: "+jTextFieldAGE.getText()+
             "\nRegion: "+jTextFieldAGE.getText()+"\nId: "+Serial+"\n\nEίστε σίγουροι οτι θέλετε να αποθηκευθεί το κρούσμα? ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
-            if(PromptResult==JOptionPane.YES_OPTION){
-                try{
-                    String sqqql = "Insert into OVERALLCASES (ID,NAME,SURNAME,AGE,ADDRES,REGION,AMKA,PHONE,GENRE,DATE) values(?,?,?,?,?,?,?,?,?,?)";
-                    pst = conn.prepareStatement(sqqql);
-                    pst.setString(1,Serial);
-                    pst.setString(2,jTextFieldNAME.getText());
-                    pst.setString(3,jTextFieldSURNAME.getText());
-                    pst.setString(4,jTextFieldAGE.getText());
-                    pst.setString(5,jTextFieldADDRES.getText());
-                    pst.setString(6,jComboBoxCITY.getSelectedItem().toString());
-                    pst.setString(7,jTextFieldAMKA.getText());
-                    pst.setString(8,jTextFieldPHONENUMBER.getText());
-                    pst.setString(9,genre);
-                    pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
-                    pst.execute(); 
-                    if(COUNT1 == 1 ){
-                                String b = "delete from PROB where AMKA = '"+jTextFieldAMKA.getText()+"'";
-                                pst = conn.prepareStatement(b);
-                                pst.execute();
-                            }
-                    String sql = "Insert into CURRENTCASES (ID,NAME,SURNAME, AGE, ADDRES, REGION, AMKA, PHONE,GENRE,DATE) values (?,?,?,?,?,?,?,?,?,?)";
-                    pst = conn.prepareStatement(sql);
-                    pst.setString(1,Serial);
-                    pst.setString(2,jTextFieldNAME.getText());
-                    pst.setString(3,jTextFieldSURNAME.getText());
-                    pst.setString(4,jTextFieldAGE.getText());
-                    pst.setString(5,jTextFieldADDRES.getText());
-                    pst.setString(6,jComboBoxCITY.getSelectedItem().toString());
-                    pst.setString(7,jTextFieldAMKA.getText());
-                    pst.setString(8,jTextFieldPHONENUMBER.getText());
-                    pst.setString(9,genre);
-                    pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
-                    jComboBoxSEARCHID.addItem(Serial);
-                    pst.close();
-                }catch(SQLException e){
-                    JOptionPane.showMessageDialog(null,e);
-                }
-                clearprobdialodtextfields();
-                jDialogProbableCases.setVisible(false);
-            }else{
-                clearprobdialodtextfields();
-                jDialogProbableCases.setVisible(false);
+            if(PromptResult==JOptionPane.YES_OPTION){//αν επιλεχτει το ναι
+                SaveCases();                 //αποθηκευσε
+                clearprobdialodtextfields(); //καθαρισε τα παιδια
+                jDialogProbableCases.setVisible(false);//κλείσε το διάλογο
+            }else{                           //αλλιώς
+                clearprobdialodtextfields(); //καθάρισε τα πεδία
+                jDialogProbableCases.setVisible(false);//κλείσε το διάλογο
             }
             
         }else{
-        //covid.Case c = new Case(Serial,CasesSystem.jTextFieldNAME.getText(),CasesSystem.jTextFieldSURNAME.getText(),Integer.parseInt(CasesSystem.jTextFieldAGE.getText()),CasesSystem.jTextFieldADDRES.getText(),CasesSystem.jComboBoxCITY.getSelectedItem().toString(),CasesSystem.jTextFieldAMKA.getText(),CasesSystem.jTextFieldPHONENUMBER.getText(),Serial,new SimpleDateFormat("dd-MM-yyy").format(new Date()));  
-        try{
-           String sqqql = "Insert into OVERALLCASES (ID,NAME,SURNAME,AGE,ADDRES,REGION,AMKA,PHONE,GENRE,DATE) values(?,?,?,?,?,?,?,?,?,?)";
-           pst = conn.prepareStatement(sqqql);
-           pst.setString(1,Serial);
-           pst.setString(2,CasesSystem.jTextFieldNAME.getText());
-           pst.setString(3,CasesSystem.jTextFieldSURNAME.getText());
-           pst.setString(4,CasesSystem.jTextFieldAGE.getText());
-           pst.setString(5,CasesSystem.jTextFieldADDRES.getText());
-           pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
-           pst.setString(7,CasesSystem.jTextFieldAMKA.getText());
-           pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
-           pst.setString(9,genre);
-           pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
-           
-           pst.execute(); 
-           if(COUNT1 == 1 ){
-                                String a = "delete from PROB where AMKA = '"+jTextFieldAMKA.getText()+"'";
-                                pst = conn.prepareStatement(a);
-                                pst.execute();
-                            }
-            String sql = "Insert into CURRENTCASES (ID,NAME,SURNAME, AGE, ADDRES, REGION, AMKA, PHONE,GENRE,DATE) values (?,?,?,?,?,?,?,?,?,?)";
-            pst = conn.prepareStatement(sql);
-            pst.setString(1,Serial);
-            pst.setString(2,CasesSystem.jTextFieldNAME.getText());
-            pst.setString(3,CasesSystem.jTextFieldSURNAME.getText());
-            pst.setString(4,CasesSystem.jTextFieldAGE.getText());
-            pst.setString(5,CasesSystem.jTextFieldADDRES.getText());
-            pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
-            pst.setString(7,CasesSystem.jTextFieldAMKA.getText());           
-            pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
-            pst.setString(9,genre);
-            pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
-            pst.execute();
-            CasesSystem.jComboBoxSEARCHID.addItem(Serial);
-            int rows=jTableProbableCases.getRowCount();
-            
-            String sqql = "Insert into PROB (RelatedID,NAME,SURNAME,AGE,ADDRES,REGION, AMKA, PHONE, GENRE,DATE) values (?,?,?,?,?,?,?,?,?,?)";
-            pst = conn.prepareStatement(sqql);
-            for(int roww = 0; roww< rows; roww++){
-                // getting from Jtable1 
-                String RelatedID = Serial;
-                String Name = (String)jTableProbableCases.getValueAt(roww, 0);
-                String Surname = (String)jTableProbableCases.getValueAt(roww, 1);
-                String Age = (String)jTableProbableCases.getValueAt(roww, 2);
-                String Addres = (String)jTableProbableCases.getValueAt(roww, 3);
-                String Region = (String)jTableProbableCases.getValueAt(roww, 4);
-                String Amka = (String)jTableProbableCases.getValueAt(roww, 5);
-                String Phone = (String)jTableProbableCases.getValueAt(roww, 6);
-                String Genre = (String)jTableProbableCases.getValueAt(roww, 7);
-                // setting to database
-                pst.setString(1,RelatedID);
-                pst.setString(2,Name);
-                pst.setString(3,Surname);
-                pst.setString(4,Age);
-                pst.setString(5,Addres);
-                pst.setString(6,Region);
-                pst.setString(7,Amka);
-                pst.setString(8,Phone);
-                pst.setString(9,Genre);
-                pst.setTimestamp(10,getCurrentTimeStamp());
-                pst.addBatch();
-            }
-            pst.executeBatch();
-            pst.close();
-            CasesSystem.Update_table();
-            JOptionPane.showMessageDialog(null,"data saved");
-            clearprobdialodtextfields();
-            DefaultTableModel model = (DefaultTableModel) jTableProbableCases.getModel();
-            model.setRowCount(0);
-            jDialogProbableCases.setVisible(false);
-            }catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-        }
-        finally{
-            try {
-                pst.close();
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null,ex);
-            }
-        }
+        
+            SaveCases();
+            SaveProbCases();
         }
     }//GEN-LAST:event_jButtonFinishActionPerformed
 
@@ -1554,46 +1488,8 @@ public class CasesSystem extends javax.swing.JFrame {
                 "\nSurname: "+jTextFieldSURNAME.getText()+"\nAMKA: "+jTextFieldAMKA.getText()+"\nAge: "+jTextFieldAGE.getText()+"\nAddres: "+jTextFieldADDRES.getText()+
                 "\nRegion: "+jTextFieldCITY.getText()+"\nId: "+Serial+"\nκαι τα πιθανά κορύσματα που σχετίζονατι με αυτο; ","Exiting",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION){
-                try{
-                    SaveCases();
-                    int rows=jTableProbableCases.getRowCount();
-                    String sqql = "Insert into PROB (RelatedID,NAME,SURNAME,AGE,ADDRES,REGION, AMKA, PHONE, GENRE,DATE) values (?,?,?,?,?,?,?,?,?,?)";
-                    pst = conn.prepareStatement(sqql);
-                    for(int roww = 0; roww< rows; roww++){
-                // getting from Jtable1 
-                        String RelatedID = Serial;
-                        String Name = (String)jTableProbableCases.getValueAt(roww, 0);
-                        String Surname = (String)jTableProbableCases.getValueAt(roww, 1);
-                        String Age = (String)jTableProbableCases.getValueAt(roww, 2);
-                        String Addres = (String)jTableProbableCases.getValueAt(roww, 3);
-                        String Region = (String)jTableProbableCases.getValueAt(roww, 4);
-                        String Amka = (String)jTableProbableCases.getValueAt(roww, 5);
-                        String Phone = (String)jTableProbableCases.getValueAt(roww, 6);
-                        String Genre = (String)jTableProbableCases.getValueAt(roww, 7);
-                // setting to database
-                        pst.setString(1,RelatedID);
-                        pst.setString(2,Name);
-                        pst.setString(3,Surname);
-                        pst.setString(4,Age);
-                        pst.setString(5,Addres);
-                        pst.setString(6,Region);
-                        pst.setString(7,Amka);
-                        pst.setString(8,Phone);
-                        pst.setString(9,Genre);
-                        pst.setTimestamp(10,getCurrentTimeStamp());
-                        pst.addBatch();
-                    }
-                    pst.executeBatch();
-                    pst.close();
-                    Update_table();
-                    JOptionPane.showMessageDialog(null,"data saved");
-                    clearprobdialodtextfields();
-                    DefaultTableModel model = (DefaultTableModel) jTableProbableCases.getModel();
-                    model.setRowCount(0);
-                    jDialogProbableCases.setVisible(false);
-                }catch(Exception e){
-                        JOptionPane.showMessageDialog(null,e);
-                }
+                SaveCases();
+                SaveProbCases();
                 JOptionPane.showMessageDialog(null,"data saved");
                 clearprobdialodtextfields();
                 DefaultTableModel model = (DefaultTableModel) jTableProbableCases.getModel();
@@ -2056,7 +1952,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxprobgenre;
     private javax.swing.JDialog jDialogDatadisplay;
     private javax.swing.JDialog jDialogDeathOrRestore;
-    private javax.swing.JDialog jDialogProbableCases;
+    private static javax.swing.JDialog jDialogProbableCases;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2099,7 +1995,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTable jTableCases;
-    private javax.swing.JTable jTableProbableCases;
+    private static javax.swing.JTable jTableProbableCases;
     public static javax.swing.JTextField jTextFieldADDRES;
     public static javax.swing.JTextField jTextFieldAGE;
     public static javax.swing.JTextField jTextFieldAMKA;
