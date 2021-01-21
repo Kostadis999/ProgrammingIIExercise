@@ -331,6 +331,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="11" style="1"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/covid/Button-Add-icon.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
               <Events>
@@ -341,6 +344,9 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Verdana" size="11" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/covid/Button-Delete-icon.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Remove"/>
               </Properties>
@@ -715,10 +721,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemBarchartActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPieChartGender">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem2"/>
+                <Property name="text" type="java.lang.String" value="&#x395;&#x3bd;&#x3b5;&#x3c1;&#x3b3;&#x3ac; &#x3ba;&#x3c1;&#x3bf;&#x3cd;&#x3c3;&#x3bc;&#x3b1;&#x3c4;&#x3b1; &#x3b1;&#x3bd;&#x3b1; &#x3c6;&#x3cd;&#x3bb;&#x3bf;"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPieChartGenderActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

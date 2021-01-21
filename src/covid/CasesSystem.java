@@ -25,6 +25,12 @@ import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import java.awt.Color;
+import java.io.File;
+import org.jfree.chart.ChartRenderingInfo;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.entity.StandardEntityCollection;
+import org.jfree.chart.plot.PiePlot3D;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -401,7 +407,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemBarchart = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItemPieChartGender = new javax.swing.JMenuItem();
 
         jDialogProbableCases.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         jDialogProbableCases.setTitle("Καταχώριση πιθανών κρουσμάτων");
@@ -532,6 +538,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTableProbableCases);
 
         jButtonAddProb.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        jButtonAddProb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/Button-Add-icon.png"))); // NOI18N
         jButtonAddProb.setText("Add");
         jButtonAddProb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -540,6 +547,7 @@ public class CasesSystem extends javax.swing.JFrame {
         });
 
         jButtonRemove.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        jButtonRemove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/Button-Delete-icon.png"))); // NOI18N
         jButtonRemove.setText("Remove");
         jButtonRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1179,8 +1187,13 @@ public class CasesSystem extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItemBarchart);
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu1.add(jMenuItem2);
+        jMenuItemPieChartGender.setText("Ενεργά κρούσματα ανα φύλο");
+        jMenuItemPieChartGender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemPieChartGenderActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemPieChartGender);
 
         jMenuBar1.add(jMenu1);
 
@@ -1982,6 +1995,46 @@ public class CasesSystem extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItemBarchartActionPerformed
 
+    private void jMenuItemPieChartGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPieChartGenderActionPerformed
+        
+        try{
+            String q = "select count(*) from CURRENTCASES WHERE GENRE = 'Male'";
+            String m = "select count(*) from CURRENTCASES WHERE GENRE = 'Female'";
+            pst  = conn.prepareStatement(m);
+            rs = pst.executeQuery();
+            rs.next();
+            int v = rs.getInt("count(*)");
+            pst  = conn.prepareStatement(q);
+            rs = pst.executeQuery();
+            rs.next();
+            int z = rs.getInt("count(*)");
+            DefaultPieDataset pieDataset = new DefaultPieDataset();
+            pieDataset.setValue("Άντρες",v);
+            pieDataset.setValue("Γυναίκες",z);
+            JFreeChart chart = ChartFactory.createPieChart3D("",pieDataset,true,true,true);
+            PiePlot3D p = (PiePlot3D)chart.getPlot();
+            ChartFrame frame = new ChartFrame("Pie Chart: Ενεργά κρούσματα ανα φύλο",chart);
+            frame.setVisible(true);
+            frame.setSize(450,500);
+            
+            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
+            int PromptResult = JOptionPane.showOptionDialog(null,"θέλετε να αποθηκεύσετε τον πίνακα","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            if(PromptResult==JOptionPane.YES_OPTION){
+                try{
+                    final ChartRenderingInfo Info = new ChartRenderingInfo(new StandardEntityCollection());
+                    String x = new SimpleDateFormat("yyMMddHHmmssZ").format(new Date());
+                    final File file1 = new File("Chart"+x+".png");
+                    ChartUtilities.saveChartAsPNG(file1,chart,600,400,Info);
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"α;");
+                }    
+            }
+                      
+        }catch(SQLException e){
+            
+        }
+    }//GEN-LAST:event_jMenuItemPieChartGenderActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2070,12 +2123,12 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemBarchart;
+    private javax.swing.JMenuItem jMenuItemPieChartGender;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
