@@ -407,6 +407,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItemBarchart = new javax.swing.JMenuItem();
         jMenuItemPieChartGender = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jDialogProbableCases.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         jDialogProbableCases.setTitle("Καταχώριση πιθανών κρουσμάτων");
@@ -1195,6 +1196,14 @@ public class CasesSystem extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItemPieChartGender);
 
+        jMenuItem1.setText("Θάνατοι ανά ηλικία ");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -1918,42 +1927,42 @@ public class CasesSystem extends javax.swing.JFrame {
             String d5 = "81 - 100";
             String d6 = "101 - 120";        
             DefaultCategoryDataset dataset = new DefaultCategoryDataset(); 
-            String q = "select count(AGE) from PASSED where AGE <= 20";
+            String q = "select count(AGE) from CURRENTCASES where AGE <= 20";
             pst = conn.prepareStatement(q);
             pst.execute();
             rs = pst.executeQuery();
             rs.next();
             int c1 = rs.getInt("count(AGE)");
             rs.close();
-            String q1 = "select count(AGE) from PASSED where AGE <= 40 and AGE > 20";
+            String q1 = "select count(AGE) from CURRENTCASES where AGE <= 40 and AGE > 20";
             pst = conn.prepareStatement(q1);
             pst.execute();
             rs = pst.executeQuery();
             rs.next();
             int c2 = rs.getInt("count(AGE)");
             rs.close();
-            String q2 = "select count(AGE) from PASSED where AGE <= 60 and AGE > 40";
+            String q2 = "select count(AGE) from CURRENTCASES where AGE <= 60 and AGE > 40";
             pst = conn.prepareStatement(q2);
             pst.execute();
             rs = pst.executeQuery();
             rs.next();
             int c3 = rs.getInt("count(AGE)");
             rs.close();
-            String q3 = "select count(AGE) from PASSED where AGE <= 80 and AGE > 60";
+            String q3 = "select count(AGE) from CURRENTCASES where AGE <= 80 and AGE > 60";
             pst = conn.prepareStatement(q3);
             pst.execute();
             rs = pst.executeQuery();
             rs.next();
             int c4 = rs.getInt("count(AGE)");
             rs.close();
-            String q4 = "select count(AGE) from PASSED where AGE <= 100 and AGE > 80";
+            String q4 = "select count(AGE) from CURRENTCASES where AGE <= 100 and AGE > 80";
             pst = conn.prepareStatement(q4);
             pst.execute();
             rs = pst.executeQuery();
             rs.next();
             int c5 = rs.getInt("count(AGE)");
             rs.close();
-            String q5 = "select count(AGE) from PASSED where AGE <= 120 and AGE > 100";
+            String q5 = "select count(AGE) from CURRENTCASES where AGE <= 120 and AGE > 100";
             pst = conn.prepareStatement(q5);
             pst.execute();
             rs = pst.executeQuery();
@@ -2039,6 +2048,92 @@ public class CasesSystem extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null,"Επιλέξτε το ID του κρούσματος\nπου επιθυμείτε να διαγράψετε από τα Ενεργά Κρούσματα\nκαι επιλέξτε αν το κρούσμα ανάρρωσε ή απεβίωσε");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        try{
+            String d1 = "0 - 20";
+            String d2 = "21 - 40";
+            String d3 = "41 - 60";
+            String d4 = "41 - 80";
+            String d5 = "81 - 100";
+            String d6 = "101 - 120";        
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset(); 
+            String q = "select count(AGE) from PASSED where AGE <= 20";
+            pst = conn.prepareStatement(q);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c1 = rs.getInt("count(AGE)");
+            rs.close();
+            String q1 = "select count(AGE) from PASSED where AGE <= 40 and AGE > 20";
+            pst = conn.prepareStatement(q1);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c2 = rs.getInt("count(AGE)");
+            rs.close();
+            String q2 = "select count(AGE) from PASSED where AGE <= 60 and AGE > 40";
+            pst = conn.prepareStatement(q2);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c3 = rs.getInt("count(AGE)");
+            rs.close();
+            String q3 = "select count(AGE) from PASSED where AGE <= 80 and AGE > 60";
+            pst = conn.prepareStatement(q3);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c4 = rs.getInt("count(AGE)");
+            rs.close();
+            String q4 = "select count(AGE) from PASSED where AGE <= 100 and AGE > 80";
+            pst = conn.prepareStatement(q4);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c5 = rs.getInt("count(AGE)");
+            rs.close();
+            String q5 = "select count(AGE) from PASSED where AGE <= 120 and AGE > 100";
+            pst = conn.prepareStatement(q5);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c6 = rs.getInt("count(AGE)");
+            rs.close();
+            dataset.setValue(c1,"Values",d1);
+            rs.close();
+            dataset.setValue(c2,"Values",d2);
+            rs.close();
+            dataset.setValue(c3,"Values",d3);
+            rs.close();
+            dataset.setValue(c4,"Values",d4);
+            rs.close();
+            dataset.setValue(c5,"Values",d5);
+            rs.close();
+            dataset.setValue(c6,"Values",d6);
+            rs.close();
+            JFreeChart chart = ChartFactory.createBarChart3D("Θάνατοι ανά ηλικιακό γκρουπ","θάνατοι","ηλικιακά γκρουπ",dataset,PlotOrientation.VERTICAL,false,true,false);
+            chart.setBackgroundPaint(Color.BLUE);
+            chart.getTitle().setPaint(Color.red);
+            CategoryPlot p = chart.getCategoryPlot();
+            p.setRangeGridlinePaint(Color.YELLOW);
+            ChartFrame frame = new ChartFrame("Θάνατοι ανά ηλικιακό γκρουπ",chart);
+            frame.setVisible(true);
+            frame.setSize(650,350);
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+            }
+        finally{
+            try{
+                rs.close();
+                pst.close();
+              
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);
+            }
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2127,6 +2222,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
