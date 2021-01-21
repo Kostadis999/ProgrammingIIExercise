@@ -244,6 +244,8 @@ public class Login_Page extends javax.swing.JFrame {
                 .addComponent(jButton2))
         );
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/AUEB-EN_transparent2-1.png"))); // NOI18N
+
         jTextArea1.setBackground(new java.awt.Color(255, 204, 204));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
