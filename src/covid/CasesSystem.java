@@ -24,6 +24,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import java.awt.Color;
 
 /**
  *
@@ -399,7 +400,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItemBarchart = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         jDialogProbableCases.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -1170,8 +1171,13 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jMenu1.setText("Diagrams");
 
-        jMenuItem1.setText("jMenuItem1");
-        jMenu1.add(jMenuItem1);
+        jMenuItemBarchart.setText("Κρούσματα ανά ηλικία");
+        jMenuItemBarchart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemBarchartActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemBarchart);
 
         jMenuItem2.setText("jMenuItem2");
         jMenu1.add(jMenuItem2);
@@ -1889,6 +1895,93 @@ public class CasesSystem extends javax.swing.JFrame {
         genre ="Female";
     }//GEN-LAST:event_jCheckBox7ActionPerformed
 
+    private void jMenuItemBarchartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBarchartActionPerformed
+
+        try{
+            String d1 = "0 - 20";
+            String d2 = "21 - 40";
+            String d3 = "41 - 60";
+            String d4 = "41 - 80";
+            String d5 = "81 - 100";
+            String d6 = "101 - 120";        
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset(); 
+            String q = "select count(AGE) from PASSED where AGE <= 20";
+            pst = conn.prepareStatement(q);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c1 = rs.getInt("count(AGE)");
+            rs.close();
+            String q1 = "select count(AGE) from PASSED where AGE <= 40 and AGE > 20";
+            pst = conn.prepareStatement(q1);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c2 = rs.getInt("count(AGE)");
+            rs.close();
+            String q2 = "select count(AGE) from PASSED where AGE <= 60 and AGE > 40";
+            pst = conn.prepareStatement(q2);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c3 = rs.getInt("count(AGE)");
+            rs.close();
+            String q3 = "select count(AGE) from PASSED where AGE <= 80 and AGE > 60";
+            pst = conn.prepareStatement(q3);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c4 = rs.getInt("count(AGE)");
+            rs.close();
+            String q4 = "select count(AGE) from PASSED where AGE <= 100 and AGE > 80";
+            pst = conn.prepareStatement(q4);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c5 = rs.getInt("count(AGE)");
+            rs.close();
+            String q5 = "select count(AGE) from PASSED where AGE <= 120 and AGE > 100";
+            pst = conn.prepareStatement(q5);
+            pst.execute();
+            rs = pst.executeQuery();
+            rs.next();
+            int c6 = rs.getInt("count(AGE)");
+            rs.close();
+            dataset.setValue(c1,"Values",d1);
+            rs.close();
+            dataset.setValue(c2,"Values",d2);
+            rs.close();
+            dataset.setValue(c3,"Values",d3);
+            rs.close();
+            dataset.setValue(c4,"Values",d4);
+            rs.close();
+            dataset.setValue(c5,"Values",d5);
+            rs.close();
+            dataset.setValue(c6,"Values",d6);
+            rs.close();
+            JFreeChart chart = ChartFactory.createBarChart3D("Parameter Values","Parameters","Values",dataset,PlotOrientation.VERTICAL,false,true,false);
+            chart.setBackgroundPaint(Color.BLUE);
+            chart.getTitle().setPaint(Color.red);
+            CategoryPlot p = chart.getCategoryPlot();
+            p.setRangeGridlinePaint(Color.BLUE);
+            ChartFrame frame = new ChartFrame("bar chart",chart);
+            frame.setVisible(true);
+            frame.setSize(650,350);
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+            }
+        finally{
+            try{
+                rs.close();
+                pst.close();
+              
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);
+            }
+        }
+    }//GEN-LAST:event_jMenuItemBarchartActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1977,12 +2070,12 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemBarchart;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
