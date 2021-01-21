@@ -61,6 +61,7 @@ public class Login_Page extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
         jDialogSignUp.setBounds(new java.awt.Rectangle(400, 200, 394, 300));
 
@@ -252,6 +253,13 @@ public class Login_Page extends javax.swing.JFrame {
         jTextArea1.setPreferredSize(new java.awt.Dimension(256, 150));
         jScrollPane2.setViewportView(jTextArea1);
 
+        jButton1.setText("Help");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -265,6 +273,9 @@ public class Login_Page extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(90, 90, 90))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,7 +286,8 @@ public class Login_Page extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34))
+                .addGap(9, 9, 9)
+                .addComponent(jButton1))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -371,6 +383,13 @@ public class Login_Page extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_BackToLogInButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(this," Καλωσόρισες στο CCMS!!! \n\n\nΤο CCMS(Covid Cases Management System)"
+        +"είναι ένα συστημά καταχώρισης \nκρούσματων κορονοιού. Εφόσον είναι η πρώτη φορά που"
+        +"χρησιμοποιείτε την εφαρμογή σε αυτόν τον \nυπολογιστή δημιουργείστε χρήστη για αν εισέλθετε στο σύστημα"
+        +"πατώντας το κουμπί Sign up. \nΑφου δημιουργήσετε χρήστη θα εισέλθετε αυτόματα στο σύστημα.");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -412,6 +431,7 @@ public class Login_Page extends javax.swing.JFrame {
     private javax.swing.JPasswordField PASSWORDTextField;
     private javax.swing.JButton SignUpButton;
     private javax.swing.JTextField USERNAMETextField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialogSignUp;
     private javax.swing.JLabel jLabel1;
