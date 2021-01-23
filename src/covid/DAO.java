@@ -59,9 +59,58 @@ public class DAO  {
             
         }
     }
+    public static void deletecASE(String Dbtable){
+        /*η μεθοδος ελεγχει αν υπαρχει κρούσμα που αντιστοιχεί στο ID που εχει επιλέξει ο χρήστης ως item στο 
+        jComboBox3, αν υπάρχει το κρούσμα διαγράφεται απο τα CURRENTCASES και εισάγετε στους θανάτους
+        η στις Ιάσεις ανάλογα με τη τιμή της μεταβλητής Dbtable αλλιως εμφανίζεται ανάλογο μήνυμα*/
+        try{
+            String sql = "select count(*) from CURRENTCASES where ID =  '"+CasesSystem.jComboBoxDeleteId.getSelectedItem().toString()+"' ";
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(sql);
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int count = CasesSystem.rs.getInt(1);
+            CasesSystem.rs.close();
+            if(CasesSystem.jComboBoxDeleteId.getSelectedItem().toString().equals("") ){
+                JOptionPane.showMessageDialog(null, "Πληκτρολογίστε το ID του ασθενή που επιθυμείς να διαγράψεις");
+            } 
+            else if (count == 0) {
+                JOptionPane.showMessageDialog(null, "Το ID που πληκτρολογίσατε δεν αντιστοιχεί σε κάποιο ασθενή");
+                
+            }
+            else {
+                String quer = "insert into "+Dbtable+" select * from CURRENTCASES where ID    = '"+CasesSystem.jComboBoxDeleteId.getSelectedItem().toString()+"' ";
+                CasesSystem.pst = CasesSystem.conn.prepareStatement(quer);
+                CasesSystem.pst.execute();
+                String query= "delete from CURRENTCASES where ID = '" +CasesSystem.jComboBoxDeleteId.getSelectedItem().toString()+ "' ";
+                CasesSystem.pst = CasesSystem.conn.prepareStatement(query);
+                CasesSystem.pst.execute();
+                JOptionPane.showMessageDialog(null, "Data Deleted");
+                CasesSystem.pst.close();	
+                if(CasesSystem.jCheckBoxCurrentCases.isSelected()){
+                    fillJtableCases("CURRENTCASES","ID","Ενεργά κρούσματα","");
+                }else if(CasesSystem.jCheckBoxPassed.isSelected()){
+                    fillJtableCases("PASSED","ID","Αποθανόντες ","");
+                }else if(CasesSystem.jCheckBoxHealed.isSelected()){
+                    fillJtableCases("HEAL","ID","Θεραπευμαίνοι","");    
+                }    
+                CasesSystem.jComboBoxDeleteId.removeAllItems();
+                CasesSystem.FillDeletecombo();
+            }
+            }catch(NullPointerException e){
+                /*αν επιλεχτει το κενό item στο jComboBox3 η 
+                jComboBox3.getSelectedItem().toString().equals("") δημιουργεί NullPointerException */
+                JOptionPane.showMessageDialog(null,"Παρακαλώ επιλεξτε ID ");
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null,e);
+
+        }
+
+    }
+
+
         public static void SaveProbCases(){
         try{
-            String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+CasesSystem.generateserialId();
+            String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
             int rows=CasesSystem.jTableProbableCases.getRowCount();
             String sqql = "Insert into PROB (RelatedID,NAME,SURNAME,AGE,ADDRES,REGION, AMKA, PHONE, GENRE,DATE) values (?,?,?,?,?,?,?,?,?,?)";
             CasesSystem.pst = CasesSystem.conn.prepareStatement(sqql);
@@ -135,7 +184,7 @@ public class DAO  {
         */
         
         try{
-            String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+CasesSystem.generateserialId();
+            String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
             String sqqql = "Insert into OVERALLCASES (ID,NAME,SURNAME,AGE,ADDRES,REGION,AMKA,PHONE,GENRE,DATE) values(?,?,?,?,?,?,?,?,?,?)";
             CasesSystem.pst = CasesSystem.conn.prepareStatement(sqqql);
             CasesSystem.pst.setString(1,Serial);
