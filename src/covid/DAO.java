@@ -18,6 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -42,7 +43,22 @@ public class DAO  {
         
     }
     
-    
+    public static void fillJtableCases(String DbTable,String IdorRelid, String label,String orderby){
+        try {//γεμίζει τον πίνακα jTableCases με τα πιθανά κρούσματα
+        String sql = "Select "+IdorRelid+",NAME,SURNAME,AGE,ADDRES,REGION,AMKA,PHONE,DATE from "+DbTable+" "+orderby+"";
+        CasesSystem.pst  = CasesSystem.conn.prepareStatement(sql);
+        CasesSystem.rs = CasesSystem.pst.executeQuery();
+        CasesSystem.jTableCases.setModel(DbUtils.resultSetToTableModel(CasesSystem.rs));
+        CasesSystem.pst.close();
+        CasesSystem.rs.close();
+        CasesSystem.jPaneltable.setBorder(javax.swing.BorderFactory.createTitledBorder(label));
+      
+        
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }
+    }
         public static void SaveProbCases(){
         try{
             String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+CasesSystem.generateserialId();

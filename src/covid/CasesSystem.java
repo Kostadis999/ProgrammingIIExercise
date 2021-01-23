@@ -55,7 +55,7 @@ public class CasesSystem extends javax.swing.JFrame {
         COUNT1 = 0;
         
     }
-    private static java.sql.Timestamp getCurrentTimeStamp() {
+    public static java.sql.Timestamp getCurrentTimeStamp() {
         java.util.Date today = new java.util.Date();
         // generates and returns current Timestamp
         return new java.sql.Timestamp(today.getTime());
@@ -154,7 +154,7 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         } 
     }
-    private static void clearprobdialodtextfields(){
+    public static void clearprobdialodtextfields(){
             jTextFieldProbName.setText("");
             jTextFieldProbSurname.setText("");
             jTextFieldProbAge.setText("");
@@ -1832,81 +1832,23 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jCheckBoxCurrentCasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxCurrentCasesActionPerformed
-        try{//γεμίζει τον πίνακα jTableCases με τα CURRENTCASES
-        jTableCases.setModel(DbUtils.resultSetToTableModel(a.getCurrentcases()));
-        jLabel6.setText("Κρούσματα κορονοιού(ΤΩΡΑ)"); 
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        }
+        DAO.fillJtableCases("CURRENTCASES","ID","Ενεργά κρούσματα","");
     }//GEN-LAST:event_jCheckBoxCurrentCasesActionPerformed
 
     private void jCheckBoxProbCasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxProbCasesActionPerformed
-        try {//γεμίζει τον πίνακα jTableCases με τα πιθανά κρούσματα
-        String sql = "Select * from PROB ";
-        pst  = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
-        pst.close();
-        rs.close();
-        jLabel6.setText("Πιθανά κρούσματα");
-      
-        
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }
+        DAO.fillJtableCases("PROB","RelatedID","Πιθανά κρούσματα","");
     }//GEN-LAST:event_jCheckBoxProbCasesActionPerformed
 
     private void jCheckBoxTottalCasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTottalCasesActionPerformed
-        //γεμίζει τον πίνακα jTableCases με τα συνολικα κρούσματα
-        try {
-        String sql = "Select ID,AMKA,NAME,SURNAME,AGE from OVERALLCASES ";
-        pst  = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
-        pst.close();
-        rs.close();
-        jLabel6.setText("Συνολική καταγραφή κρουσμάτων");
-        
-        
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }
+        DAO.fillJtableCases("OVERALLCASES","ID","Συνολικά κρούσματα","");
     }//GEN-LAST:event_jCheckBoxTottalCasesActionPerformed
 
     private void jCheckBoxPassedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPassedActionPerformed
-        try {//γεμίζει τον πίνακα jTableCases με τους αποθανόντες
-        String sql = "Select ID,NAME,SURNAME,AGE from PASSED ";
-        pst  = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
-        pst.close();
-        rs.close();
-        jLabel6.setText("Αποθανόντες");
-        
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }
+        DAO.fillJtableCases("PASSED","ID","Αποθανόντες ","");
     }//GEN-LAST:event_jCheckBoxPassedActionPerformed
 
     private void jCheckBoxHealedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxHealedActionPerformed
-        //γεμίζει τον πίνακα jTableCases με τους θεραπευμένους
-        try {
-        String sql = "Select ID,NAME,SURNAME,AGE from HEAL ";
-        pst  = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        jTableCases.setModel(DbUtils.resultSetToTableModel(rs));
-        pst.close();
-        rs.close();
-        jLabel6.setText("Θεραπευμένοι");
-        
-        
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }
+        DAO.fillJtableCases("HEAL","ID","Θεραπευμαίνοι","");
     }//GEN-LAST:event_jCheckBoxHealedActionPerformed
 
     private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
@@ -2199,7 +2141,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxprobgenre;
     private javax.swing.JDialog jDialogDatadisplay;
     private javax.swing.JDialog jDialogDeathOrRestore;
-    private static javax.swing.JDialog jDialogProbableCases;
+    public static javax.swing.JDialog jDialogProbableCases;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2237,11 +2179,11 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelDialog;
     private javax.swing.JPanel jPanelIDSEARCH;
     private javax.swing.JPanel jPanelProbableInfo;
-    private javax.swing.JPanel jPaneltable;
+    public static javax.swing.JPanel jPaneltable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public static javax.swing.JTable jTableCases;
-    private static javax.swing.JTable jTableProbableCases;
+    public static javax.swing.JTable jTableProbableCases;
     public static javax.swing.JTextField jTextFieldADDRES;
     public static javax.swing.JTextField jTextFieldAGE;
     public static javax.swing.JTextField jTextFieldAMKA;
