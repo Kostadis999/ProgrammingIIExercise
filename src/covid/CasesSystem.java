@@ -46,7 +46,7 @@ public class CasesSystem extends javax.swing.JFrame {
     static int COUNT1;
   
     public CasesSystem() {
-        conn = covid.javaconnect.ConnectDB();
+        conn = covid.DAO.ConnectDB();
         initComponents();
         DAO.fillJtableCases("CURRENTCASES","ID","Ενεργά κρούσματα","");
         FillcomboCity();
@@ -1196,45 +1196,7 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPHONENUMBERKeyTyped
 
     private void jButtonSEARCHIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSEARCHIDActionPerformed
-    /* η μέθοδος εμφανιζει τα στοιχεία του κρούσματος του οποίου το ID  έχει επιλεχτεί 
-       στο jComboBoxSEARCHID τα  */   
-    try{
-        int x =1;    
-        try{
-            if("".equals(jComboBoxSEARCHID.getSelectedItem().toString())){
-                x = 0;
-                JOptionPane.showMessageDialog(null,"Παρακαλώ επιλέξτε ID ");
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        }
-        if (x==1){
-            String ssql = "select * from OVERALLCASES where ID =?";
-            pst = conn.prepareStatement(ssql);
-            pst.setString(1,jComboBoxSEARCHID.getSelectedItem().toString());
-            rs=pst.executeQuery();
-            if(rs.next()){
-                String add1 = rs.getString("NAME");
-                jTextFieldNAME.setText(add1);
-                String add2 = rs.getString("SURNAME");
-                jTextFieldSURNAME.setText(add2);
-                String add3 = rs.getString("AGE");
-                jTextFieldAGE.setText(add3);
-                String add4 = rs.getString("ADDRES");
-                jTextFieldADDRES.setText(add4);
-                String add5 = rs.getString("REGION");
-                jTextFieldCITY.setText(add5);
-                String add6 = rs.getString("PHONE");
-                jTextFieldPHONENUMBER.setText(add6);
-                String add7 = rs.getString("AMKA");
-                jTextFieldAMKA.setText(add7);
-            }
-            pst.close();
-            rs.close();
-        } 
-    }catch(HeadlessException | SQLException e){
-        JOptionPane.showMessageDialog(null,e);
-    }
+        DAO.Searchcase();
     }//GEN-LAST:event_jButtonSEARCHIDActionPerformed
 
     private void jButtonAddProbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddProbActionPerformed
@@ -1980,7 +1942,7 @@ public class CasesSystem extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextFieldADDRES;
     public static javax.swing.JTextField jTextFieldAGE;
     public static javax.swing.JTextField jTextFieldAMKA;
-    private javax.swing.JTextField jTextFieldCITY;
+    public static javax.swing.JTextField jTextFieldCITY;
     public static javax.swing.JTextField jTextFieldNAME;
     public static javax.swing.JTextField jTextFieldPHONENUMBER;
     private static javax.swing.JTextField jTextFieldProbAddres;

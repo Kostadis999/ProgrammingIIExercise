@@ -23,7 +23,7 @@ public class Login_Page extends javax.swing.JFrame {
      * Creates new form Login_Page
      */
     public Login_Page() {
-        conn = covid.javaconnect.ConnectDB();
+        conn = covid.DAO.ConnectDB();
         initComponents();
         
     }

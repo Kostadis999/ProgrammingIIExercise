@@ -7,6 +7,7 @@ package covid;
 
 
 import java.awt.Color;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -41,6 +42,16 @@ public class DAO  {
         getValue = 0;
         COUNT1 = 0;
         
+    }
+    public static Connection ConnectDB(){
+        try{  //επιστρέφει το connection με τη βάση
+            Class.forName("org.sqlite.JDBC");
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:Covidcases.sqlite");
+            return conn;
+        }catch (ClassNotFoundException | SQLException e){
+          JOptionPane.showMessageDialog(null,e);
+          return null;
+        }
     }
     
     public static void fillJtableCases(String DbTable,String IdorRelid, String label,String orderby){
@@ -105,6 +116,47 @@ public class DAO  {
 
         }
 
+    }
+    public static void Searchcase(){
+         /* η μέθοδος εμφανιζει τα στοιχεία του κρούσματος του οποίου το ID έχει επιλεχτεί 
+       στο jComboBoxSEARCHID τα  */
+        try{
+        int x =1;    
+        try{
+            if("".equals(CasesSystem.jComboBoxSEARCHID.getSelectedItem().toString())){
+                x = 0;
+                JOptionPane.showMessageDialog(null,"Please select ID ");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        if (x==1){
+            String ssql = "select * from OVERALLCASES where ID =?";
+           CasesSystem.pst = CasesSystem.conn.prepareStatement(ssql);
+            CasesSystem.pst.setString(1,CasesSystem.jComboBoxSEARCHID.getSelectedItem().toString());
+            CasesSystem.rs=CasesSystem.pst.executeQuery();
+            if(CasesSystem.rs.next()){
+                String add1 = CasesSystem.rs.getString("NAME");
+                CasesSystem.jTextFieldNAME.setText(add1);
+                String add2 = CasesSystem.rs.getString("SURNAME");
+                CasesSystem.jTextFieldSURNAME.setText(add2);
+                String add3 = CasesSystem.rs.getString("AGE");
+                CasesSystem.jTextFieldAGE.setText(add3);
+                String add4 = CasesSystem.rs.getString("ADDRES");
+                CasesSystem.jTextFieldADDRES.setText(add4);
+                String add5 = CasesSystem.rs.getString("REGION");
+                CasesSystem.jTextFieldCITY.setText(add5);
+                String add6 = CasesSystem.rs.getString("PHONE");
+                CasesSystem.jTextFieldPHONENUMBER.setText(add6);
+                String add7 = CasesSystem.rs.getString("AMKA");
+                CasesSystem.jTextFieldAMKA.setText(add7);
+            }
+            CasesSystem.pst.close();
+            CasesSystem.rs.close();
+        } 
+    }catch(HeadlessException | SQLException e){
+        JOptionPane.showMessageDialog(null,e);
+    }
     }
 
 
@@ -224,6 +276,7 @@ public class DAO  {
         }
         
     }
+    
     
 } 
     
