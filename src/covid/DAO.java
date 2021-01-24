@@ -8,6 +8,7 @@ package covid;
 
 import java.awt.Color;
 import java.awt.HeadlessException;
+import java.io.File;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,10 +23,15 @@ import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartRenderingInfo;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.entity.StandardEntityCollection;
 import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot3D;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 
 /**
@@ -299,9 +305,94 @@ public class DAO  {
         }
         
     }
+    public static void createBarChartGender(String tble,String a,String b,String c){
+        try{
+            String q = "select count(*) from "+tble+" WHERE GENRE = 'Male'";
+            String m = "select count(*) from "+tble+" WHERE GENRE = 'Female'";
+            CasesSystem.pst  = CasesSystem.conn.prepareStatement(q);
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int v = CasesSystem.rs.getInt("count(*)");
+            CasesSystem.pst  = CasesSystem.conn.prepareStatement(m);
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int z = CasesSystem.rs.getInt("count(*)");
+            String d1 = "Males";
+            String d2 = "Females";
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            dataset.setValue(v,"Males",d1);
+            dataset.setValue(z,"Females",d2);
+            JFreeChart chart = ChartFactory.createBarChart3D(""+a+"",""+b+"",""+c+"",dataset,PlotOrientation.VERTICAL,false,true,false);
+            chart.setBackgroundPaint(Color.WHITE);
+            chart.getTitle().setPaint(Color.red);
+            CategoryPlot p = chart.getCategoryPlot();
+            p.setRangeGridlinePaint(Color.BLUE);
+            ChartFrame frame = new ChartFrame("bar chart",chart);
+            frame.setVisible(true);
+            frame.setSize(450,350);
+            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
+            int PromptResult = JOptionPane.showOptionDialog(null,"Do you want to save the chart","Save",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            if(PromptResult==JOptionPane.YES_OPTION){
+                try{
+                    final ChartRenderingInfo Info = new ChartRenderingInfo(new StandardEntityCollection());
+                    String x = new SimpleDateFormat("yyMMddHHmmssZ").format(new Date());
+                    final File file1 = new File("Chart"+x+".png");
+                    ChartUtilities.saveChartAsPNG(file1,chart,600,400,Info);
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"α;");
+                }
+            }
+
+        }catch(SQLException e){
+
+        }
+        
+    }
+    public static void createpieChartsGender(String tble,String Label){
+        try{
+            String q = "select count(*) from "+tble+" WHERE GENRE = 'Male'";
+            String m = "select count(*) from "+tble+" WHERE GENRE = 'Female'";
+            CasesSystem.pst  = CasesSystem.conn.prepareStatement(m);
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int v = CasesSystem.rs.getInt("count(*)");
+            CasesSystem.pst  = CasesSystem.conn.prepareStatement(q);
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int z = CasesSystem.rs.getInt("count(*)");
+            DefaultPieDataset pieDataset = new DefaultPieDataset();
+            pieDataset.setValue("Males",v);
+            pieDataset.setValue("Females",z);
+            JFreeChart chart = ChartFactory.createPieChart3D("",pieDataset,true,true,true);
+            PiePlot3D p = (PiePlot3D)chart.getPlot();
+            ChartFrame frame = new ChartFrame(Label,chart);
+            frame.setVisible(true);
+            frame.setSize(450,500);
+
+            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
+            int PromptResult = JOptionPane.showOptionDialog(null,"Do you want to save the chart","Save",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            if(PromptResult==JOptionPane.YES_OPTION){
+                try{
+                    final ChartRenderingInfo Info = new ChartRenderingInfo(new StandardEntityCollection());
+                    String x = new SimpleDateFormat("yyMMddHHmmssZ").format(new Date());
+                    final File file1 = new File("Chart"+x+".png");
+                    ChartUtilities.saveChartAsPNG(file1,chart,600,400,Info);
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"α;");
+                }
+            }
+
+        }catch(SQLException e){
+
+        }
+    }
     
     
 } 
     
+
+
+
+
 
 
