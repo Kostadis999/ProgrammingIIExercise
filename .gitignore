@@ -1,6 +1,6 @@
 /nbproject
 /build/
 /dist/
-*.sqlite
-*.xml
-*.mf
+/Covidcases.sqlite/
+/build.xml/
+/manifest.mf/
