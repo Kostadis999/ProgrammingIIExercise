@@ -242,9 +242,28 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenuItemPassedReport = new javax.swing.JMenuItem();
         jMenuItemRestoredReport = new javax.swing.JMenuItem();
         jMenuDiagrams = new javax.swing.JMenu();
-        jMenuItemBarchart = new javax.swing.JMenuItem();
-        jMenuItemPieChartGender = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
+        jMenu13 = new javax.swing.JMenu();
         jMenuOptions = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -1028,29 +1047,78 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jMenuDiagrams.setText("Diagrams");
 
-        jMenuItemBarchart.setText("Κρούσματα ανά ηλικία");
-        jMenuItemBarchart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemBarchartActionPerformed(evt);
-            }
-        });
-        jMenuDiagrams.add(jMenuItemBarchart);
+        jMenu2.setText("Age");
 
-        jMenuItemPieChartGender.setText("Ενεργά κρούσματα ανα φύλο");
-        jMenuItemPieChartGender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemPieChartGenderActionPerformed(evt);
-            }
-        });
-        jMenuDiagrams.add(jMenuItemPieChartGender);
+        jMenu4.setText("Total cases per age");
 
-        jMenuItem1.setText("Θάνατοι ανά ηλικία ");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenuDiagrams.add(jMenuItem1);
+        jMenuItem8.setText("Pie Chart");
+        jMenu4.add(jMenuItem8);
+
+        jMenuItem9.setText("Bar Chart");
+        jMenu4.add(jMenuItem9);
+
+        jMenu2.add(jMenu4);
+
+        jMenu5.setText("Active cases per age");
+
+        jMenuItem10.setText("Pie Chart");
+        jMenu5.add(jMenuItem10);
+
+        jMenuItem11.setText("Bar Chart");
+        jMenu5.add(jMenuItem11);
+
+        jMenu2.add(jMenu5);
+
+        jMenu6.setText("Probable cases per age");
+
+        jMenuItem12.setText("Pie Chart");
+        jMenu6.add(jMenuItem12);
+
+        jMenuItem13.setText("Bar Chart");
+        jMenu6.add(jMenuItem13);
+
+        jMenu2.add(jMenu6);
+
+        jMenu7.setText("Deaths per age");
+
+        jMenuItem14.setText("Pie Chart");
+        jMenu7.add(jMenuItem14);
+
+        jMenuItem15.setText("Bar Chart ");
+        jMenu7.add(jMenuItem15);
+
+        jMenu2.add(jMenu7);
+
+        jMenu8.setText("Restores per age ");
+
+        jMenuItem16.setText("Pie Chart");
+        jMenu8.add(jMenuItem16);
+
+        jMenuItem17.setText("Bar Chart");
+        jMenu8.add(jMenuItem17);
+
+        jMenu2.add(jMenu8);
+
+        jMenuDiagrams.add(jMenu2);
+
+        jMenu3.setText("Gender");
+
+        jMenu9.setText("jMenu9");
+        jMenu3.add(jMenu9);
+
+        jMenu10.setText("jMenu10");
+        jMenu3.add(jMenu10);
+
+        jMenu11.setText("jMenu11");
+        jMenu3.add(jMenu11);
+
+        jMenu12.setText("jMenu12");
+        jMenu3.add(jMenu12);
+
+        jMenu13.setText("jMenu13");
+        jMenu3.add(jMenu13);
+
+        jMenuDiagrams.add(jMenu3);
 
         jMenuBar1.add(jMenuDiagrams);
 
@@ -1682,223 +1750,10 @@ public class CasesSystem extends javax.swing.JFrame {
         genre ="Female";
     }//GEN-LAST:event_jCheckBox7ActionPerformed
 
-    private void jMenuItemBarchartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBarchartActionPerformed
-
-        try{
-            String d1 = "0 - 20";
-            String d2 = "21 - 40";
-            String d3 = "41 - 60";
-            String d4 = "41 - 80";
-            String d5 = "81 - 100";
-            String d6 = "101 - 120";        
-            DefaultCategoryDataset dataset = new DefaultCategoryDataset(); 
-            String q = "select count(AGE) from CURRENTCASES where AGE <= 20";
-            pst = conn.prepareStatement(q);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c1 = rs.getInt("count(AGE)");
-            rs.close();
-            String q1 = "select count(AGE) from CURRENTCASES where AGE <= 40 and AGE > 20";
-            pst = conn.prepareStatement(q1);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c2 = rs.getInt("count(AGE)");
-            rs.close();
-            String q2 = "select count(AGE) from CURRENTCASES where AGE <= 60 and AGE > 40";
-            pst = conn.prepareStatement(q2);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c3 = rs.getInt("count(AGE)");
-            rs.close();
-            String q3 = "select count(AGE) from CURRENTCASES where AGE <= 80 and AGE > 60";
-            pst = conn.prepareStatement(q3);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c4 = rs.getInt("count(AGE)");
-            rs.close();
-            String q4 = "select count(AGE) from CURRENTCASES where AGE <= 100 and AGE > 80";
-            pst = conn.prepareStatement(q4);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c5 = rs.getInt("count(AGE)");
-            rs.close();
-            String q5 = "select count(AGE) from CURRENTCASES where AGE <= 120 and AGE > 100";
-            pst = conn.prepareStatement(q5);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c6 = rs.getInt("count(AGE)");
-            rs.close();
-            dataset.setValue(c1,"Values",d1);
-            rs.close();
-            dataset.setValue(c2,"Values",d2);
-            rs.close();
-            dataset.setValue(c3,"Values",d3);
-            rs.close();
-            dataset.setValue(c4,"Values",d4);
-            rs.close();
-            dataset.setValue(c5,"Values",d5);
-            rs.close();
-            dataset.setValue(c6,"Values",d6);
-            rs.close();
-            JFreeChart chart = ChartFactory.createBarChart3D("Parameter Values","Parameters","Values",dataset,PlotOrientation.VERTICAL,false,true,false);
-            chart.setBackgroundPaint(Color.BLUE);
-            chart.getTitle().setPaint(Color.red);
-            CategoryPlot p = chart.getCategoryPlot();
-            p.setRangeGridlinePaint(Color.BLUE);
-            ChartFrame frame = new ChartFrame("bar chart",chart);
-            frame.setVisible(true);
-            frame.setSize(650,350);
-            
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-            }
-        finally{
-            try{
-                rs.close();
-                pst.close();
-              
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null,e);
-            }
-        }
-    }//GEN-LAST:event_jMenuItemBarchartActionPerformed
-
-    private void jMenuItemPieChartGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPieChartGenderActionPerformed
-        
-        try{
-            String q = "select count(*) from CURRENTCASES WHERE GENRE = 'Male'";
-            String m = "select count(*) from CURRENTCASES WHERE GENRE = 'Female'";
-            pst  = conn.prepareStatement(m);
-            rs = pst.executeQuery();
-            rs.next();
-            int v = rs.getInt("count(*)");
-            pst  = conn.prepareStatement(q);
-            rs = pst.executeQuery();
-            rs.next();
-            int z = rs.getInt("count(*)");
-            DefaultPieDataset pieDataset = new DefaultPieDataset();
-            pieDataset.setValue("Άντρες",v);
-            pieDataset.setValue("Γυναίκες",z);
-            JFreeChart chart = ChartFactory.createPieChart3D("",pieDataset,true,true,true);
-            PiePlot3D p = (PiePlot3D)chart.getPlot();
-            ChartFrame frame = new ChartFrame("Pie Chart: Ενεργά κρούσματα ανα φύλο",chart);
-            frame.setVisible(true);
-            frame.setSize(450,500);
-            
-            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
-            int PromptResult = JOptionPane.showOptionDialog(null,"θέλετε να αποθηκεύσετε τον πίνακα","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,ObjButtons,ObjButtons[1]);
-            if(PromptResult==JOptionPane.YES_OPTION){
-                try{
-                    final ChartRenderingInfo Info = new ChartRenderingInfo(new StandardEntityCollection());
-                    String x = new SimpleDateFormat("yyMMddHHmmssZ").format(new Date());
-                    final File file1 = new File("Chart"+x+".png");
-                    ChartUtilities.saveChartAsPNG(file1,chart,600,400,Info);
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(null,"α;");
-                }    
-            }
-                      
-        }catch(SQLException e){
-            
-        }
-    }//GEN-LAST:event_jMenuItemPieChartGenderActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         JOptionPane.showMessageDialog(null,"Επιλέξτε το ID του κρούσματος\nπου επιθυμείτε να διαγράψετε από τα Ενεργά Κρούσματα\nκαι επιλέξτε αν το κρούσμα ανάρρωσε ή απεβίωσε");
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        try{
-            String d1 = "0 - 20";
-            String d2 = "21 - 40";
-            String d3 = "41 - 60";
-            String d4 = "41 - 80";
-            String d5 = "81 - 100";
-            String d6 = "101 - 120";        
-            DefaultCategoryDataset dataset = new DefaultCategoryDataset(); 
-            String q = "select count(AGE) from PASSED where AGE <= 20";
-            pst = conn.prepareStatement(q);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c1 = rs.getInt("count(AGE)");
-            rs.close();
-            String q1 = "select count(AGE) from PASSED where AGE <= 40 and AGE > 20";
-            pst = conn.prepareStatement(q1);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c2 = rs.getInt("count(AGE)");
-            rs.close();
-            String q2 = "select count(AGE) from PASSED where AGE <= 60 and AGE > 40";
-            pst = conn.prepareStatement(q2);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c3 = rs.getInt("count(AGE)");
-            rs.close();
-            String q3 = "select count(AGE) from PASSED where AGE <= 80 and AGE > 60";
-            pst = conn.prepareStatement(q3);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c4 = rs.getInt("count(AGE)");
-            rs.close();
-            String q4 = "select count(AGE) from PASSED where AGE <= 100 and AGE > 80";
-            pst = conn.prepareStatement(q4);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c5 = rs.getInt("count(AGE)");
-            rs.close();
-            String q5 = "select count(AGE) from PASSED where AGE <= 120 and AGE > 100";
-            pst = conn.prepareStatement(q5);
-            pst.execute();
-            rs = pst.executeQuery();
-            rs.next();
-            int c6 = rs.getInt("count(AGE)");
-            rs.close();
-            dataset.setValue(c1,"Values",d1);
-            rs.close();
-            dataset.setValue(c2,"Values",d2);
-            rs.close();
-            dataset.setValue(c3,"Values",d3);
-            rs.close();
-            dataset.setValue(c4,"Values",d4);
-            rs.close();
-            dataset.setValue(c5,"Values",d5);
-            rs.close();
-            dataset.setValue(c6,"Values",d6);
-            rs.close();
-            JFreeChart chart = ChartFactory.createBarChart3D("Θάνατοι ανά ηλικιακό γκρουπ","θάνατοι","ηλικιακά γκρουπ",dataset,PlotOrientation.VERTICAL,false,true,false);
-            chart.setBackgroundPaint(Color.BLUE);
-            chart.getTitle().setPaint(Color.red);
-            CategoryPlot p = chart.getCategoryPlot();
-            p.setRangeGridlinePaint(Color.YELLOW);
-            ChartFrame frame = new ChartFrame("Θάνατοι ανά ηλικιακό γκρουπ",chart);
-            frame.setVisible(true);
-            frame.setSize(650,350);
-            
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-            }
-        finally{
-            try{
-                rs.close();
-                pst.close();
-              
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null,e);
-            }
-        }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         DAO.DeleteAllcases();
@@ -2081,19 +1936,38 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPHONENUMBER;
     private javax.swing.JLabel jLabelSURNAME;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuDiagrams;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuItem jMenuItemActiveCasesReport;
-    private javax.swing.JMenuItem jMenuItemBarchart;
     private javax.swing.JMenuItem jMenuItemPassedReport;
-    private javax.swing.JMenuItem jMenuItemPieChartGender;
     private javax.swing.JMenuItem jMenuItemRestoredReport;
     private javax.swing.JMenuItem jMenuItemTotalCasesReport;
     private javax.swing.JMenu jMenuOptions;
