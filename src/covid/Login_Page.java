@@ -38,7 +38,7 @@ public class Login_Page extends javax.swing.JFrame {
     private void initComponents() {
 
         jDialogSignUp = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelSignUp = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -50,6 +50,7 @@ public class Login_Page extends javax.swing.JFrame {
         jPasswordField2 = new javax.swing.JPasswordField();
         SignUpButton = new javax.swing.JButton();
         BackToLogInButton = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         PASSWORDTextField = new javax.swing.JPasswordField();
@@ -63,9 +64,12 @@ public class Login_Page extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
-        jDialogSignUp.setBounds(new java.awt.Rectangle(400, 200, 394, 300));
+        jDialogSignUp.setTitle("Sign up");
+        jDialogSignUp.setBounds(new java.awt.Rectangle(400, 200, 394, 350));
+        jDialogSignUp.setForeground(new java.awt.Color(255, 102, 0));
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanelSignUp.setBackground(new java.awt.Color(255, 0, 0));
+        jPanelSignUp.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Sign up"));
 
@@ -136,54 +140,62 @@ public class Login_Page extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/info.png"))); // NOI18N
+        jButton3.setText("Help");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelSignUpLayout = new javax.swing.GroupLayout(jPanelSignUp);
+        jPanelSignUp.setLayout(jPanelSignUpLayout);
+        jPanelSignUpLayout.setHorizontalGroup(
+            jPanelSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSignUpLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(SignUpButton)
-                        .addGap(33, 33, 33)
-                        .addComponent(BackToLogInButton)))
-                .addContainerGap(105, Short.MAX_VALUE))
+                    .addGroup(jPanelSignUpLayout.createSequentialGroup()
+                        .addComponent(SignUpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BackToLogInButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelSignUpLayout.setVerticalGroup(
+            jPanelSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSignUpLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SignUpButton)
-                    .addComponent(BackToLogInButton))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGroup(jPanelSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BackToLogInButton)
+                    .addGroup(jPanelSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(SignUpButton)
+                        .addComponent(jButton3)))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jDialogSignUpLayout = new javax.swing.GroupLayout(jDialogSignUp.getContentPane());
         jDialogSignUp.getContentPane().setLayout(jDialogSignUpLayout);
         jDialogSignUpLayout.setHorizontalGroup(
             jDialogSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialogSignUpLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
+            .addComponent(jPanelSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDialogSignUpLayout.setVerticalGroup(
             jDialogSignUpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Συστημα Καταχώρησης κρουσμάτων κορονοιού ");
+        setTitle("CCMS: Συστημα Καταχώρησης κρουσμάτων κορονοιού ");
+        setResizable(false);
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(204, 0, 0));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 14))); // NOI18N
-
-        PASSWORDTextField.setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
         jLabel2.setText("Password:");
@@ -204,8 +216,6 @@ public class Login_Page extends javax.swing.JFrame {
                 LOGINButtonActionPerformed(evt);
             }
         });
-
-        USERNAMETextField.setBackground(new java.awt.Color(255, 204, 204));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -244,9 +254,9 @@ public class Login_Page extends javax.swing.JFrame {
                 .addComponent(jButton2))
         );
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/AUEB-EN_transparent2-1.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/cov.jpg"))); // NOI18N
 
-        jTextArea1.setBackground(new java.awt.Color(255, 204, 204));
+        jTextArea1.setBackground(new java.awt.Color(240, 240, 240));
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
@@ -267,28 +277,27 @@ public class Login_Page extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1054, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(444, 444, 444))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 358, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
                 .addComponent(jButton1))
         );
 
@@ -296,15 +305,11 @@ public class Login_Page extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 617, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -319,12 +324,12 @@ public class Login_Page extends javax.swing.JFrame {
             pst.setString(2,PASSWORDTextField.getText());
             rs = pst.executeQuery();
             if (rs.next()){
-                JOptionPane.showMessageDialog(null,"Username and Password is correct");
+                JOptionPane.showMessageDialog(null,"Welcome to CCMS!!");
                 pst.close();
                 rs.close();
                 CasesSystem s = new CasesSystem();
                 s.setVisible(true);
-                this.dispose();
+                this.setVisible(false);
             }
             else {
                 JOptionPane.showMessageDialog(null,"Username and Password is not correct");
@@ -343,9 +348,9 @@ public class Login_Page extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void SignUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpButtonActionPerformed
-        String query = "Select count(*) from USERS where username = '"+jTextField1.getText()+"'";
+        String query = "Select count(*)  from USERS where username = '"+jTextField1.getText()+"'";
         if(jPasswordField2.getText().equals("") || jPasswordField1.getText().equals("") || jTextField1.getText().equals("") || jTextField2.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Παρακαλώ συμπληρώστε όλα τα πεδία για να συνεχίσετε");
+            JOptionPane.showMessageDialog(null,"please fill all fields to continuou");
         }
         else{
             try{
@@ -358,21 +363,22 @@ public class Login_Page extends javax.swing.JFrame {
                 String g = jPasswordField1.getText();
                 if (x == 0){
                     if(g.equals(i)){
-                        String q = "insert into USERS (username, password ) values (?,?)";
+                        String q = "insert into USERS (username, password,Cpref ) values (?,?,?)";
                         pst = conn.prepareStatement(q);
                         pst.setString(1,jTextField1.getText());
                         pst.setString(2,jPasswordField1.getText());
+                        pst.setString(3,"DEFAULT");
                         pst.execute();
-                        JOptionPane.showMessageDialog(null,"Η δημιουργεία χρήστη επιχτυχείς");
+                        JOptionPane.showMessageDialog(null,"User created Succesfully");
                         CasesSystem a = new CasesSystem();
                         a.setVisible(true);
                         dispose();
                     }
                     else{
-                        JOptionPane.showMessageDialog(null,"τα πεδία 'Password' και 'Retype Password' δεν ταυτίζονται");
+                        JOptionPane.showMessageDialog(null,"'Password' and 'Retype Password' fields don't match");
                     }
                 }else{
-                    JOptionPane.showMessageDialog(null,"Το όνομα χρήστη που επιλέξατε αντιστοιχεί σε άλλο χρήστη παρακαλώ επιλέξτε άλλο ");
+                    JOptionPane.showMessageDialog(null,"The username that you selected is already beeing used ");
                 }
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,e);
@@ -386,11 +392,16 @@ public class Login_Page extends javax.swing.JFrame {
     }//GEN-LAST:event_BackToLogInButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(this," Καλωσόρισες στο CCMS!!! \n\n\nΤο CCMS(Covid Cases Management System)"
-        +"είναι ένα συστημά καταχώρισης \nκρούσματων κορονοιού. Εφόσον είναι η πρώτη φορά που"
-        +"χρησιμοποιείτε την εφαρμογή σε αυτόν τον \nυπολογιστή δημιουργείστε χρήστη για αν εισέλθετε στο σύστημα"
-        +"πατώντας το κουμπί Sign up. \nΑφου δημιουργήσετε χρήστη θα εισέλθετε αυτόματα στο σύστημα.");
+        JOptionPane.showMessageDialog(this," Welcome to CCMS!!! \n\n\nCCMS is a Covid Cases Management System."
+        +"\nif it is your first time using this app from this pc"
+        +"\ncreate a user to enter the system"
+        +"by pressing the Sign up button. \nOnce your user has been succesfully create you will automatically enter the system.");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        JOptionPane.showMessageDialog(jDialogSignUp,"fill the textfileds with your prefered credentials\n"
+                + "and press ths 'Sign Up' button για to create your user  ");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -432,9 +443,10 @@ public class Login_Page extends javax.swing.JFrame {
     private javax.swing.JButton LOGINButton;
     private javax.swing.JPasswordField PASSWORDTextField;
     private javax.swing.JButton SignUpButton;
-    private javax.swing.JTextField USERNAMETextField;
+    public static javax.swing.JTextField USERNAMETextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialogSignUp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -443,10 +455,10 @@ public class Login_Page extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    public static javax.swing.JPanel jPanelSignUp;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JScrollPane jScrollPane2;
