@@ -55,16 +55,16 @@ public class DAO  {
     }
     
     public static void fillJtableCases(String DbTable,String IdorRelid, String label,String orderby){
-        try {//γεμίζει τον πίνακα jTableCases με τα πιθανά κρούσματα
+        try {//γεμίζει τον πίνακα jTableCases με τα διάφορα είδη κρουσμάτων κρούσματα
         String sql = "Select "+IdorRelid+",NAME,SURNAME,AGE,ADDRES,REGION,AMKA,PHONE,DATE from "+DbTable+" "+orderby+"";
         CasesSystem.pst  = CasesSystem.conn.prepareStatement(sql);
         CasesSystem.rs = CasesSystem.pst.executeQuery();
         CasesSystem.jTableCases.setModel(DbUtils.resultSetToTableModel(CasesSystem.rs));
         CasesSystem.pst.close();
         CasesSystem.rs.close();
-        CasesSystem.jPaneltable.setBorder(javax.swing.BorderFactory.createTitledBorder(label));
-      
-        
+        CasesSystem.jPaneltable.setBorder(javax.swing.BorderFactory.createTitledBorder(null, label, javax
+                .swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION
+                ,new java.awt.Font("Tahoma", 0, 12), new java.awt.Color(255, 255, 255)));
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,e);
             
@@ -187,17 +187,15 @@ public class DAO  {
                 CasesSystem.pst.setString(7,Amka);
                 CasesSystem.pst.setString(8,Phone);
                 CasesSystem.pst.setString(9,Genre);
-                CasesSystem.pst.setTimestamp(10,CasesSystem.getCurrentTimeStamp());
+                CasesSystem.pst.setTimestamp(10,DAO.getCurrentTimeStamp());
                 CasesSystem.pst.addBatch();
             }
             CasesSystem.pst.executeBatch();
             CasesSystem.pst.close();
-            CasesSystem.Update_table();
-            JOptionPane.showMessageDialog(null,"data saved");
+            JOptionPane.showMessageDialog(null,"Probable cases saved");
             CasesSystem.clearprobdialodtextfields();//clear dialog fields
             DefaultTableModel model = (DefaultTableModel) CasesSystem.jTableProbableCases.getModel();
             model.setRowCount(0);//clear table
-            CasesSystem.jDialogProbableCases.setVisible(false);
         }catch( SQLException e){
             JOptionPane.showMessageDialog(null,e);
         }
@@ -228,6 +226,30 @@ public class DAO  {
         }
         return getValue;
         
+    }
+    public static java.sql.Timestamp getCurrentTimeStamp() {
+        java.util.Date today = new java.util.Date();
+        // generates and returns current Timestamp
+        return new java.sql.Timestamp(today.getTime());
+    }
+    public static void DeleteAllcases(){
+        //διαγράφει όλες τις κατηγορίες κρουσμάτων από τη βάση
+        String ObjButtons[] = {"Yes","No"};
+        int PromptResult = JOptionPane.showOptionDialog(null,"Are your sure you want to empty \n"
+                + "all tables ?"
+                ,"Clearing tables",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+        if(PromptResult==JOptionPane.YES_OPTION){
+            try{
+                String query= "delete * from CURRENTCASES, OVERALLASES, HEAL, PASSED, PROB ";
+                CasesSystem.pst = CasesSystem.conn.prepareStatement(query);
+                CasesSystem.pst.execute();
+                JOptionPane.showMessageDialog(null, "Data Deleted");
+                CasesSystem.pst.close();
+            }catch(HeadlessException | SQLException e){
+                JOptionPane.showMessageDialog(null,e);
+            }
+                
+        }
     }
     
     public static void SaveCases(){
@@ -271,6 +293,7 @@ public class DAO  {
             CasesSystem.jComboBoxSEARCHID.addItem(Serial);
             CasesSystem.pst.execute();
             CasesSystem.pst.close();
+            JOptionPane.showMessageDialog(null,"cases saved");
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,e);
         }
