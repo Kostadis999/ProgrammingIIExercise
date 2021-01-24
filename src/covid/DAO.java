@@ -9,6 +9,7 @@ package covid;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.File;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -304,6 +305,173 @@ public class DAO  {
             JOptionPane.showMessageDialog(null,e);
         }
         
+    }
+    public static void  createbarchartsCaseCategoryPerage(String a, String b,String c,String Dbtable){
+        try{
+            int k = 10;
+            int[] ds = new int[13];
+            ds[0]=0;
+            for(int i = 1; i<=12; i ++){
+                ds[i] = k;
+                k = k +10;
+            }
+            String [] D = new String[12];
+            D[0] = "0-10"; 
+            D[1] = "11-20";
+            D[2]  = "21-30";
+            D[3]  = "31-40";
+            D[4]  = "41-50";
+            D[5]  = "51-60";
+            D[6]  = "61-70";
+            D[7]  = "71-80";
+            D[8]  = "81-90";
+            D[9]  = "91-100";
+            D[10] = "101-110";
+            D[11] = "111-120";   
+            int [] counts = new int[12];
+            for (int i = 1; i<=12;  i++){
+                String q = "select count(AGE) from "+Dbtable+" where AGE <= "+ds[i]+"  and AGE >"+ds[i-1]+"";
+                CasesSystem.pst = CasesSystem.conn.prepareStatement(q);
+                CasesSystem.pst.execute();
+                CasesSystem.rs = CasesSystem.pst.executeQuery();
+                CasesSystem.rs.next();
+                counts[i-1] = CasesSystem.rs.getInt("count(AGE)");
+            }
+            CasesSystem.pst.close();
+            CasesSystem.rs.next();
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            for(int i = 0; i<=11; i++){
+                dataset.setValue(counts[i],"Values",D[i]);
+            }
+            JFreeChart chart = ChartFactory.createBarChart3D(""+a+"",""+b+"",""+c+"",dataset,PlotOrientation.VERTICAL,false,true,false);
+            chart.setBackgroundPaint(Color.WHITE);
+            chart.getTitle().setPaint(Color.red);
+            CategoryPlot p = chart.getCategoryPlot();
+            p.setRangeGridlinePaint(Color.BLUE);
+            ChartFrame frame = new ChartFrame("bar chart",chart);
+            frame.setVisible(true);
+            frame.setSize(850,350);
+            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
+            int PromptResult = JOptionPane.showOptionDialog(null,"Do you want to save the chart","Save",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            if(PromptResult==JOptionPane.YES_OPTION){
+                try{
+                    final ChartRenderingInfo Info = new ChartRenderingInfo(new StandardEntityCollection());
+                    String x = new SimpleDateFormat("yyMMddHHmmssZ").format(new Date());
+                    final File file1 = new File("Chart"+x+".png");
+                    ChartUtilities.saveChartAsPNG(file1,chart,600,400,Info);
+                }catch(IOException e){
+                    JOptionPane.showMessageDialog(null,e);
+                }    
+            }
+            
+        }catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            }
+        finally{
+            try{
+                CasesSystem.rs.close();
+                CasesSystem.pst.close();              
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null,e);
+            }
+        }
+    }
+    public static void createpieChartscasecatperage(String dbtable,String label){
+        /*Δημιουργεί pieChart κρουσματα ανα ηλικιακά group  
+        
+        */
+        try{
+            String d1 = "0 - 20";
+            String d2 = "21 - 40";
+            String d3 = "41 - 60";
+            String d4 = "61 - 80";
+            String d5 = "81 - 100";
+            String d6 = "101 - 120";        
+            DefaultPieDataset pieDataset = new DefaultPieDataset(); 
+            String q = "select count(AGE) from "+dbtable+" where AGE <= 20";
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(q);
+            CasesSystem.pst.execute();
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int c1 = CasesSystem.rs.getInt("count(AGE)");
+            CasesSystem.rs.close();
+            String q1 = "select count(AGE) from "+dbtable+" where AGE <= 40 and AGE > 20";
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(q1);
+            CasesSystem.pst.execute();
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int c2 = CasesSystem.rs.getInt("count(AGE)");
+            CasesSystem.rs.close();
+            String q2 = "select count(AGE) from "+dbtable+" where AGE <= 60 and AGE > 40";
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(q2);
+            CasesSystem.pst.execute();
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int c3 = CasesSystem.rs.getInt("count(AGE)");
+            CasesSystem.rs.close();
+            String q3 = "select count(AGE) from "+dbtable+" where AGE <= 80 and AGE > 60";
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(q3);
+            CasesSystem.pst.execute();
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int c4 = CasesSystem.rs.getInt("count(AGE)");
+            CasesSystem.rs.close();
+            String q4 = "select count(AGE) from "+dbtable+" where AGE <= 100 and AGE > 80";
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(q4);
+            CasesSystem.pst.execute();
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int c5 = CasesSystem.rs.getInt("count(AGE)");
+            CasesSystem.rs.close();
+            String q5 = "select count(AGE) from "+dbtable+" where AGE <= 120 and AGE > 100";
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(q5);
+            CasesSystem.pst.execute();
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int c6 = CasesSystem.rs.getInt("count(AGE)");
+            CasesSystem.rs.close();
+            pieDataset.setValue(d1,c1);
+            CasesSystem.rs.close();
+            pieDataset.setValue(d2,c2);
+            CasesSystem.rs.close();
+            pieDataset.setValue(d3,c3);
+            CasesSystem.rs.close();
+            pieDataset.setValue(d4,c4);
+            CasesSystem.rs.close();
+            pieDataset.setValue(d5,c5);
+            CasesSystem.rs.close();
+            pieDataset.setValue(d6,c6);
+            CasesSystem.rs.close();
+            JFreeChart chart = ChartFactory.createPieChart3D("",pieDataset,true,true,true);
+            PiePlot3D p = (PiePlot3D)chart.getPlot();
+            ChartFrame frame = new ChartFrame("Pie Chart: "+label+"",chart);
+            frame.setVisible(true);
+            frame.setSize(450,500);
+            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
+            int PromptResult = JOptionPane.showOptionDialog(null,"Do you want to save the chart","Save",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            if(PromptResult==JOptionPane.YES_OPTION){
+                try{
+                    final ChartRenderingInfo Info = new ChartRenderingInfo(new StandardEntityCollection());
+                    String x = new SimpleDateFormat("yyMMddHHmmssZ").format(new Date());
+                    final File file1 = new File("Chart"+x+".png");
+                    ChartUtilities.saveChartAsPNG(file1,chart,600,400,Info);
+                }catch(IOException e){
+                    JOptionPane.showMessageDialog(null,e);
+                }    
+            }
+            
+        }catch(HeadlessException | SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            }
+        finally{
+            try{
+                CasesSystem.rs.close();
+                CasesSystem.pst.close();
+              
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);
+            }
+        }
     }
     public static void createBarChartGender(String tble,String a,String b,String c){
         try{

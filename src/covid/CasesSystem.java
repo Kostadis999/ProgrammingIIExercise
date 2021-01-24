@@ -260,10 +260,20 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenuItem17 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem18 = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
+        jMenuItem19 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
         jMenu11 = new javax.swing.JMenu();
+        jMenuItem21 = new javax.swing.JMenuItem();
+        jMenuItem22 = new javax.swing.JMenuItem();
         jMenu12 = new javax.swing.JMenu();
+        jMenuItem23 = new javax.swing.JMenuItem();
+        jMenuItem24 = new javax.swing.JMenuItem();
         jMenu13 = new javax.swing.JMenu();
+        jMenuItem25 = new javax.swing.JMenuItem();
+        jMenuItem26 = new javax.swing.JMenuItem();
         jMenuOptions = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -1052,9 +1062,19 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenu4.setText("Total cases per age");
 
         jMenuItem8.setText("Pie Chart");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem8);
 
         jMenuItem9.setText("Bar Chart");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem9);
 
         jMenu2.add(jMenu4);
@@ -1062,9 +1082,19 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenu5.setText("Active cases per age");
 
         jMenuItem10.setText("Pie Chart");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem10);
 
         jMenuItem11.setText("Bar Chart");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem11);
 
         jMenu2.add(jMenu5);
@@ -1072,9 +1102,19 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenu6.setText("Probable cases per age");
 
         jMenuItem12.setText("Pie Chart");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem12);
 
         jMenuItem13.setText("Bar Chart");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
         jMenu6.add(jMenuItem13);
 
         jMenu2.add(jMenu6);
@@ -1082,9 +1122,19 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenu7.setText("Deaths per age");
 
         jMenuItem14.setText("Pie Chart");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem14);
 
         jMenuItem15.setText("Bar Chart ");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem15);
 
         jMenu2.add(jMenu7);
@@ -1092,9 +1142,19 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenu8.setText("Restores per age ");
 
         jMenuItem16.setText("Pie Chart");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem16ActionPerformed(evt);
+            }
+        });
         jMenu8.add(jMenuItem16);
 
         jMenuItem17.setText("Bar Chart");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem17ActionPerformed(evt);
+            }
+        });
         jMenu8.add(jMenuItem17);
 
         jMenu2.add(jMenu8);
@@ -1103,19 +1163,104 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jMenu3.setText("Gender");
 
-        jMenu9.setText("jMenu9");
+        jMenu9.setText("Total cases per gender");
+
+        jMenuItem1.setText("Pie Chart");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem1);
+
+        jMenuItem18.setText("Bar Chart");
+        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem18ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem18);
+
         jMenu3.add(jMenu9);
 
-        jMenu10.setText("jMenu10");
+        jMenu10.setText("Ative cases per gender");
+
+        jMenuItem19.setText("Pie Chart");
+        jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem19ActionPerformed(evt);
+            }
+        });
+        jMenu10.add(jMenuItem19);
+
+        jMenuItem20.setText("Bar Chart");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
+        jMenu10.add(jMenuItem20);
+
         jMenu3.add(jMenu10);
 
-        jMenu11.setText("jMenu11");
+        jMenu11.setText("Probable cases per gender");
+
+        jMenuItem21.setText("Pie Chart");
+        jMenuItem21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem21ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem21);
+
+        jMenuItem22.setText("Bar Chart");
+        jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem22ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem22);
+
         jMenu3.add(jMenu11);
 
-        jMenu12.setText("jMenu12");
+        jMenu12.setText("Deaths per Gender");
+
+        jMenuItem23.setText("Pie Chart");
+        jMenuItem23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem23ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(jMenuItem23);
+
+        jMenuItem24.setText("Bar Chart");
+        jMenuItem24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem24ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(jMenuItem24);
+
         jMenu3.add(jMenu12);
 
-        jMenu13.setText("jMenu13");
+        jMenu13.setText("Heals per Gender");
+
+        jMenuItem25.setText("Pie Chart");
+        jMenuItem25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem25ActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItem25);
+
+        jMenuItem26.setText("Bar Chart");
+        jMenuItem26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem26ActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItem26);
+
         jMenu3.add(jMenu13);
 
         jMenuDiagrams.add(jMenu3);
@@ -1852,6 +1997,86 @@ public class CasesSystem extends javax.swing.JFrame {
         jCheckBox6.setBackground(new java.awt.Color(255, 51, 51));
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        DAO.createpieChartsGender("OVERALLCASES","Total cases per gender");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+        DAO.createBarChartGender("OVERALLCASES","Total cases per gender","Gender","Total cases");
+    }//GEN-LAST:event_jMenuItem18ActionPerformed
+
+    private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
+        DAO.createpieChartsGender("CURRENTCASES","Active cases per gender");
+    }//GEN-LAST:event_jMenuItem19ActionPerformed
+
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        DAO.createBarChartGender("CURRENTCASES","Active cases per gender","Gender","Active cases");
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
+
+    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
+        DAO.createpieChartsGender("PROB","Probable cases per Gender");
+    }//GEN-LAST:event_jMenuItem21ActionPerformed
+
+    private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem22ActionPerformed
+        DAO.createBarChartGender("PROB","Probable cases per Gender","Gender","Probable cases");
+    }//GEN-LAST:event_jMenuItem22ActionPerformed
+
+    private void jMenuItem23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem23ActionPerformed
+        DAO.createpieChartsGender("PASSED","Deaths per Gender");
+    }//GEN-LAST:event_jMenuItem23ActionPerformed
+
+    private void jMenuItem24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem24ActionPerformed
+        DAO.createBarChartGender("PASSED","Θάνατοι ανά φύλο","Φύλο","Αριθμός θανάτων");
+    }//GEN-LAST:event_jMenuItem24ActionPerformed
+
+    private void jMenuItem25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem25ActionPerformed
+        DAO.createpieChartsGender("HEAL","Restores per Gender");
+    }//GEN-LAST:event_jMenuItem25ActionPerformed
+
+    private void jMenuItem26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem26ActionPerformed
+        DAO.createBarChartGender("HEAL","Restores per Gender","Gender","Restores"); 
+    }//GEN-LAST:event_jMenuItem26ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        DAO.createpieChartscasecatperage("OVERALLCASES","Total cases per age Group");
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        DAO.createbarchartsCaseCategoryPerage("Total cases per age Group","age Group","Total cases","OVERALLCASES");
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        DAO.createpieChartscasecatperage("CURRENTCASES","Active cases per age Group");
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        DAO.createbarchartsCaseCategoryPerage("Active cases per age Group","age group","Active cases","CURRENTCASES");
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        DAO.createpieChartscasecatperage("PROB","Probable cases per age Group");
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        DAO.createbarchartsCaseCategoryPerage("Probable cases per age Group","age group","Probable cases","PROB");
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        DAO.createpieChartscasecatperage("PASSED","Deaths per age Group");
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        DAO.createbarchartsCaseCategoryPerage("Deaths per age Group","age Group","Deaths","PASSED");
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        DAO.createpieChartscasecatperage("HEAL","Restores per age Group");
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        DAO.createbarchartsCaseCategoryPerage("Restores per age Group","age Group","Restores","HEAL");
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1950,6 +2175,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuDiagrams;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
@@ -1958,7 +2184,16 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem20;
+    private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JMenuItem jMenuItem22;
+    private javax.swing.JMenuItem jMenuItem23;
+    private javax.swing.JMenuItem jMenuItem24;
+    private javax.swing.JMenuItem jMenuItem25;
+    private javax.swing.JMenuItem jMenuItem26;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

@@ -723,11 +723,17 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Pie Chart"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem8ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Bar Chart"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem9ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -740,11 +746,17 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Pie Chart"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem10ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Bar Chart"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem11ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -757,11 +769,17 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Pie Chart"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem12ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Bar Chart"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem13ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -774,11 +792,17 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Pie Chart"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem14ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem15">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Bar Chart "/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem15ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -791,11 +815,17 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Pie Chart"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem16ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem17">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Bar Chart"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem17ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -808,28 +838,118 @@
               <SubComponents>
                 <Menu class="javax.swing.JMenu" name="jMenu9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jMenu9"/>
+                    <Property name="text" type="java.lang.String" value="Total cases per gender"/>
                   </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pie Chart"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem18">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Bar Chart"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem18ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="jMenu10">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jMenu10"/>
+                    <Property name="text" type="java.lang.String" value="Ative cases per gender"/>
                   </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem19">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pie Chart"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem19ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem20">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Bar Chart"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem20ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="jMenu11">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jMenu11"/>
+                    <Property name="text" type="java.lang.String" value="Probable cases per gender"/>
                   </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem21">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pie Chart"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem21ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem22">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Bar Chart"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem22ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="jMenu12">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jMenu12"/>
+                    <Property name="text" type="java.lang.String" value="Deaths per Gender"/>
                   </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem23">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pie Chart"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem23ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem24">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Bar Chart"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem24ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="jMenu13">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jMenu13"/>
+                    <Property name="text" type="java.lang.String" value="Heals per Gender"/>
                   </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem25">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Pie Chart"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem25ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem26">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Bar Chart"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem26ActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
                 </Menu>
               </SubComponents>
             </Menu>
