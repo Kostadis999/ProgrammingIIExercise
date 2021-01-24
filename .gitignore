@@ -1,3 +1,6 @@
-/nbproject/private/
+/nbproject
 /build/
 /dist/
+Covidcases.sqlite
+build.xml
+manifest.mf
