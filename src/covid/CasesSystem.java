@@ -236,15 +236,19 @@ public class CasesSystem extends javax.swing.JFrame {
         jCheckBox6 = new javax.swing.JCheckBox();
         jCheckBox7 = new javax.swing.JCheckBox();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuReports = new javax.swing.JMenu();
+        jMenuItemActiveCasesReport = new javax.swing.JMenuItem();
+        jMenuItemTotalCasesReport = new javax.swing.JMenuItem();
+        jMenuItemPassedReport = new javax.swing.JMenuItem();
+        jMenuItemRestoredReport = new javax.swing.JMenuItem();
+        jMenuDiagrams = new javax.swing.JMenu();
         jMenuItemBarchart = new javax.swing.JMenuItem();
         jMenuItemPieChartGender = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuOptions = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jDialogProbableCases.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         jDialogProbableCases.setTitle("Καταχώριση πιθανών κρουσμάτων");
@@ -982,43 +986,43 @@ public class CasesSystem extends javax.swing.JFrame {
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
-        jMenu2.setText("Reports");
+        jMenuReports.setText("Reports");
 
-        jMenuItem6.setText("Κρούσματα(τώρα)");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemActiveCasesReport.setText("Active cases");
+        jMenuItemActiveCasesReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                jMenuItemActiveCasesReportActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem6);
+        jMenuReports.add(jMenuItemActiveCasesReport);
 
-        jMenuItem7.setText("Συνολικά Κρούσματα");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemTotalCasesReport.setText("Total cases");
+        jMenuItemTotalCasesReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                jMenuItemTotalCasesReportActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem7);
+        jMenuReports.add(jMenuItemTotalCasesReport);
 
-        jMenuItem8.setText("Αποθανόντες ");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemPassedReport.setText("Passed");
+        jMenuItemPassedReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                jMenuItemPassedReportActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem8);
+        jMenuReports.add(jMenuItemPassedReport);
 
-        jMenuItem9.setText("Θεραπευμένοι ");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemRestoredReport.setText("Restored");
+        jMenuItemRestoredReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                jMenuItemRestoredReportActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem9);
+        jMenuReports.add(jMenuItemRestoredReport);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenuReports);
 
-        jMenu1.setText("Diagrams");
+        jMenuDiagrams.setText("Diagrams");
 
         jMenuItemBarchart.setText("Κρούσματα ανά ηλικία");
         jMenuItemBarchart.addActionListener(new java.awt.event.ActionListener() {
@@ -1026,7 +1030,7 @@ public class CasesSystem extends javax.swing.JFrame {
                 jMenuItemBarchartActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItemBarchart);
+        jMenuDiagrams.add(jMenuItemBarchart);
 
         jMenuItemPieChartGender.setText("Ενεργά κρούσματα ανα φύλο");
         jMenuItemPieChartGender.addActionListener(new java.awt.event.ActionListener() {
@@ -1034,7 +1038,7 @@ public class CasesSystem extends javax.swing.JFrame {
                 jMenuItemPieChartGenderActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItemPieChartGender);
+        jMenuDiagrams.add(jMenuItemPieChartGender);
 
         jMenuItem1.setText("Θάνατοι ανά ηλικία ");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -1042,9 +1046,22 @@ public class CasesSystem extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenuDiagrams.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenuDiagrams);
+
+        jMenuOptions.setText("Options");
+
+        jMenu1.setText("Change colours");
+        jMenuOptions.add(jMenu1);
+
+        jMenuItem2.setText("Delete data");
+        jMenuOptions.add(jMenuItem2);
+
+        jMenuItem3.setText("Exit");
+        jMenuOptions.add(jMenuItem3);
+
+        jMenuBar1.add(jMenuOptions);
 
         setJMenuBar(jMenuBar1);
 
@@ -1357,7 +1374,7 @@ public class CasesSystem extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jDialogProbableCasesWindowClosing
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void jMenuItemActiveCasesReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemActiveCasesReportActionPerformed
         jLabel4.setText("Κρούσματα τώρα");
         try{
             String sql = "select avg(AGE),min(AGE),max(AGE),count(*) from CURRENTCASES";
@@ -1409,9 +1426,9 @@ public class CasesSystem extends javax.swing.JFrame {
        }
         
         
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_jMenuItemActiveCasesReportActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void jMenuItemTotalCasesReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTotalCasesReportActionPerformed
         //η μεθοδος εμφανίζει 
         jLabel4.setText("Συνολική καταγραφή");
         try{
@@ -1462,7 +1479,7 @@ public class CasesSystem extends javax.swing.JFrame {
     
            }
        }
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_jMenuItemTotalCasesReportActionPerformed
 
     private void jDialogDatadisplayWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jDialogDatadisplayWindowClosing
         try{
@@ -1486,7 +1503,7 @@ public class CasesSystem extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void jMenuItemPassedReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPassedReportActionPerformed
         jLabel4.setText("Αποθανόντες");
         try{
             String sql = "select avg(AGE),min(AGE),max(AGE),count(*) from PASSED";
@@ -1536,9 +1553,9 @@ public class CasesSystem extends javax.swing.JFrame {
     
            }
        }
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_jMenuItemPassedReportActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void jMenuItemRestoredReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRestoredReportActionPerformed
         jLabel4.setText("Θεραπευμαίνοι");
         try{
             String sql = "select avg(AGE),min(AGE),max(AGE),count(*) from HEAL";
@@ -1588,7 +1605,7 @@ public class CasesSystem extends javax.swing.JFrame {
     
            }
        }        
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_jMenuItemRestoredReportActionPerformed
 
     private void jCheckBoxCurrentCasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxCurrentCasesActionPerformed
         DAO.fillJtableCases("CURRENTCASES","ID","Active cases","");
@@ -1920,15 +1937,19 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPHONENUMBER;
     private javax.swing.JLabel jLabelSURNAME;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuDiagrams;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItemActiveCasesReport;
     private javax.swing.JMenuItem jMenuItemBarchart;
+    private javax.swing.JMenuItem jMenuItemPassedReport;
     private javax.swing.JMenuItem jMenuItemPieChartGender;
+    private javax.swing.JMenuItem jMenuItemRestoredReport;
+    private javax.swing.JMenuItem jMenuItemTotalCasesReport;
+    private javax.swing.JMenu jMenuOptions;
+    private javax.swing.JMenu jMenuReports;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

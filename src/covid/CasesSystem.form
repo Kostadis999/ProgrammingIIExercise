@@ -665,46 +665,46 @@
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="jMenuReports">
           <Properties>
             <Property name="text" type="java.lang.String" value="Reports"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemActiveCasesReport">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x39a;&#x3c1;&#x3bf;&#x3cd;&#x3c3;&#x3bc;&#x3b1;&#x3c4;&#x3b1;(&#x3c4;&#x3ce;&#x3c1;&#x3b1;)"/>
+                <Property name="text" type="java.lang.String" value="Active cases"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemActiveCasesReportActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemTotalCasesReport">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x3a3;&#x3c5;&#x3bd;&#x3bf;&#x3bb;&#x3b9;&#x3ba;&#x3ac; &#x39a;&#x3c1;&#x3bf;&#x3cd;&#x3c3;&#x3bc;&#x3b1;&#x3c4;&#x3b1;"/>
+                <Property name="text" type="java.lang.String" value="Total cases"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem7ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemTotalCasesReportActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPassedReport">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x391;&#x3c0;&#x3bf;&#x3b8;&#x3b1;&#x3bd;&#x3cc;&#x3bd;&#x3c4;&#x3b5;&#x3c2; "/>
+                <Property name="text" type="java.lang.String" value="Passed"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem8ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPassedReportActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemRestoredReport">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#x398;&#x3b5;&#x3c1;&#x3b1;&#x3c0;&#x3b5;&#x3c5;&#x3bc;&#x3ad;&#x3bd;&#x3bf;&#x3b9; "/>
+                <Property name="text" type="java.lang.String" value="Restored"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem9ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemRestoredReportActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="jMenuDiagrams">
           <Properties>
             <Property name="text" type="java.lang.String" value="Diagrams"/>
           </Properties>
@@ -732,6 +732,28 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuOptions">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Options"/>
+          </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="jMenu1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Change colours"/>
+              </Properties>
+            </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete data"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Exit"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
