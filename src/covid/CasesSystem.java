@@ -182,7 +182,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jButtonRemove = new javax.swing.JButton();
         jButtonFinish = new javax.swing.JButton();
         jDialogDatadisplay = new javax.swing.JDialog();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelDataDisplay = new javax.swing.JPanel();
         jPanelData2 = new javax.swing.JPanel();
         casescountlabel = new javax.swing.JLabel();
         MalecasesLabel = new javax.swing.JLabel();
@@ -192,7 +192,7 @@ public class CasesSystem extends javax.swing.JFrame {
         Femalecaseslabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jDialogDeathOrRestore = new javax.swing.JDialog();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelDeathOrRestore = new javax.swing.JPanel();
         jComboBoxDeleteId = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         PassedButton = new javax.swing.JButton();
@@ -200,7 +200,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelCasesSystem = new javax.swing.JPanel();
         jPanelIDSEARCH = new javax.swing.JPanel();
         jButtonSEARCHID = new javax.swing.JButton();
         jComboBoxSEARCHID = new javax.swing.JComboBox<>();
@@ -247,6 +247,10 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuOptions = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
 
@@ -462,7 +466,7 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelDataDisplay.setBackground(new java.awt.Color(255, 153, 0));
 
         jPanelData2.setBackground(new java.awt.Color(255, 255, 255));
         jPanelData2.setBorder(javax.swing.BorderFactory.createTitledBorder("DATA"));
@@ -523,23 +527,23 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelDataDisplayLayout = new javax.swing.GroupLayout(jPanelDataDisplay);
+        jPanelDataDisplay.setLayout(jPanelDataDisplayLayout);
+        jPanelDataDisplayLayout.setHorizontalGroup(
+            jPanelDataDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDataDisplayLayout.createSequentialGroup()
                 .addContainerGap(55, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanelDataDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDataDisplayLayout.createSequentialGroup()
                         .addComponent(jPanelData2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDataDisplayLayout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69))))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        jPanelDataDisplayLayout.setVerticalGroup(
+            jPanelDataDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDataDisplayLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
@@ -551,18 +555,18 @@ public class CasesSystem extends javax.swing.JFrame {
         jDialogDatadisplay.getContentPane().setLayout(jDialogDatadisplayLayout);
         jDialogDatadisplayLayout.setHorizontalGroup(
             jDialogDatadisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelDataDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDialogDatadisplayLayout.setVerticalGroup(
             jDialogDatadisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelDataDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jDialogDeathOrRestore.setTitle("Διαγραφή Ενεργού Κρούσματος");
         jDialogDeathOrRestore.setBounds(new java.awt.Rectangle(400, 200, 482, 120));
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel3.setForeground(new java.awt.Color(204, 255, 255));
+        jPanelDeathOrRestore.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelDeathOrRestore.setForeground(new java.awt.Color(204, 255, 255));
 
         jLabel1.setText("Case id:");
 
@@ -588,11 +592,11 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelDeathOrRestoreLayout = new javax.swing.GroupLayout(jPanelDeathOrRestore);
+        jPanelDeathOrRestore.setLayout(jPanelDeathOrRestoreLayout);
+        jPanelDeathOrRestoreLayout.setHorizontalGroup(
+            jPanelDeathOrRestoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDeathOrRestoreLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -602,15 +606,15 @@ public class CasesSystem extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HealButton)
                 .addContainerGap(31, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanelDeathOrRestoreLayout.createSequentialGroup()
                 .addComponent(jButton1)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jPanelDeathOrRestoreLayout.setVerticalGroup(
+            jPanelDeathOrRestoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDeathOrRestoreLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDeathOrRestoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jComboBoxDeleteId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PassedButton)
@@ -624,17 +628,17 @@ public class CasesSystem extends javax.swing.JFrame {
         jDialogDeathOrRestore.getContentPane().setLayout(jDialogDeathOrRestoreLayout);
         jDialogDeathOrRestoreLayout.setHorizontalGroup(
             jDialogDeathOrRestoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelDeathOrRestore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDialogDeathOrRestoreLayout.setVerticalGroup(
             jDialogDeathOrRestoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelDeathOrRestore, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel1.setForeground(new java.awt.Color(255, 204, 0));
+        jPanelCasesSystem.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelCasesSystem.setForeground(new java.awt.Color(255, 204, 0));
 
         jPanelIDSEARCH.setBorder(javax.swing.BorderFactory.createTitledBorder("ID SEARCH"));
 
@@ -901,40 +905,40 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelCasesSystemLayout = new javax.swing.GroupLayout(jPanelCasesSystem);
+        jPanelCasesSystem.setLayout(jPanelCasesSystemLayout);
+        jPanelCasesSystemLayout.setHorizontalGroup(
+            jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCasesSystemLayout.createSequentialGroup()
+                .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelIDSEARCH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonSAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonDELETE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonCLEAR, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                                 .addComponent(jPanelCaseInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jTextFieldNAME)
                                         .addComponent(jTextFieldSURNAME)
                                         .addComponent(jTextFieldAGE)
                                         .addComponent(jTextFieldPHONENUMBER)
                                         .addComponent(jTextFieldADDRES)
                                         .addComponent(jTextFieldAMKA)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                                             .addComponent(jComboBoxCITY, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jTextFieldCITY, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                                         .addComponent(jCheckBox6)
                                         .addGap(49, 49, 49)
                                         .addComponent(jCheckBox7)))))))
@@ -942,16 +946,16 @@ public class CasesSystem extends javax.swing.JFrame {
                 .addComponent(jPaneltable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelCasesSystemLayout.setVerticalGroup(
+            jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPaneltable, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                         .addComponent(jPanelIDSEARCH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                                 .addGap(32, 32, 32)
                                 .addComponent(jTextFieldNAME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -961,7 +965,7 @@ public class CasesSystem extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextFieldADDRES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jComboBoxCITY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldCITY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -969,18 +973,18 @@ public class CasesSystem extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextFieldPHONENUMBER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(13, 13, 13)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jCheckBox6)
                                     .addComponent(jCheckBox7)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanelCaseInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonCLEAR)
                             .addComponent(jButtonSAVE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonDELETE)
                             .addComponent(jButton2))))
                 .addContainerGap(78, Short.MAX_VALUE))
@@ -1053,12 +1057,55 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenuOptions.setText("Options");
 
         jMenu1.setText("Change colours");
+
+        jMenuItem4.setText("Default(Orange-Black)");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem5.setText("Purple-Black");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
+
+        jMenuItem6.setText("Teal-Black");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
+
+        jMenuItem7.setText("Red-Blue");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem7);
+
         jMenuOptions.add(jMenu1);
 
         jMenuItem2.setText("Delete data");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenuOptions.add(jMenuItem2);
 
         jMenuItem3.setText("Exit");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenuOptions.add(jMenuItem3);
 
         jMenuBar1.add(jMenuOptions);
@@ -1069,11 +1116,11 @@ public class CasesSystem extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelCasesSystem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelCasesSystem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setBounds(0, 0, 1230, 585);
@@ -1853,6 +1900,103 @@ public class CasesSystem extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        DAO.DeleteAllcases();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
+            int PromptResult = JOptionPane.showOptionDialog(null,"Are you sre you wat to exit the system?"
+                   ,"Exit",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            if(PromptResult==JOptionPane.YES_OPTION){//αν επιλεχτει το ναι
+                dispose();
+            }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Login_Page.jPanelSignUp.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelDialog.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelDataDisplay.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelDeathOrRestore.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelCasesSystem.setBackground(new java.awt.Color(255, 153, 0));
+        jPaneltable.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxCurrentCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxCurrentCases.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxProbCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxProbCases.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxTottalCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxTottalCases.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxPassed.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxPassed.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxHealed.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxHealed.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox7.setBackground(new java.awt.Color(255, 153, 0));
+        jCheckBox6.setBackground(new java.awt.Color(255, 153, 0));
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        Login_Page.jPanelSignUp.setBackground(new java.awt.Color(102,0,102));
+        jPanelDialog.setBackground(new java.awt.Color(102,0,102));
+        jPanelDataDisplay.setBackground(new java.awt.Color(102, 0, 102));
+        jPanelDeathOrRestore.setBackground(new java.awt.Color(102,0,102));
+        jPanelCasesSystem.setBackground(new java.awt.Color(102,0,102));
+        jPaneltable.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxCurrentCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxCurrentCases.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxProbCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxProbCases.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxTottalCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxTottalCases.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxPassed.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxPassed.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxHealed.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxHealed.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox7.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox6.setBackground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        Login_Page.jPanelSignUp.setBackground(new java.awt.Color(0,153,153));
+        jPanelDialog.setBackground(new java.awt.Color(0,153,153));
+        jPanelDataDisplay.setBackground(new java.awt.Color(0,153,153));
+        jPanelDeathOrRestore.setBackground(new java.awt.Color(0,153,153));
+        jPanelCasesSystem.setBackground(new java.awt.Color(0,153,153));
+        jPaneltable.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxCurrentCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxCurrentCases.setForeground(new java.awt.Color(255,255,255));
+        jCheckBoxProbCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxProbCases.setForeground(new java.awt.Color(255,255,255));
+        jCheckBoxTottalCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxTottalCases.setForeground(new java.awt.Color(255,255,255));
+        jCheckBoxPassed.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxPassed.setForeground(new java.awt.Color(255,255,255));
+        jCheckBoxHealed.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxHealed.setForeground(new java.awt.Color(255,255,255));
+        jCheckBox7.setBackground(new java.awt.Color(0,153,153));
+        jCheckBox6.setBackground(new java.awt.Color(0,153,153));
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+         Login_Page.jPanelSignUp.setBackground(new java.awt.Color(255, 51, 51));
+        jPanelDialog.setBackground(new java.awt.Color(255, 51, 51));
+        jPanelDataDisplay.setBackground(new java.awt.Color(255, 51, 51));
+        jPanelDeathOrRestore.setBackground(new java.awt.Color(255, 51, 51));
+        jPanelCasesSystem.setBackground(new java.awt.Color(255, 51, 51));
+        jPaneltable.setBackground(new java.awt.Color(51, 51, 255));
+        jCheckBoxCurrentCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxCurrentCases.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBoxProbCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxProbCases.setForeground(new java.awt.Color(255, 255, 253));
+        jCheckBoxTottalCases.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxTottalCases.setForeground(new java.awt.Color(255, 255,255));
+        jCheckBoxPassed.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxPassed.setForeground(new java.awt.Color(255,255,255));
+        jCheckBoxHealed.setBackground(new java.awt.Color(0, 0, 0));
+        jCheckBoxHealed.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox7.setBackground(new java.awt.Color(255, 51, 51));
+        jCheckBox6.setBackground(new java.awt.Color(255, 51, 51));
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1942,6 +2086,10 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItemActiveCasesReport;
     private javax.swing.JMenuItem jMenuItemBarchart;
     private javax.swing.JMenuItem jMenuItemPassedReport;
@@ -1950,11 +2098,11 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemTotalCasesReport;
     private javax.swing.JMenu jMenuOptions;
     private javax.swing.JMenu jMenuReports;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelCaseInfo;
+    private javax.swing.JPanel jPanelCasesSystem;
     private javax.swing.JPanel jPanelData2;
+    private javax.swing.JPanel jPanelDataDisplay;
+    private javax.swing.JPanel jPanelDeathOrRestore;
     private javax.swing.JPanel jPanelDialog;
     private javax.swing.JPanel jPanelIDSEARCH;
     private javax.swing.JPanel jPanelProbableInfo;
