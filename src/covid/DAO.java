@@ -325,6 +325,24 @@ public class DAO  {
                 
         }
     }
+    public static int seeifAMKAexists(String Table){
+    /*η μέθοδος αφου ελέγξει τα στοιχεία που έχει καταχωρίσει ο χρήστης στα Textfields του διαλόγου 
+        jDialogProbableCases προσθετει μία γραμμη με αυτά στον πίνακα jTableProbableCases*/
+        int count = 0;
+        //to count θα ειναι ειτε 1 ειτε 0 δηλαδη είτε θα υπαρχει αντιστοιχεία στο ΑΜΚΑ είτε όχι
+        try{
+        String quer = "SELECT COUNT(*) FROM "+Table+" WHERE AMKA = '"+CasesSystem.jTextFieldProbAmka.getText()+"'";
+        CasesSystem.pst = CasesSystem.conn.prepareStatement(quer);
+        CasesSystem.rs = CasesSystem.pst.executeQuery();
+        CasesSystem.rs.next();
+        count = CasesSystem.rs.getInt("COUNT(*)");
+        CasesSystem.pst.close();
+        CasesSystem.rs.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        return count;
+    }
     public static void  createbarchartsCaseCategoryPerage(String ChartTitle, String Xlabel,String Ylabel,String Dbtable){
        /*H μέθοδος δημιουργεί bar chart (αριθμός κρουσμάτων ανα ηλικιακό group) 
         *το όρισμα dbtable δηλώνει από ποιό πίνακα της βάσης θα επιλεχτούν τα κρούσματα 
