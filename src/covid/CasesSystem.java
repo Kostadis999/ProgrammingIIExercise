@@ -5,8 +5,6 @@
  */
 package covid;
 
-
-import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,24 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
-import java.awt.Color;
-import java.io.File;
-import org.jfree.chart.ChartRenderingInfo;
-import org.jfree.chart.ChartUtilities;
-import org.jfree.chart.entity.StandardEntityCollection;
-import org.jfree.chart.plot.PiePlot3D;
-import org.jfree.data.general.DefaultPieDataset;
 
-/**
- *
- * @author kosta
- */
+
 public class CasesSystem extends javax.swing.JFrame {
     static String genre;
     static Connection conn = null;
@@ -51,19 +33,15 @@ public class CasesSystem extends javax.swing.JFrame {
         FillcomboProbCity();
         Fillcombosearch();
         COUNT1 = 0;
-        
     }
-    
     public static void clearprobdialodtextfields(){
-            jTextFieldProbName.setText("");
-            jTextFieldProbSurname.setText("");
-            jTextFieldProbAge.setText("");
-            jTextFieldProbAddres.setText("");
-            jTextFieldProbAmka.setText("");
-            jTextFieldProbPhonNumbr.setText("");
-         
+        jTextFieldProbName.setText("");
+        jTextFieldProbSurname.setText("");
+        jTextFieldProbAge.setText("");
+        jTextFieldProbAddres.setText("");
+        jTextFieldProbAmka.setText("");
+        jTextFieldProbPhonNumbr.setText("");
     }
-    
     private void FillcomboCity(){
         try{
             String sql = "Select * from REGIONS";
@@ -1345,35 +1323,37 @@ public class CasesSystem extends javax.swing.JFrame {
             int COUNT = rs.getInt("COUNT(*)");
             /* η μεταβλητη COUNT περιέχει τον αριθμό των γραμμών του πίνακα των συνολικών κρουσμάτων 
             της βάσης που το ΑΜΚΑ τους ταυτίζεται με το AMKA που εχει εισάγει ο χρήστης στο πεδίο jTextFieldAMKA 
-            αρα αν count = 1 το ID που ειχε εισαγει ο χρήστης δεν ειανι εγκυρο*/
+            αρα αν count = 1 το ΑΜΚΑ που ειχε εισαγει ο χρήστης δεν ειανι εγκυρο*/
             pst = conn.prepareStatement(quer1);
             rs = pst.executeQuery();
             rs.next();
             COUNT1 = rs.getInt("COUNT(*)");
             //αντιστοιχα η COUNT1 περιεχει τον αριθμο των στοιχείων των πιθανων κρουσμάτων που έχουν ΑΜΚΑ και τηλεφωνο 
             //ομοια με αυτα που εισήγαγε ο χρήστης. Χρησιμοποιείτε δηλαδή για την επιβεβαίωση πιθανων κρουσμάτων
+                  
             //ελεγχος εγκυρότητας δεδομένων 
             if(COUNT2==1){
-                JOptionPane.showMessageDialog(null,"Τα στοιχεία που εισάγατε αντιστοιχούν σε άλλο\nσε είδη καταχωρημένο ασθενή");
+                JOptionPane.showMessageDialog(null,"This data related connected to another case..\n"
+                        + "Please enter valid data");
             }else if(jTextFieldPHONENUMBER.getText().equals("") || jTextFieldNAME.getText().equals("") || jTextFieldSURNAME.getText().equals("")
                 || jTextFieldNAME.getText().equals("") || jTextFieldADDRES.getText().equals("") || jTextFieldAMKA.getText().equals("") 
                 || jComboBoxCITY.getSelectedItem().toString().equals("")){
-                JOptionPane.showMessageDialog(null,"Παρακαλώ συμπληρώστε όλα τα πεδία");}
+                JOptionPane.showMessageDialog(null,"Please fill all fields");}
             else if (Integer.parseInt(jTextFieldAGE.getText()) <= 0 || Integer.parseInt(jTextFieldAGE.getText()) >120){
-                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρη ηλικία");}
+                JOptionPane.showMessageDialog(null,"Please enter a valid age");}
             else if (String.valueOf(jTextFieldPHONENUMBER.getText()).length() != 10){
-                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό τηλεφώνου");
+                JOptionPane.showMessageDialog(null,"Please enter a valid phone umber");
                 }
             else if (String.valueOf(jTextFieldAMKA.getText()).length() != 12 ){
-                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο αριθμό AMKA");}
+                JOptionPane.showMessageDialog(null,"Please enter a valid AMKA");}
             else if ( COUNT == 1){
-                JOptionPane.showMessageDialog(null,"O αριθμός AMKA που εισάγατε αντιστοιχεί \nσε άλλο ασθενή παρακαλώ εισάγετε έγκυρο AMKA");}
+                JOptionPane.showMessageDialog(null,"This AMKA number relates\nto another patient please enter valid AMKA");}
             else if (COUNT1 == 1) {
                 /*για να εκτελεστεί ο κώδικας που βρίσκεται σε αυτό το 'else if' σημαίνει ότι ο χρήστης έχει καταχωρίσει AMKA και τηλέφωνο 
                 που αντιστοιχεί σε κάποιο πιθανό κρούσμα, το προγραμμα θα ενημερώσει για την επιβεβαίωση του πιθανού κρούσματος*/
-                JOptionPane.showMessageDialog(null,"Επιβεβαίωση πιθανού κρούσματος !!\n\n" 
-                        + "Το κρούσμα που επιθημείτε να εισάγετε\n"
-                        +"βρισκεται καταχωριμένο στα πιθανά κρούσματα");
+                JOptionPane.showMessageDialog(null,"Probable case confirmed !!!\n\n" 
+                        + "the case that you want to insert is already present\n"
+                        +"in the probable cases");
                        jDialogProbableCases.setVisible(true);
             }else{
                 jDialogProbableCases.setVisible(true);
@@ -1383,7 +1363,7 @@ public class CasesSystem extends javax.swing.JFrame {
         }catch(SQLException e ){
             JOptionPane.showMessageDialog(null,e);
         }catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null,"παρακαλώ συμπληρώστε όλα τα πεδία");
+            JOptionPane.showMessageDialog(null,"Please fill all fields");
             /*Αν ο χρήστης επιλέξει το κενο στοιχείο στο jComboBoxCITY η εντολή 
             'jComboBoxCITY.getSelectedItem().toString().equals("")' δημιουργεί NullPointerException
             */

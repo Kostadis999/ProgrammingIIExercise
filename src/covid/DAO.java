@@ -13,12 +13,8 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-
-import java.util.Collection;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
