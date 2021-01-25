@@ -42,13 +42,31 @@ import org.jfree.data.general.DefaultPieDataset;
 public class DAO  {
     static int getValue;
     static int COUNT1;
+    static String serial;
     
 
     public DAO() {
         
         getValue = 0;
         COUNT1 = 0;
+        serial = "";
         
+    }
+    public static void FillDeleltecombo(){
+        //γεμίζει τα items του jComboBoxDeleteId με τα ID των ενεργών κρουσμάτων
+        try{
+            String sql = "Select * from CURRENTCASES";
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(sql);
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            while(CasesSystem.rs.next()){
+                String ID = CasesSystem.rs.getString("ID");
+                CasesSystem.jComboBoxDeleteId.addItem(ID);
+            }
+            CasesSystem.rs.close();
+            CasesSystem.pst.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+        }
     }
     public static Connection ConnectDB(){
         try{  //επιστρέφει το connection με τη βάση
@@ -79,7 +97,7 @@ public class DAO  {
     }
     public static void deletecASE(String Dbtable){
         /*η μεθοδος ελεγχει αν υπαρχει κρούσμα που αντιστοιχεί στο ID που εχει επιλέξει ο χρήστης ως item στο 
-        jComboBox3, αν υπάρχει το κρούσμα διαγράφεται απο τα CURRENTCASES και εισάγετε στους θανάτους
+        jComboBoxDeletId, αν υπάρχει το κρούσμα διαγράφεται απο τα CURRENTCASES και εισάγετε στους θανάτους
         η στις Ιάσεις ανάλογα με τη τιμή της μεταβλητής Dbtable αλλιως εμφανίζεται ανάλογο μήνυμα*/
         try{
             String sql = "select count(*) from CURRENTCASES where ID =  '"+CasesSystem.jComboBoxDeleteId.getSelectedItem().toString()+"' ";
@@ -89,57 +107,58 @@ public class DAO  {
             int count = CasesSystem.rs.getInt(1);
             CasesSystem.rs.close();
             if(CasesSystem.jComboBoxDeleteId.getSelectedItem().toString().equals("") ){
-                JOptionPane.showMessageDialog(null, "Πληκτρολογίστε το ID του ασθενή που επιθυμείς να διαγράψεις");
+                JOptionPane.showMessageDialog(null, "Select the ID of the active case\n"
+                        + "that you want to deativate");
             } 
             else if (count == 0) {
-                JOptionPane.showMessageDialog(null, "Το ID που πληκτρολογίσατε δεν αντιστοιχεί σε κάποιο ασθενή");
+                JOptionPane.showMessageDialog(null, "ID doesn't match any case");
                 
             }
             else {
-                String quer = "insert into "+Dbtable+" select * from CURRENTCASES where ID    = '"+CasesSystem.jComboBoxDeleteId.getSelectedItem().toString()+"' ";
-                CasesSystem.pst = CasesSystem.conn.prepareStatement(quer);
-                CasesSystem.pst.execute();
-                String query= "delete from CURRENTCASES where ID = '" +CasesSystem.jComboBoxDeleteId.getSelectedItem().toString()+ "' ";
-                CasesSystem.pst = CasesSystem.conn.prepareStatement(query);
-                CasesSystem.pst.execute();
-                JOptionPane.showMessageDialog(null, "Data Deleted");
-                CasesSystem.pst.close();	
-                if(CasesSystem.jCheckBoxCurrentCases.isSelected()){
-                    fillJtableCases("CURRENTCASES","ID","Ενεργά κρούσματα","");
-                }else if(CasesSystem.jCheckBoxPassed.isSelected()){
-                    fillJtableCases("PASSED","ID","Αποθανόντες ","");
-                }else if(CasesSystem.jCheckBoxHealed.isSelected()){
-                    fillJtableCases("HEAL","ID","Θεραπευμαίνοι","");    
-                }    
-                CasesSystem.jComboBoxDeleteId.removeAllItems();
-                CasesSystem.FillDeletecombo();
+                String ObjButtons[] = {"Yes","No"};
+                int PromptResult = JOptionPane.showOptionDialog(null,"Are you sure you want to deactivate \n"
+                + "this case?" //conformation to delete
+                ,"Deactivatig Cases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+                if(PromptResult==JOptionPane.YES_OPTION){
+                    String quer = "insert into "+Dbtable+" select * from CURRENTCASES where ID    = '"+CasesSystem.jComboBoxDeleteId.getSelectedItem().toString()+"' ";
+                    CasesSystem.pst = CasesSystem.conn.prepareStatement(quer);
+                    CasesSystem.pst.execute();
+                    String query= "delete from CURRENTCASES where ID = '" +CasesSystem.jComboBoxDeleteId.getSelectedItem().toString()+ "' ";
+                    CasesSystem.pst = CasesSystem.conn.prepareStatement(query);
+                    CasesSystem.pst.execute();
+                    JOptionPane.showMessageDialog(null, "Process completed");
+                    CasesSystem.pst.close();	
+                    if(CasesSystem.jCheckBoxCurrentCases.isSelected()){
+                        fillJtableCases("CURRENTCASES","ID","Active cases","");
+                    }else if(CasesSystem.jCheckBoxPassed.isSelected()){
+                        fillJtableCases("PASSED","ID","Passeg ","");
+                    }else if(CasesSystem.jCheckBoxHealed.isSelected()){
+                        fillJtableCases("HEAL","ID","Restored","");    
+                    }    
+                    CasesSystem.jComboBoxDeleteId.removeAllItems();
+                    FillDeleltecombo();
+                }
             }
-            }catch(NullPointerException e){
-                /*αν επιλεχτει το κενό item στο jComboBox3 η 
-                jComboBox3.getSelectedItem().toString().equals("") δημιουργεί NullPointerException */
-                JOptionPane.showMessageDialog(null,"Παρακαλώ επιλεξτε ID ");
-            }catch(SQLException e){
-                JOptionPane.showMessageDialog(null,e);
-
+        }catch(NullPointerException e){
+            /*αν επιλεχτει  κενό item στο jComboBox3 η 
+            jComboBox3.getSelectedItem().toString().equals("") δημιουργεί NullPointerException */
+            JOptionPane.showMessageDialog(null,"Παρακαλώ επιλεξτε ID ");
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
         }
-
     }
     public static void Searchcase(){
-         /* η μέθοδος εμφανιζει τα στοιχεία του κρούσματος του οποίου το ID έχει επιλεχτεί 
+         /* η μέθοδος εμφανιζει στα textfields της casesSystem τα στοιχεία του κρούσματος του οποίου το ID έχει επιλεχτεί 
        στο jComboBoxSEARCHID τα  */
         try{
         int x =1;    
-        try{
             if("".equals(CasesSystem.jComboBoxSEARCHID.getSelectedItem().toString())){
-                x = 0;
-                JOptionPane.showMessageDialog(null,"Please select ID ");
+                x = 0;                       //αν επιλεχτει το κενο item στο combobox εμφανίζετε μήνυμα
+                JOptionPane.showMessageDialog(null,"Please select ID ");  //και η μέθοδος σταματάει εδώ
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        }
-        if (x==1){
+        if (x==1){  //αλλιώς πέρνει τα στοιχεία από τη βάση και τα εμφαίζει στα textfields
             String ssql = "select * from OVERALLCASES where ID =?";
-           CasesSystem.pst = CasesSystem.conn.prepareStatement(ssql);
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(ssql);
             CasesSystem.pst.setString(1,CasesSystem.jComboBoxSEARCHID.getSelectedItem().toString());
             CasesSystem.rs=CasesSystem.pst.executeQuery();
             if(CasesSystem.rs.next()){
@@ -161,21 +180,73 @@ public class DAO  {
             CasesSystem.pst.close();
             CasesSystem.rs.close();
         } 
-    }catch(HeadlessException | SQLException e){
+    }catch(SQLException e){
         JOptionPane.showMessageDialog(null,e);
     }
+    }
+    public static void SaveCases(){
+        /*αποθηκεύει στη βαση τα στοιχεία που έχει καταχωρίσει 
+        ο χρήστης στα jtextfields που περιγράφουν τα κρούσματα
+        */
+        
+        try{
+            //δημιουργειτε serial ID της μορφής CS+Currentdate+serialnumber για το κρούσμα
+            serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
+            String sqqql = "Insert into OVERALLCASES (ID,NAME,SURNAME,AGE,ADDRES,REGION,AMKA,PHONE,GENRE,DATE) values(?,?,?,?,?,?,?,?,?,?)";
+            //προστείθετε το κρούσμα στα συνολικά κρούσματα (πινακας OVERALLCASES της βάσης) 
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(sqqql);
+            CasesSystem.pst.setString(1,serial);
+            CasesSystem.pst.setString(2,CasesSystem.jTextFieldNAME.getText());
+            CasesSystem.pst.setString(3,CasesSystem.jTextFieldSURNAME.getText());
+            CasesSystem.pst.setString(4,CasesSystem.jTextFieldAGE.getText());
+            CasesSystem.pst.setString(5,CasesSystem.jTextFieldADDRES.getText());
+            CasesSystem.pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
+            CasesSystem.pst.setString(7,CasesSystem.jTextFieldAMKA.getText());
+            CasesSystem.pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
+            CasesSystem.pst.setString(9,CasesSystem.genre);
+            CasesSystem.pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
+            CasesSystem.pst.execute(); 
+            if(COUNT1 == 1 ){
+                /*Αν το AMKA που έχει καταχωρίσει ο χρήστης αντιστοιχεί σε πιθανό κρούσμα  
+                το κρούσμα διαγράφετε από τον πίνακα τών πιθανών κρουσμάτων*/
+                String b = "delete from PROB where AMKA = '"+CasesSystem.jTextFieldAMKA.getText()+"'";
+                CasesSystem.pst = CasesSystem.conn.prepareStatement(b);
+                CasesSystem.pst.execute();
+                CasesSystem.pst.close();
+            }
+            String sql = "Insert into CURRENTCASES (ID,NAME,SURNAME, AGE, ADDRES, REGION, AMKA, PHONE,GENRE,DATE) values (?,?,?,?,?,?,?,?,?,?)";
+            //προστείθετε το κρούσμα στα ενεργά κρούσματα (πινακας CURRENTCASES της βάσης)
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(sql);
+            CasesSystem.pst.setString(1,serial);
+            CasesSystem.pst.setString(2,CasesSystem.jTextFieldNAME.getText());
+            CasesSystem.pst.setString(3,CasesSystem.jTextFieldSURNAME.getText());
+            CasesSystem.pst.setString(4,CasesSystem.jTextFieldAGE.getText());
+            CasesSystem.pst.setString(5,CasesSystem.jTextFieldADDRES.getText());
+            CasesSystem.pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
+            CasesSystem.pst.setString(7,CasesSystem.jTextFieldAMKA.getText());
+            CasesSystem.pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
+            CasesSystem.pst.setString(9,CasesSystem.genre);
+            CasesSystem.pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
+            CasesSystem.jComboBoxSEARCHID.addItem(serial);
+            CasesSystem.pst.execute();
+            CasesSystem.pst.close();
+            JOptionPane.showMessageDialog(null,"cases saved");
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
     }
 
 
         public static void SaveProbCases(){
         try{
-            String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
+            
             int rows=CasesSystem.jTableProbableCases.getRowCount();
             String sqql = "Insert into PROB (RelatedID,NAME,SURNAME,AGE,ADDRES,REGION, AMKA, PHONE, GENRE,DATE) values (?,?,?,?,?,?,?,?,?,?)";
             CasesSystem.pst = CasesSystem.conn.prepareStatement(sqql);
             for(int roww = 0; roww< rows; roww++){
            // getting from Jtable1 
-                String RelatedID = Serial;
+                String RelatedID = serial;
                 String Name = (String)CasesSystem.jTableProbableCases.getValueAt(roww, 0);
                 String Surname = (String)CasesSystem.jTableProbableCases.getValueAt(roww, 1);
                 String Age = (String)CasesSystem.jTableProbableCases.getValueAt(roww, 2);
@@ -258,55 +329,11 @@ public class DAO  {
                 
         }
     }
-    
-    public static void SaveCases(){
-        /*αποθηκεύει στη βαση τα στοιχεία που έχει καταχωρίσει 
-        ο χρήστης στα jtextfields που περιγράφουν τα κρούσματα
+    public static void  createbarchartsCaseCategoryPerage(String ChartTitle, String Xlabel,String Ylabel,String Dbtable){
+       /*H μέθοδος δημιουργεί bar chart (αριθμός κρουσμάτων ανα ηλικιακό group) 
+        *το όρισμα dbtable δηλώνει από ποιό πίνακα της βάσης θα επιλεχτούν τα κρούσματα 
+        *χωρίζει 12 ηλικιακά group για το άξονα Χ του chart και τα περνάει στον πίνακα D
         */
-        
-        try{
-            String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
-            String sqqql = "Insert into OVERALLCASES (ID,NAME,SURNAME,AGE,ADDRES,REGION,AMKA,PHONE,GENRE,DATE) values(?,?,?,?,?,?,?,?,?,?)";
-            CasesSystem.pst = CasesSystem.conn.prepareStatement(sqqql);
-            CasesSystem.pst.setString(1,Serial);
-            CasesSystem.pst.setString(2,CasesSystem.jTextFieldNAME.getText());
-            CasesSystem.pst.setString(3,CasesSystem.jTextFieldSURNAME.getText());
-            CasesSystem.pst.setString(4,CasesSystem.jTextFieldAGE.getText());
-            CasesSystem.pst.setString(5,CasesSystem.jTextFieldADDRES.getText());
-            CasesSystem.pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
-            CasesSystem.pst.setString(7,CasesSystem.jTextFieldAMKA.getText());
-            CasesSystem.pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
-            CasesSystem.pst.setString(9,CasesSystem.genre);
-            CasesSystem.pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
-            CasesSystem.pst.execute(); 
-            if(COUNT1 == 1 ){
-                String b = "delete from PROB where AMKA = '"+CasesSystem.jTextFieldAMKA.getText()+"'";
-                CasesSystem.pst = CasesSystem.conn.prepareStatement(b);
-                CasesSystem.pst.execute();
-                CasesSystem.pst.close();
-            }
-            String sql = "Insert into CURRENTCASES (ID,NAME,SURNAME, AGE, ADDRES, REGION, AMKA, PHONE,GENRE,DATE) values (?,?,?,?,?,?,?,?,?,?)";
-            CasesSystem.pst = CasesSystem.conn.prepareStatement(sql);
-            CasesSystem.pst.setString(1,Serial);
-            CasesSystem.pst.setString(2,CasesSystem.jTextFieldNAME.getText());
-            CasesSystem.pst.setString(3,CasesSystem.jTextFieldSURNAME.getText());
-            CasesSystem.pst.setString(4,CasesSystem.jTextFieldAGE.getText());
-            CasesSystem.pst.setString(5,CasesSystem.jTextFieldADDRES.getText());
-            CasesSystem.pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
-            CasesSystem.pst.setString(7,CasesSystem.jTextFieldAMKA.getText());
-            CasesSystem.pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
-            CasesSystem.pst.setString(9,CasesSystem.genre);
-            CasesSystem.pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
-            CasesSystem.jComboBoxSEARCHID.addItem(Serial);
-            CasesSystem.pst.execute();
-            CasesSystem.pst.close();
-            JOptionPane.showMessageDialog(null,"cases saved");
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-        }
-        
-    }
-    public static void  createbarchartsCaseCategoryPerage(String a, String b,String c,String Dbtable){
         try{
             int k = 10;
             int[] ds = new int[13];
@@ -335,15 +362,19 @@ public class DAO  {
                 CasesSystem.pst.execute();
                 CasesSystem.rs = CasesSystem.pst.executeQuery();
                 CasesSystem.rs.next();
+                /*πέρνει τα counts μου για τα αντίστοιχα ηλικιακά groups απ τη βάση 
+                και τα περνάει στον πίνακα counts*/
                 counts[i-1] = CasesSystem.rs.getInt("count(AGE)");
             }
             CasesSystem.pst.close();
             CasesSystem.rs.next();
             DefaultCategoryDataset dataset = new DefaultCategoryDataset();
             for(int i = 0; i<=11; i++){
+                //δημιουργεί το dataset για το chart με 
+                //X: ηλικιακά group(D) Υ:αριθμος κρουσμάτων ανα ηλικιακό group(counts)
                 dataset.setValue(counts[i],"Values",D[i]);
             }
-            JFreeChart chart = ChartFactory.createBarChart3D(""+a+"",""+b+"",""+c+"",dataset,PlotOrientation.VERTICAL,false,true,false);
+            JFreeChart chart = ChartFactory.createBarChart3D(""+ChartTitle+"",""+Xlabel+"",""+Ylabel+"",dataset,PlotOrientation.VERTICAL,false,true,false);
             chart.setBackgroundPaint(Color.WHITE);
             chart.getTitle().setPaint(Color.red);
             CategoryPlot p = chart.getCategoryPlot();
@@ -351,8 +382,10 @@ public class DAO  {
             ChartFrame frame = new ChartFrame("bar chart",chart);
             frame.setVisible(true);
             frame.setSize(850,350);
-            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
-            int PromptResult = JOptionPane.showOptionDialog(null,"Do you want to save the chart","Save",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            String ObjButtons[] = {"Yes","No"};  
+            //ρωταει με OptionDialog αν θέλει ο χρήστη να αποθηκευτεί το διάγραμμα σε μορφή png
+            int PromptResult = JOptionPane.showOptionDialog(null,"Do you want to save the chart","Save",JOptionPane
+                    .DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION){
                 try{
                     final ChartRenderingInfo Info = new ChartRenderingInfo(new StandardEntityCollection());
@@ -377,8 +410,8 @@ public class DAO  {
         }
     }
     public static void createpieChartscasecatperage(String dbtable,String label){
-        /*Δημιουργεί pieChart κρουσματα ανα ηλικιακά group  
-        
+        /*η μεθοδος δημιουργεί και εμφανίζει Pie Chart (αριθμός κρουσμάτων ανα φύλο) 
+        *το όρισμα dbtable δηλώνει από ποιό πίνακα της βάσης θα επιλεχτούν τα κρούσματα 
         */
         try{
             String d1 = "0 - 20";
@@ -447,7 +480,7 @@ public class DAO  {
             ChartFrame frame = new ChartFrame("Pie Chart: "+label+"",chart);
             frame.setVisible(true);
             frame.setSize(450,500);
-            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
+            String ObjButtons[] = {"Yes","No"};  //ρωταει με OptionDialog αν θελει να αποθηκευτει το διάγραμμα σε μορφή png
             int PromptResult = JOptionPane.showOptionDialog(null,"Do you want to save the chart","Save",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION){
                 try{
@@ -473,10 +506,14 @@ public class DAO  {
             }
         }
     }
-    public static void createBarChartGender(String tble,String a,String b,String c){
+    public static void createBarChartGender(String dbtble,String ChartTitle, String Xlabel,String Ylabel){
+       /*η μεθοδος δημιουργεί και εμφανίζει Bar Chart (αριθμός κρουσμάτων ανα φύλο) 
+        *το όρισμα dbtable δηλώνει από ποιό πίνακα της βάσης θα επιλεχτούν τα κρούσματα 
+        */
+        
         try{
-            String q = "select count(*) from "+tble+" WHERE GENRE = 'Male'";
-            String m = "select count(*) from "+tble+" WHERE GENRE = 'Female'";
+            String q = "select count(*) from "+dbtble+" WHERE GENRE = 'Male'";
+            String m = "select count(*) from "+dbtble+" WHERE GENRE = 'Female'";
             CasesSystem.pst  = CasesSystem.conn.prepareStatement(q);
             CasesSystem.rs = CasesSystem.pst.executeQuery();
             CasesSystem.rs.next();
@@ -490,7 +527,7 @@ public class DAO  {
             DefaultCategoryDataset dataset = new DefaultCategoryDataset();
             dataset.setValue(v,"Males",d1);
             dataset.setValue(z,"Females",d2);
-            JFreeChart chart = ChartFactory.createBarChart3D(""+a+"",""+b+"",""+c+"",dataset,PlotOrientation.VERTICAL,false,true,false);
+            JFreeChart chart = ChartFactory.createBarChart3D(""+ChartTitle+"",""+Xlabel+"",""+Ylabel+"",dataset,PlotOrientation.VERTICAL,false,true,false);
             chart.setBackgroundPaint(Color.WHITE);
             chart.getTitle().setPaint(Color.red);
             CategoryPlot p = chart.getCategoryPlot();
@@ -498,28 +535,35 @@ public class DAO  {
             ChartFrame frame = new ChartFrame("bar chart",chart);
             frame.setVisible(true);
             frame.setSize(450,350);
-            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
+            String ObjButtons[] = {"Yes","No"};
+            //ρωταει με OptionDialog για την αποθήκευση του διαγράμματος, το διάγραμμα θα αποθηκευτεί σε μορφή png
             int PromptResult = JOptionPane.showOptionDialog(null,"Do you want to save the chart","Save",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION){
                 try{
                     final ChartRenderingInfo Info = new ChartRenderingInfo(new StandardEntityCollection());
+                    //
                     String x = new SimpleDateFormat("yyMMddHHmmssZ").format(new Date());
-                    final File file1 = new File("Chart"+x+".png");
+                    /*το διάγραμμα θα αποθηκευτεί σε μορφή png
+                    με όνομα την χρονική στιγμή της αποθήκευσης για να είναι uniq το όνομα του αρχείου*/
+                    final File file1 = new File("Chart"+new SimpleDateFormat("yyMMddHHmmssZ").format(new Date())+".png");
                     ChartUtilities.saveChartAsPNG(file1,chart,600,400,Info);
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(null,"α;");
+                }catch(IOException e){
+                    JOptionPane.showMessageDialog(null,"couldn't save Chart");
                 }
             }
 
         }catch(SQLException e){
-
+            JOptionPane.showMessageDialog(null,"η βάση δε μπόρεσε να ανταποκριθεί παρακαλώ");
         }
         
     }
-    public static void createpieChartsGender(String tble,String Label){
+    public static void createpieChartsGender(String dbtble,String Label){
+       /*η μεθοδος δημιουργεί και εμφανίζει Pie Chart (αριθμός κρουσμάτων ανα φύλο) 
+        *το όρισμα dbtable δηλώνει από ποιό πίνακα της βάσης θα επιλεχτούν τα κρούσματα 
+        */
         try{
-            String q = "select count(*) from "+tble+" WHERE GENRE = 'Male'";
-            String m = "select count(*) from "+tble+" WHERE GENRE = 'Female'";
+            String q = "select count(*) from "+dbtble+" WHERE GENRE = 'Male'";
+            String m = "select count(*) from "+dbtble+" WHERE GENRE = 'Female'";
             CasesSystem.pst  = CasesSystem.conn.prepareStatement(m);
             CasesSystem.rs = CasesSystem.pst.executeQuery();
             CasesSystem.rs.next();

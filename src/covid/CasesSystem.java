@@ -48,7 +48,7 @@ public class CasesSystem extends javax.swing.JFrame {
         initComponents();
         DAO.fillJtableCases("CURRENTCASES","ID","Active cases","");
         FillcomboCity();
-        FillcomboCity0();
+        FillcomboProbCity();
         Fillcombosearch();
         COUNT1 = 0;
         
@@ -79,24 +79,6 @@ public class CasesSystem extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
             }
     }
-    
-
-    public static void FillDeletecombo(){
-        try{
-            String sql = "Select * from CURRENTCASES";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            while(rs.next()){
-                String ID = rs.getString("ID");
-                jComboBoxDeleteId.addItem(ID);
-            }
-            rs.close();
-            pst.close();
-            }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            }
-    }
-    
     private static void delete_basedontime(){
         //Διαγράφει τα πιθανά κρούσματα μετά από 14 μέρες από την καταχώρισή τους
         try{
@@ -130,7 +112,7 @@ public class CasesSystem extends javax.swing.JFrame {
     }
     
 
-    private void FillcomboCity0(){
+    private void FillcomboProbCity(){
         /*γεμιζει τα items του jComboBoxCITY με τις πολεις
         του πινακα REGION της βάσης*/
         try{
@@ -596,6 +578,12 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jPanelDeathOrRestore.setBackground(new java.awt.Color(255, 153, 0));
         jPanelDeathOrRestore.setForeground(new java.awt.Color(204, 255, 255));
+
+        jComboBoxDeleteId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDeleteIdActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Case id:");
 
@@ -1336,7 +1324,8 @@ public class CasesSystem extends javax.swing.JFrame {
             .addComponent(jPanelCasesSystem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setBounds(0, 0, 1230, 585);
+        setSize(new java.awt.Dimension(1230, 585));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSAVEActionPerformed
@@ -1405,20 +1394,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private void jButtonDELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDELETEActionPerformed
         /*γεμίζει τα items του jComboboxid το οποίο βρίσκετε στο διάλογο jDialogDeathOrRestore
         με τα ID των CURRENTCASES */
-        try{
-            String sql = "Select * from CURRENTCASES";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            jComboBoxDeleteId.insertItemAt("", 0);
-            while(rs.next()){
-                String ID = rs.getString("ID");
-                jComboBoxDeleteId.addItem(ID);
-            }
-            rs.close();
-            pst.close();
-            }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            }
+        DAO.FillDeleltecombo();
         jDialogDeathOrRestore.setVisible(true);
     }//GEN-LAST:event_jButtonDELETEActionPerformed
 
@@ -2076,6 +2052,10 @@ public class CasesSystem extends javax.swing.JFrame {
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
         DAO.createbarchartsCaseCategoryPerage("Restores per age Group","age Group","Restores","HEAL");
     }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jComboBoxDeleteIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDeleteIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxDeleteIdActionPerformed
 
     /**
      * @param args the command line arguments
