@@ -260,7 +260,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldProbAmka">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldProbPhonNumbr">
@@ -1554,8 +1554,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jPaneltable" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jPaneltable" min="-2" pref="424" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jPanelIDSEARCH" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1937,8 +1937,8 @@
                           <Component id="jCheckBoxHealed" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="399" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="368" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

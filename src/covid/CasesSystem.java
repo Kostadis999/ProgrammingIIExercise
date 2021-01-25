@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 
 public class CasesSystem extends javax.swing.JFrame {
@@ -24,6 +25,7 @@ public class CasesSystem extends javax.swing.JFrame {
     public static int getValue;
     covid.DAO a = new covid.DAO();
     static int COUNT1;
+    
   
     public CasesSystem() {
         conn = covid.DAO.ConnectDB();
@@ -33,6 +35,10 @@ public class CasesSystem extends javax.swing.JFrame {
         FillcomboProbCity();
         Fillcombosearch();
         COUNT1 = 0;
+        AutoCompleteDecorator.decorate(jComboBoxCITY);
+        AutoCompleteDecorator.decorate(jComboBoxSEARCHID);
+        AutoCompleteDecorator.decorate(jComboBoxProbCity);
+        AutoCompleteDecorator.decorate(jComboBoxDeleteId);
     }
     public static void clearprobdialodtextfields(){
         jTextFieldProbName.setText("");
@@ -1124,8 +1130,8 @@ public class CasesSystem extends javax.swing.JFrame {
                     .addComponent(jCheckBoxPassed)
                     .addComponent(jCheckBoxHealed))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(201, 201, 201))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(232, 232, 232))
         );
 
         jCheckBox6.setBackground(new java.awt.Color(255, 153, 0));
@@ -1199,8 +1205,8 @@ public class CasesSystem extends javax.swing.JFrame {
             jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPaneltable, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPaneltable, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                         .addComponent(jPanelIDSEARCH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1672,18 +1678,13 @@ public class CasesSystem extends javax.swing.JFrame {
         /*η μέθοδος αφου ελέγξει τα στοιχεία που έχει καταχωρίσει ο χρήστης στα Textfields του διαλόγου 
         jDialogProbableCases προσθετει μία γραμμη με αυτά στον πίνακα jTableProbableCases*/
         try{
-        String quer = "SELECT COUNT(*) FROM OVERALLCASES WHERE AMKA = '"+jTextFieldProbAmka.getText()+"'";
-        pst = conn.prepareStatement(quer);
-        rs = pst.executeQuery();
-        rs.next();
-        int z = rs.getInt("COUNT(*)");
-        pst.close();
-        rs.close();
+        int b1 = DAO.seeifAMKAexists("PROB");
+        int b = DAO.seeifAMKAexists("OVERALLCASES");
         DefaultTableModel tb1model = (DefaultTableModel)jTableProbableCases.getModel();
         int j = jTableProbableCases.getRowCount();
         if(jTextFieldProbPhonNumbr.getText().equals("") || jTextFieldProbName.getText().equals("") || jTextFieldProbSurname.getText().equals("")
              || jTextFieldProbAge.getText().equals("") || jTextFieldProbAddres.getText().equals("") || jTextFieldProbAmka.getText().equals("")){    
-            JOptionPane.showMessageDialog(jDialogProbableCases, "Παρακαλώ συμπληρώστε όλα τα πεδία ");
+            JOptionPane.showMessageDialog(jDialogProbableCases, "Please fill all fields ");
         }
         else if (Integer.parseInt(jTextFieldProbAge.getText()) <= 0 || Integer.parseInt(jTextFieldProbAge.getText()) >120){
                
@@ -1693,13 +1694,17 @@ public class CasesSystem extends javax.swing.JFrame {
         else if (String.valueOf(jTextFieldProbAmka.getText()).length() != 12 ){   
             JOptionPane.showMessageDialog(jDialogProbableCases,  "Invalid AMKA");
                 }
-        else if (z == 1){
-                JOptionPane.showMessageDialog(jDialogProbableCases,"Παρακαλώ ο αριθμός AMKA που εισάγατε αντιστοιχεί σε άλλο ασθενή παρακαλώ εισάγετε έγκυρο AMKA");}
+        else if (b == 1|b1==1 ){
+                JOptionPane.showMessageDialog(jDialogProbableCases,"This AMKA is Related to another \n"
+                        + "patient please enter valid AMKA");}
         else{
             try{
-            String x = jTableProbableCases.getModel().getValueAt(j-1, 5).toString();
+            String ΑΜΚΑ = jTableProbableCases.getModel().getValueAt(j-1, 5).toString();
+            /*Το πρόγραμμα έχει ελενγξέι αν το ΑΜΚΑ που έχει εισάγει ο χρήστης βρίσκετε είδη στη βάση
+            αλλα δεν έχει ελένγξεί αν βρίσκετε στον πίνακα του διαλόγου jDialogProbableCases 
+            ελένγχεί αν βρίσκετε*/
              Object[] row  = new Object[8];
-             if (!x.equals(jTextFieldProbAmka.getText()) ){
+             if (!ΑΜΚΑ.equals(jTextFieldProbAmka.getText()) ){
                 row[0] = jTextFieldProbName.getText();
                 row[1] = jTextFieldProbSurname.getText();
                 row[2] = jTextFieldProbAge.getText();
@@ -1711,7 +1716,7 @@ public class CasesSystem extends javax.swing.JFrame {
                 tb1model.addRow(row);
             }
             else{
-               JOptionPane.showMessageDialog(jDialogProbableCases,"Παρακαλώ εισάγετε έγκυρο αριμό ΑΜΚΑ"); 
+               JOptionPane.showMessageDialog(jDialogProbableCases,"Please enter valid AMKA"); 
             }
 
             }catch(Exception e){
@@ -1725,6 +1730,8 @@ public class CasesSystem extends javax.swing.JFrame {
                 row[6] = jTextFieldProbPhonNumbr.getText();
                 row[7] = jComboBoxprobgenre.getSelectedItem().toString();
                 tb1model.addRow(row);
+                JOptionPane.showMessageDialog(jDialogProbableCases,e); 
+                //
             }
 
         }
@@ -2475,7 +2482,7 @@ public class CasesSystem extends javax.swing.JFrame {
     public static javax.swing.JTextField jTextFieldPHONENUMBER;
     private static javax.swing.JTextField jTextFieldProbAddres;
     private static javax.swing.JTextField jTextFieldProbAge;
-    private static javax.swing.JTextField jTextFieldProbAmka;
+    public static javax.swing.JTextField jTextFieldProbAmka;
     private static javax.swing.JTextField jTextFieldProbName;
     private static javax.swing.JTextField jTextFieldProbPhonNumbr;
     private static javax.swing.JTextField jTextFieldProbSurname;
