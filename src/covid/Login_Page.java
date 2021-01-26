@@ -51,18 +51,18 @@ public class Login_Page extends javax.swing.JFrame {
         SignUpButton = new javax.swing.JButton();
         BackToLogInButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelLoginFrame = new javax.swing.JPanel();
+        jPanelLoginInfo = new javax.swing.JPanel();
         PASSWORDTextField = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jLabelPass = new javax.swing.JLabel();
+        jLabelUname = new javax.swing.JLabel();
+        jButtonSignUp = new javax.swing.JButton();
         LOGINButton = new javax.swing.JButton();
         USERNAMETextField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelLoginIcon = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        jTextAreaCollab = new javax.swing.JTextArea();
+        jButtonHelp = new javax.swing.JButton();
 
         jDialogSignUp.setTitle("Sign up");
         jDialogSignUp.setBounds(new java.awt.Rectangle(400, 200, 394, 350));
@@ -193,20 +193,20 @@ public class Login_Page extends javax.swing.JFrame {
         setTitle("CCMS: Συστημα Καταχώρησης κρουσμάτων κορονοιού ");
         setResizable(false);
 
-        jPanel2.setBackground(new java.awt.Color(204, 0, 0));
+        jPanelLoginFrame.setBackground(new java.awt.Color(204, 0, 0));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 14))); // NOI18N
+        jPanelLoginInfo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 14))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel2.setText("Password:");
+        jLabelPass.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabelPass.setText("Password:");
 
-        jLabel1.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
-        jLabel1.setText("Username:");
+        jLabelUname.setFont(new java.awt.Font("Nirmala UI", 0, 14)); // NOI18N
+        jLabelUname.setText("Username:");
 
-        jButton2.setText("Sign up");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSignUp.setText("Sign up");
+        jButtonSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonSignUpActionPerformed(evt);
             }
         });
 
@@ -217,99 +217,99 @@ public class Login_Page extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelLoginInfoLayout = new javax.swing.GroupLayout(jPanelLoginInfo);
+        jPanelLoginInfo.setLayout(jPanelLoginInfoLayout);
+        jPanelLoginInfoLayout.setHorizontalGroup(
+            jPanelLoginInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLoginInfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                .addGroup(jPanelLoginInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelLoginInfoLayout.createSequentialGroup()
+                        .addGroup(jPanelLoginInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelUname)
+                            .addComponent(jLabelPass))
                         .addGap(32, 32, 32)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelLoginInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(USERNAMETextField, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
                             .addComponent(PASSWORDTextField)))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanelLoginInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(LOGINButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jButtonSignUp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jPanelLoginInfoLayout.setVerticalGroup(
+            jPanelLoginInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLoginInfoLayout.createSequentialGroup()
                 .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGroup(jPanelLoginInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUname)
                     .addComponent(USERNAMETextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                .addGroup(jPanelLoginInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPass)
                     .addComponent(PASSWORDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(LOGINButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2))
+                .addComponent(jButtonSignUp))
         );
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/cov.jpg"))); // NOI18N
+        jLabelLoginIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/cov.jpg"))); // NOI18N
 
-        jTextArea1.setBackground(new java.awt.Color(240, 240, 240));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Αντωνόπουλος Κωνσταντίνος\nΜαρία Gord\nΒασίλης Μίχας\nΧριστίνα Ιωάννα Σμυρλόγλου\nΠαναγιώτης Σερεμέτης \nΧριστίνα Βραγχλιότη\nΜαγδαλινή Λάη \n\n\n\n");
-        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "COLLABORATORS :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 0, 18))); // NOI18N
-        jTextArea1.setPreferredSize(new java.awt.Dimension(256, 150));
-        jScrollPane2.setViewportView(jTextArea1);
+        jTextAreaCollab.setBackground(new java.awt.Color(240, 240, 240));
+        jTextAreaCollab.setColumns(20);
+        jTextAreaCollab.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jTextAreaCollab.setRows(5);
+        jTextAreaCollab.setText("Αντωνόπουλος Κωνσταντίνος\nΜαρία Gord\nΒασίλης Μίχας\nΧριστίνα Ιωάννα Σμυρλόγλου\nΠαναγιώτης Σερεμέτης \nΧριστίνα Βραγχλιότη\nΜαγδαλινή Λάη \n\n\n\n");
+        jTextAreaCollab.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "COLLABORATORS :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI Semibold", 0, 18))); // NOI18N
+        jTextAreaCollab.setPreferredSize(new java.awt.Dimension(256, 150));
+        jScrollPane2.setViewportView(jTextAreaCollab);
 
-        jButton1.setText("Help");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonHelp.setText("Help");
+        jButtonHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonHelpActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton1)
+        javax.swing.GroupLayout jPanelLoginFrameLayout = new javax.swing.GroupLayout(jPanelLoginFrame);
+        jPanelLoginFrame.setLayout(jPanelLoginFrameLayout);
+        jPanelLoginFrameLayout.setHorizontalGroup(
+            jPanelLoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLoginFrameLayout.createSequentialGroup()
+                .addComponent(jButtonHelp)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanelLoginFrameLayout.createSequentialGroup()
+                .addGroup(jPanelLoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelLoginIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanelLoginFrameLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelLoginInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(67, 67, 67)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(444, 444, 444))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 358, Short.MAX_VALUE)
+        jPanelLoginFrameLayout.setVerticalGroup(
+            jPanelLoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLoginFrameLayout.createSequentialGroup()
+                .addComponent(jLabelLoginIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 358, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelLoginFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelLoginInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
-                .addComponent(jButton1))
+                .addComponent(jButtonHelp))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 617, Short.MAX_VALUE)
+            .addComponent(jPanelLoginFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 617, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelLoginFrame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -342,10 +342,10 @@ public class Login_Page extends javax.swing.JFrame {
 
     }//GEN-LAST:event_LOGINButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignUpActionPerformed
         jDialogSignUp.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonSignUpActionPerformed
 
     private void SignUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpButtonActionPerformed
         String query = "Select count(*)  from USERS where username = '"+jTextField1.getText()+"'";
@@ -372,7 +372,8 @@ public class Login_Page extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null,"User created Succesfully");
                         CasesSystem a = new CasesSystem();
                         a.setVisible(true);
-                        dispose();
+                        jDialogSignUp.dispose();
+                        this.dispose();
                     }
                     else{
                         JOptionPane.showMessageDialog(null,"'Password' and 'Retype Password' fields don't match");
@@ -391,12 +392,12 @@ public class Login_Page extends javax.swing.JFrame {
         this.setVisible(true);
     }//GEN-LAST:event_BackToLogInButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
         JOptionPane.showMessageDialog(this," Welcome to CCMS!!! \n\n\nCCMS is a Covid Cases Management System."
         +"\nif it is your first time using this app from this pc"
         +"\ncreate a user to enter the system"
         +"by pressing the Sign up button. \nOnce your user has been succesfully create you will automatically enter the system.");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonHelpActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         JOptionPane.showMessageDialog(jDialogSignUp,"fill the textfileds with your prefered credentials\n"
@@ -444,25 +445,25 @@ public class Login_Page extends javax.swing.JFrame {
     private javax.swing.JPasswordField PASSWORDTextField;
     private javax.swing.JButton SignUpButton;
     public static javax.swing.JTextField USERNAMETextField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonHelp;
+    private javax.swing.JButton jButtonSignUp;
     private javax.swing.JDialog jDialogSignUp;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jLabelLoginIcon;
+    private javax.swing.JLabel jLabelPass;
+    private javax.swing.JLabel jLabelUname;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelLoginFrame;
+    private javax.swing.JPanel jPanelLoginInfo;
     public static javax.swing.JPanel jPanelSignUp;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaCollab;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables

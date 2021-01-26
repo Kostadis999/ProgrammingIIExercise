@@ -199,7 +199,7 @@ public class DAO  {
             CasesSystem.pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
             CasesSystem.pst.setString(7,CasesSystem.jTextFieldAMKA.getText());
             CasesSystem.pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
-            CasesSystem.pst.setString(9,CasesSystem.genre);
+            CasesSystem.pst.setString(9,CasesSystem.gender);
             CasesSystem.pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
             CasesSystem.pst.execute(); 
             if(COUNT1 == 1 ){
@@ -221,7 +221,7 @@ public class DAO  {
             CasesSystem.pst.setString(6,CasesSystem.jComboBoxCITY.getSelectedItem().toString());
             CasesSystem.pst.setString(7,CasesSystem.jTextFieldAMKA.getText());
             CasesSystem.pst.setString(8,CasesSystem.jTextFieldPHONENUMBER.getText());
-            CasesSystem.pst.setString(9,CasesSystem.genre);
+            CasesSystem.pst.setString(9,CasesSystem.gender);
             CasesSystem.pst.setString(10,new SimpleDateFormat("dd-MM-yyy").format(new Date()));
             CasesSystem.jComboBoxSEARCHID.addItem(serial);
             CasesSystem.pst.execute();
@@ -612,6 +612,67 @@ public class DAO  {
 
         }
     }
+    public static void makeandshowreport(String DBtable,String repLabel,String caseCateg){
+        /*η μέθοδος δημιουργρεί κάποιοα αποτελέσματα χρησιμοποιώντας τη sql.
+         *Tα αποτελέσματα θα γίνουν με βάση τον πίνακα που δηλώνεται ως όρισμα 'DBtable'.
+         *Τελος η μεθοδος θα περάσει τα αποτελέσματα στα textfields του διαλόγου 
+         *jDialogDatadisplay και θα τον εμφανίσει.
+         */
+        CasesSystem.jLabelrepTitle.setText(repLabel);
+        try{
+            String sql = "select avg(AGE),min(AGE),max(AGE),count(*) from "+DBtable+"";
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(sql);
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int avg = CasesSystem.rs.getInt("avg(AGE)");
+            int min = CasesSystem.rs.getInt("min(AGE)");
+            int max = CasesSystem.rs.getInt("max(AGE)");
+            int G = CasesSystem.rs.getInt("count(*)");
+            CasesSystem.rs.close();
+            String ss = "select count(*) from CURRENTCASES where GENRE = 'Male'";
+            String XX = "select count(*) from CURRENTCASES where GENRE = 'Female'";
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(ss);
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int V = CasesSystem.rs.getInt("count(*)");
+            CasesSystem.rs.close();
+            CasesSystem.pst = CasesSystem.conn.prepareStatement(XX);
+            CasesSystem.rs = CasesSystem.pst.executeQuery();
+            CasesSystem.rs.next();
+            int b = CasesSystem.rs.getInt("count(*)");
+            CasesSystem.rs.close();
+            CasesSystem.casescountlabel.setText("Count of "+caseCateg+" cases: '"+G+"' ");
+            CasesSystem.rs.close();
+            CasesSystem.Minagecaselabel.setText("minimum age recorded: '"+min+"'");
+            CasesSystem.rs.close();
+            CasesSystem.maxagecaselabel.setText("Maximun age recorded: '"+max+"'");
+            CasesSystem.rs.close();
+            CasesSystem.AvgageofcasesLabel.setText("AVG age of "+caseCateg+" cases:'"+avg+"'");
+            CasesSystem.rs.close();
+            CasesSystem.MalecasesLabel.setText("Count of male "+caseCateg+" cases:'"+V+"'");
+            CasesSystem.rs.close();
+            CasesSystem.Femalecaseslabel.setText("Count of female "+caseCateg+" cases: '"+b+"'");
+            CasesSystem.rs.close();
+            CasesSystem.jDialogDatadisplay.setVisible(true);
+            CasesSystem.rs.close();
+           /*βλεπετε έχουμε βάλει παντου rs.close() γιατι η μέθοδος μας έκανε generate 
+            *sql busy exception. Εν τέλει δούλεψε έτσι οπότε δεν το αλλάξαμε.
+            */
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e);
+            
+        }finally{
+           try{
+             CasesSystem.pst.close();
+            CasesSystem.rs.close();  
+           }catch(Exception e){
+                JOptionPane.showMessageDialog(null,e);
+    
+           }
+        }
+    }
+        
     
     
 } 

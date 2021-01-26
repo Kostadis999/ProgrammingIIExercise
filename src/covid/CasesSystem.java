@@ -18,7 +18,7 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 
 public class CasesSystem extends javax.swing.JFrame {
-    static String genre;
+    static String gender;
     static Connection conn = null;
     static ResultSet rs = null;
     static PreparedStatement pst = null;
@@ -124,7 +124,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private void initComponents() {
 
         jDialogProbableCases = new javax.swing.JDialog();
-        jPanelDialog = new javax.swing.JPanel();
+        jPanelProbDialog = new javax.swing.JPanel();
         jPanelProbableInfo = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -142,56 +142,56 @@ public class CasesSystem extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jComboBoxProbCity = new javax.swing.JComboBox<>();
         jComboBoxprobgenre = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPaneprobtable = new javax.swing.JScrollPane();
         jTableProbableCases = new javax.swing.JTable();
         jButtonAddProb = new javax.swing.JButton();
         jButtonRemove = new javax.swing.JButton();
         jButtonFinish = new javax.swing.JButton();
         jDialogDatadisplay = new javax.swing.JDialog();
         jPanelDataDisplay = new javax.swing.JPanel();
-        jPanelData2 = new javax.swing.JPanel();
+        jPanelReports = new javax.swing.JPanel();
         casescountlabel = new javax.swing.JLabel();
         MalecasesLabel = new javax.swing.JLabel();
         maxagecaselabel = new javax.swing.JLabel();
         Minagecaselabel = new javax.swing.JLabel();
         AvgageofcasesLabel = new javax.swing.JLabel();
         Femalecaseslabel = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelrepTitle = new javax.swing.JLabel();
         jDialogDeathOrRestore = new javax.swing.JDialog();
         jPanelDeathOrRestore = new javax.swing.JPanel();
         jComboBoxDeleteId = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelCaseid = new javax.swing.JLabel();
         PassedButton = new javax.swing.JButton();
         HealButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonDeactivateHelp = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jDialogManual = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanelManual = new javax.swing.JPanel();
+        jTabbedPaneManual = new javax.swing.JTabbedPane();
+        jPanelManual1 = new javax.swing.JPanel();
+        jLabelMan1 = new javax.swing.JLabel();
+        jScrollPaneMan1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jPanelManual2 = new javax.swing.JPanel();
+        jLabelMan2 = new javax.swing.JLabel();
+        jScrollPaneMan2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        jPanelManual3 = new javax.swing.JPanel();
+        jLabelMan3 = new javax.swing.JLabel();
+        jScrollPaneMan3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
+        jPanelManual4 = new javax.swing.JPanel();
+        jLabelMan4 = new javax.swing.JLabel();
+        jScrollPaneMan4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
+        jPanelManual5 = new javax.swing.JPanel();
+        jLabelMan5 = new javax.swing.JLabel();
+        jScrollPaneMan5 = new javax.swing.JScrollPane();
         jTextArea5 = new javax.swing.JTextArea();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
+        jPanelManual6 = new javax.swing.JPanel();
+        jLabelMan6 = new javax.swing.JLabel();
+        jScrollPaneMan6 = new javax.swing.JScrollPane();
         jTextArea6 = new javax.swing.JTextArea();
         jPanelCasesSystem = new javax.swing.JPanel();
         jPanelIDSEARCH = new javax.swing.JPanel();
@@ -217,9 +217,9 @@ public class CasesSystem extends javax.swing.JFrame {
         jTextFieldCITY = new javax.swing.JTextField();
         jTextFieldAMKA = new javax.swing.JTextField();
         jTextFieldPHONENUMBER = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jButtonExit = new javax.swing.JButton();
         jPaneltable = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPaneCasesTable = new javax.swing.JScrollPane();
         jTableCases = new javax.swing.JTable();
         jCheckBoxCurrentCases = new javax.swing.JCheckBox();
         jCheckBoxProbCases = new javax.swing.JCheckBox();
@@ -229,45 +229,46 @@ public class CasesSystem extends javax.swing.JFrame {
         jCheckBox6 = new javax.swing.JCheckBox();
         jCheckBox7 = new javax.swing.JCheckBox();
         HelpButton = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        Systemmenubar = new javax.swing.JMenuBar();
         jMenuReports = new javax.swing.JMenu();
         jMenuItemActiveCasesReport = new javax.swing.JMenuItem();
         jMenuItemTotalCasesReport = new javax.swing.JMenuItem();
         jMenuItemPassedReport = new javax.swing.JMenuItem();
         jMenuItemRestoredReport = new javax.swing.JMenuItem();
+        jMenuItemProbablesreport = new javax.swing.JMenuItem();
         jMenuDiagrams = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem17 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem18 = new javax.swing.JMenuItem();
-        jMenu10 = new javax.swing.JMenu();
-        jMenuItem19 = new javax.swing.JMenuItem();
-        jMenuItem20 = new javax.swing.JMenuItem();
-        jMenu11 = new javax.swing.JMenu();
-        jMenuItem21 = new javax.swing.JMenuItem();
-        jMenuItem22 = new javax.swing.JMenuItem();
-        jMenu12 = new javax.swing.JMenu();
-        jMenuItem23 = new javax.swing.JMenuItem();
-        jMenuItem24 = new javax.swing.JMenuItem();
-        jMenu13 = new javax.swing.JMenu();
-        jMenuItem25 = new javax.swing.JMenuItem();
-        jMenuItem26 = new javax.swing.JMenuItem();
+        jMenuAgediagrams = new javax.swing.JMenu();
+        jMenuTotalperAge = new javax.swing.JMenu();
+        jMenuItemTotalPieAge = new javax.swing.JMenuItem();
+        jMenuItemTotalBarage = new javax.swing.JMenuItem();
+        jMenuActiveperage = new javax.swing.JMenu();
+        jMenuItemActivePieAge = new javax.swing.JMenuItem();
+        jMenuItemActiveBarage = new javax.swing.JMenuItem();
+        jMenuProbableperage = new javax.swing.JMenu();
+        jMenuItemProbPieage = new javax.swing.JMenuItem();
+        jMenuItemProbBarAge = new javax.swing.JMenuItem();
+        jMenuDeathsperage = new javax.swing.JMenu();
+        jMenuItemDeathspieage = new javax.swing.JMenuItem();
+        jMenuItemDeathsbarAge = new javax.swing.JMenuItem();
+        jMenuRestoresperage = new javax.swing.JMenu();
+        jMenuItemRessPieage = new javax.swing.JMenuItem();
+        jMenuItemressBarAge = new javax.swing.JMenuItem();
+        jMenuGenderDiagrams = new javax.swing.JMenu();
+        jMenuTotalpergender = new javax.swing.JMenu();
+        jMenuItemPieTotal = new javax.swing.JMenuItem();
+        jMenuItemBarTotal = new javax.swing.JMenuItem();
+        jMenuActivepergender = new javax.swing.JMenu();
+        jMenuItemPieActive = new javax.swing.JMenuItem();
+        jMenuItemBarActive = new javax.swing.JMenuItem();
+        jMenuProbablepergender = new javax.swing.JMenu();
+        jMenuItemPieProb = new javax.swing.JMenuItem();
+        jMenuItemBarProb = new javax.swing.JMenuItem();
+        jMenuDeathspergender = new javax.swing.JMenu();
+        jMenuItemPieDeaths = new javax.swing.JMenuItem();
+        jMenuItemBarDeaths = new javax.swing.JMenuItem();
+        jMenuHealspergender = new javax.swing.JMenu();
+        jMenuItemPieHeals = new javax.swing.JMenuItem();
+        jMenuItemBarHeals = new javax.swing.JMenuItem();
         jMenuOptions = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -287,8 +288,8 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         });
 
-        jPanelDialog.setBackground(new java.awt.Color(255, 153, 0));
-        jPanelDialog.setForeground(new java.awt.Color(204, 255, 255));
+        jPanelProbDialog.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelProbDialog.setForeground(new java.awt.Color(204, 255, 255));
 
         jPanelProbableInfo.setBorder(javax.swing.BorderFactory.createTitledBorder("Probable Case Info"));
 
@@ -403,7 +404,7 @@ public class CasesSystem extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTableProbableCases);
+        jScrollPaneprobtable.setViewportView(jTableProbableCases);
 
         jButtonAddProb.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
         jButtonAddProb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/Button-Add-icon.png"))); // NOI18N
@@ -430,40 +431,40 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanelDialogLayout = new javax.swing.GroupLayout(jPanelDialog);
-        jPanelDialog.setLayout(jPanelDialogLayout);
-        jPanelDialogLayout.setHorizontalGroup(
-            jPanelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelDialogLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelProbDialogLayout = new javax.swing.GroupLayout(jPanelProbDialog);
+        jPanelProbDialog.setLayout(jPanelProbDialogLayout);
+        jPanelProbDialogLayout.setHorizontalGroup(
+            jPanelProbDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelProbDialogLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanelProbableInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelDialogLayout.createSequentialGroup()
+                .addGroup(jPanelProbDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelProbDialogLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelProbDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonAddProb, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+                        .addComponent(jScrollPaneprobtable, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDialogLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProbDialogLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonFinish, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(85, 85, 85))))
         );
-        jPanelDialogLayout.setVerticalGroup(
-            jPanelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelDialogLayout.createSequentialGroup()
-                .addGroup(jPanelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelDialogLayout.createSequentialGroup()
+        jPanelProbDialogLayout.setVerticalGroup(
+            jPanelProbDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelProbDialogLayout.createSequentialGroup()
+                .addGroup(jPanelProbDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelProbDialogLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addGroup(jPanelDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelProbDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanelProbableInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelDialogLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelProbDialogLayout.createSequentialGroup()
+                                .addComponent(jScrollPaneprobtable, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButtonFinish))))
-                    .addGroup(jPanelDialogLayout.createSequentialGroup()
+                    .addGroup(jPanelProbDialogLayout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(jButtonAddProb)
                         .addGap(33, 33, 33)
@@ -475,11 +476,11 @@ public class CasesSystem extends javax.swing.JFrame {
         jDialogProbableCases.getContentPane().setLayout(jDialogProbableCasesLayout);
         jDialogProbableCasesLayout.setHorizontalGroup(
             jDialogProbableCasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelProbDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDialogProbableCasesLayout.setVerticalGroup(
             jDialogProbableCasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelProbDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jDialogDatadisplay.setBounds(new java.awt.Rectangle(400, 400, 400, 400));
@@ -491,8 +492,8 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jPanelDataDisplay.setBackground(new java.awt.Color(255, 153, 0));
 
-        jPanelData2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelData2.setBorder(javax.swing.BorderFactory.createTitledBorder("DATA"));
+        jPanelReports.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelReports.setBorder(javax.swing.BorderFactory.createTitledBorder("DATA"));
 
         casescountlabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         casescountlabel.setText("Number of current cases:");
@@ -512,27 +513,27 @@ public class CasesSystem extends javax.swing.JFrame {
         Femalecaseslabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         Femalecaseslabel.setText("jLabel17");
 
-        javax.swing.GroupLayout jPanelData2Layout = new javax.swing.GroupLayout(jPanelData2);
-        jPanelData2.setLayout(jPanelData2Layout);
-        jPanelData2Layout.setHorizontalGroup(
-            jPanelData2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelData2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelReportsLayout = new javax.swing.GroupLayout(jPanelReports);
+        jPanelReports.setLayout(jPanelReportsLayout);
+        jPanelReportsLayout.setHorizontalGroup(
+            jPanelReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelReportsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelData2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(casescountlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                     .addComponent(Minagecaselabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(maxagecaselabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(AvgageofcasesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanelData2Layout.createSequentialGroup()
-                        .addGroup(jPanelData2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelReportsLayout.createSequentialGroup()
+                        .addGroup(jPanelReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(MalecasesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                             .addComponent(Femalecaseslabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(0, 0, 0))
         );
-        jPanelData2Layout.setVerticalGroup(
-            jPanelData2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelData2Layout.createSequentialGroup()
+        jPanelReportsLayout.setVerticalGroup(
+            jPanelReportsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelReportsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(casescountlabel)
                 .addGap(18, 18, 18)
@@ -548,7 +549,7 @@ public class CasesSystem extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabelrepTitle.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanelDataDisplayLayout = new javax.swing.GroupLayout(jPanelDataDisplay);
         jPanelDataDisplay.setLayout(jPanelDataDisplayLayout);
@@ -558,19 +559,19 @@ public class CasesSystem extends javax.swing.JFrame {
                 .addContainerGap(55, Short.MAX_VALUE)
                 .addGroup(jPanelDataDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDataDisplayLayout.createSequentialGroup()
-                        .addComponent(jPanelData2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelReports, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDataDisplayLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelrepTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69))))
         );
         jPanelDataDisplayLayout.setVerticalGroup(
             jPanelDataDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDataDisplayLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelrepTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jPanelData2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelReports, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(89, 89, 89))
         );
 
@@ -597,7 +598,7 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Case id:");
+        jLabelCaseid.setText("Case id:");
 
         PassedButton.setText("Απεβίωσε");
         PassedButton.addActionListener(new java.awt.event.ActionListener() {
@@ -613,11 +614,11 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/info.png"))); // NOI18N
-        jButton1.setText("Help");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDeactivateHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/info.png"))); // NOI18N
+        jButtonDeactivateHelp.setText("Help");
+        jButtonDeactivateHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonDeactivateHelpActionPerformed(evt);
             }
         });
 
@@ -627,7 +628,7 @@ public class CasesSystem extends javax.swing.JFrame {
             jPanelDeathOrRestoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDeathOrRestoreLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabelCaseid)
                 .addGap(18, 18, 18)
                 .addComponent(jComboBoxDeleteId, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
@@ -636,7 +637,7 @@ public class CasesSystem extends javax.swing.JFrame {
                 .addComponent(HealButton)
                 .addContainerGap(31, Short.MAX_VALUE))
             .addGroup(jPanelDeathOrRestoreLayout.createSequentialGroup()
-                .addComponent(jButton1)
+                .addComponent(jButtonDeactivateHelp)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelDeathOrRestoreLayout.setVerticalGroup(
@@ -644,12 +645,12 @@ public class CasesSystem extends javax.swing.JFrame {
             .addGroup(jPanelDeathOrRestoreLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelDeathOrRestoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabelCaseid)
                     .addComponent(jComboBoxDeleteId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PassedButton)
                     .addComponent(HealButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jButtonDeactivateHelp)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -667,207 +668,207 @@ public class CasesSystem extends javax.swing.JFrame {
         jDialogManual.setTitle("User Maual");
         jDialogManual.setBounds(new java.awt.Rectangle(400, 200, 462, 470));
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelManual.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelManual.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/Screenshot (132).png"))); // NOI18N
+        jLabelMan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/Screenshot (132).png"))); // NOI18N
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setText("If you want to save a case in CCMS you just have \nto fill the textfields with the required \ninformation of the patient and click the Save \ncase button. If the data inserted is valid you\nwill proceed to the 'Register probable cases' \ndialog to Register any Person that is related to \nthe patient and might be a also infected with \ncovid.\n\n");
-        jScrollPane3.setViewportView(jTextArea1);
+        jScrollPaneMan1.setViewportView(jTextArea1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelManual1Layout = new javax.swing.GroupLayout(jPanelManual1);
+        jPanelManual1.setLayout(jPanelManual1Layout);
+        jPanelManual1Layout.setHorizontalGroup(
+            jPanelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelManual1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(jLabelMan1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane3)
+            .addGroup(jPanelManual1Layout.createSequentialGroup()
+                .addComponent(jScrollPaneMan1)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        jPanelManual1Layout.setVerticalGroup(
+            jPanelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelManual1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneMan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelMan1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
 
-        jTabbedPane1.addTab("Save case", jPanel2);
+        jTabbedPaneManual.addTab("Save case", jPanelManual1);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/iconmaualdeacctivate.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
+        jLabelMan2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/iconmaualdeacctivate.png"))); // NOI18N
+        jLabelMan2.setText("jLabel3");
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jTextArea2.setText("If you want to deactivate a case and you press\nthe 'Deactivate case' button the deactivate case\ndialog will pop up as shown bellow. You should\nchoose the id of the case that you wish to \ndeactivate and define wether he Passed or he \nRestored from covid 19. The case will be deleted\nfrom the active cases and inserted to the Passed\nor Restored cases accordingly \n");
-        jScrollPane4.setViewportView(jTextArea2);
+        jScrollPaneMan2.setViewportView(jTextArea2);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelManual2Layout = new javax.swing.GroupLayout(jPanelManual2);
+        jPanelManual2.setLayout(jPanelManual2Layout);
+        jPanelManual2Layout.setHorizontalGroup(
+            jPanelManual2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelManual2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelManual2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneMan2)
+                    .addGroup(jPanelManual2Layout.createSequentialGroup()
+                        .addComponent(jLabelMan2, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        jPanelManual2Layout.setVerticalGroup(
+            jPanelManual2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelManual2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneMan2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(jLabelMan2)
                 .addGap(31, 31, 31))
         );
 
-        jTabbedPane1.addTab("Deactivate case", jPanel3);
+        jTabbedPaneManual.addTab("Deactivate case", jPanelManual2);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/manualiconcolor.png"))); // NOI18N
+        jLabelMan3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/manualiconcolor.png"))); // NOI18N
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jTextArea3.setText("If you want to change the colour of the app\nyou can go to Options>Change dolours> and you\nthe colour of your preference as shown bellow.");
-        jScrollPane5.setViewportView(jTextArea3);
+        jScrollPaneMan3.setViewportView(jTextArea3);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelManual3Layout = new javax.swing.GroupLayout(jPanelManual3);
+        jPanelManual3.setLayout(jPanelManual3Layout);
+        jPanelManual3Layout.setHorizontalGroup(
+            jPanelManual3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelManual3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5))
+                .addGroup(jPanelManual3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelMan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneMan3))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+        jPanelManual3Layout.setVerticalGroup(
+            jPanelManual3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelManual3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneMan3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(jLabelMan3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Change colour", jPanel5);
+        jTabbedPaneManual.addTab("Change colour", jPanelManual3);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/diagramsmanualimg.png"))); // NOI18N
+        jLabelMan4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/diagramsmanualimg.png"))); // NOI18N
 
         jTextArea4.setColumns(20);
         jTextArea4.setRows(5);
         jTextArea4.setText("If you want to create a diagram go to the \n'Diagrams' menu and choose the diagram of your \nliking. You can make diagrams per gender and \nper age, either pie or bar as shown bellow");
-        jScrollPane6.setViewportView(jTextArea4);
+        jScrollPaneMan4.setViewportView(jTextArea4);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelManual4Layout = new javax.swing.GroupLayout(jPanelManual4);
+        jPanelManual4.setLayout(jPanelManual4Layout);
+        jPanelManual4Layout.setHorizontalGroup(
+            jPanelManual4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelManual4Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6))
+                .addGroup(jPanelManual4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelMan4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneMan4))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+        jPanelManual4Layout.setVerticalGroup(
+            jPanelManual4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelManual4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneMan4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelMan4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
         );
 
-        jTabbedPane1.addTab("Make diagrams", jPanel6);
+        jTabbedPaneManual.addTab("Make diagrams", jPanelManual4);
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/manualreportimg.png"))); // NOI18N
+        jLabelMan5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/manualreportimg.png"))); // NOI18N
 
         jTextArea5.setColumns(20);
         jTextArea5.setRows(5);
         jTextArea5.setText("If you want to see reports about the cases you can\ngo to the 'Reports' menu and choose the case \ncategory that you want the report to be about as \nshown bellow.");
-        jScrollPane7.setViewportView(jTextArea5);
+        jScrollPaneMan5.setViewportView(jTextArea5);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelManual5Layout = new javax.swing.GroupLayout(jPanelManual5);
+        jPanelManual5.setLayout(jPanelManual5Layout);
+        jPanelManual5Layout.setHorizontalGroup(
+            jPanelManual5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelManual5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
+                .addGroup(jPanelManual5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelManual5Layout.createSequentialGroup()
+                        .addComponent(jLabelMan5)
                         .addGap(0, 7, Short.MAX_VALUE))
-                    .addComponent(jScrollPane7))
+                    .addComponent(jScrollPaneMan5))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanelManual5Layout.setVerticalGroup(
+            jPanelManual5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelManual5Layout.createSequentialGroup()
+                .addComponent(jScrollPaneMan5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelMan5, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
 
-        jTabbedPane1.addTab("Reports", jPanel4);
+        jTabbedPaneManual.addTab("Reports", jPanelManual5);
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/manualdelteimg.png"))); // NOI18N
+        jLabelMan6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/covid/manualdelteimg.png"))); // NOI18N
 
         jTextArea6.setColumns(20);
         jTextArea6.setRows(5);
         jTextArea6.setText("If you want to delete all cases from the table\npress go to the Options menu and click Delete \ndata as shown bellow ");
-        jScrollPane8.setViewportView(jTextArea6);
+        jScrollPaneMan6.setViewportView(jTextArea6);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelManual6Layout = new javax.swing.GroupLayout(jPanelManual6);
+        jPanelManual6.setLayout(jPanelManual6Layout);
+        jPanelManual6Layout.setHorizontalGroup(
+            jPanelManual6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelManual6Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8))
+                .addGroup(jPanelManual6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelMan6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneMan6))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanelManual6Layout.setVerticalGroup(
+            jPanelManual6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelManual6Layout.createSequentialGroup()
+                .addComponent(jScrollPaneMan6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelMan6, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
-        jTabbedPane1.addTab("Delete tables", jPanel7);
+        jTabbedPaneManual.addTab("Delete tables", jPanelManual6);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelManualLayout = new javax.swing.GroupLayout(jPanelManual);
+        jPanelManual.setLayout(jPanelManualLayout);
+        jPanelManualLayout.setHorizontalGroup(
+            jPanelManualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelManualLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPaneManual, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(68, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelManualLayout.setVerticalGroup(
+            jPanelManualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelManualLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPaneManual, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
@@ -875,11 +876,11 @@ public class CasesSystem extends javax.swing.JFrame {
         jDialogManual.getContentPane().setLayout(jDialogManualLayout);
         jDialogManualLayout.setHorizontalGroup(
             jDialogManualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelManual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jDialogManualLayout.setVerticalGroup(
             jDialogManualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelManual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1024,10 +1025,10 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("EXIT");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonExit.setText("EXIT");
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonExitActionPerformed(evt);
             }
         });
 
@@ -1046,7 +1047,7 @@ public class CasesSystem extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTableCases);
+        jScrollPaneCasesTable.setViewportView(jTableCases);
 
         jCheckBoxCurrentCases.setBackground(new java.awt.Color(0, 0, 0));
         buttonGroup1.add(jCheckBoxCurrentCases);
@@ -1105,7 +1106,7 @@ public class CasesSystem extends javax.swing.JFrame {
             .addGroup(jPaneltableLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPaneltableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPaneCasesTable)
                     .addGroup(jPaneltableLayout.createSequentialGroup()
                         .addComponent(jCheckBoxCurrentCases, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -1130,7 +1131,7 @@ public class CasesSystem extends javax.swing.JFrame {
                     .addComponent(jCheckBoxPassed)
                     .addComponent(jCheckBoxHealed))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneCasesTable, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(232, 232, 232))
         );
 
@@ -1170,7 +1171,7 @@ public class CasesSystem extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButtonSAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1242,7 +1243,7 @@ public class CasesSystem extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonDELETE)
-                            .addComponent(jButton2))))
+                            .addComponent(jButtonExit))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
@@ -1280,219 +1281,227 @@ public class CasesSystem extends javax.swing.JFrame {
         });
         jMenuReports.add(jMenuItemRestoredReport);
 
-        jMenuBar1.add(jMenuReports);
+        jMenuItemProbablesreport.setText("Probable cases");
+        jMenuItemProbablesreport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemProbablesreportActionPerformed(evt);
+            }
+        });
+        jMenuReports.add(jMenuItemProbablesreport);
+
+        Systemmenubar.add(jMenuReports);
 
         jMenuDiagrams.setText("Diagrams");
 
-        jMenu2.setText("Age");
+        jMenuAgediagrams.setText("Age");
 
-        jMenu4.setText("Total cases per age");
+        jMenuTotalperAge.setText("Total cases per age");
 
-        jMenuItem8.setText("Pie Chart");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemTotalPieAge.setText("Pie Chart");
+        jMenuItemTotalPieAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                jMenuItemTotalPieAgeActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem8);
+        jMenuTotalperAge.add(jMenuItemTotalPieAge);
 
-        jMenuItem9.setText("Bar Chart");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemTotalBarage.setText("Bar Chart");
+        jMenuItemTotalBarage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                jMenuItemTotalBarageActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem9);
+        jMenuTotalperAge.add(jMenuItemTotalBarage);
 
-        jMenu2.add(jMenu4);
+        jMenuAgediagrams.add(jMenuTotalperAge);
 
-        jMenu5.setText("Active cases per age");
+        jMenuActiveperage.setText("Active cases per age");
 
-        jMenuItem10.setText("Pie Chart");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemActivePieAge.setText("Pie Chart");
+        jMenuItemActivePieAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
+                jMenuItemActivePieAgeActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem10);
+        jMenuActiveperage.add(jMenuItemActivePieAge);
 
-        jMenuItem11.setText("Bar Chart");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemActiveBarage.setText("Bar Chart");
+        jMenuItemActiveBarage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
+                jMenuItemActiveBarageActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem11);
+        jMenuActiveperage.add(jMenuItemActiveBarage);
 
-        jMenu2.add(jMenu5);
+        jMenuAgediagrams.add(jMenuActiveperage);
 
-        jMenu6.setText("Probable cases per age");
+        jMenuProbableperage.setText("Probable cases per age");
 
-        jMenuItem12.setText("Pie Chart");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemProbPieage.setText("Pie Chart");
+        jMenuItemProbPieage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
+                jMenuItemProbPieageActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem12);
+        jMenuProbableperage.add(jMenuItemProbPieage);
 
-        jMenuItem13.setText("Bar Chart");
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemProbBarAge.setText("Bar Chart");
+        jMenuItemProbBarAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
+                jMenuItemProbBarAgeActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem13);
+        jMenuProbableperage.add(jMenuItemProbBarAge);
 
-        jMenu2.add(jMenu6);
+        jMenuAgediagrams.add(jMenuProbableperage);
 
-        jMenu7.setText("Deaths per age");
+        jMenuDeathsperage.setText("Deaths per age");
 
-        jMenuItem14.setText("Pie Chart");
-        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemDeathspieage.setText("Pie Chart");
+        jMenuItemDeathspieage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem14ActionPerformed(evt);
+                jMenuItemDeathspieageActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem14);
+        jMenuDeathsperage.add(jMenuItemDeathspieage);
 
-        jMenuItem15.setText("Bar Chart ");
-        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemDeathsbarAge.setText("Bar Chart ");
+        jMenuItemDeathsbarAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem15ActionPerformed(evt);
+                jMenuItemDeathsbarAgeActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem15);
+        jMenuDeathsperage.add(jMenuItemDeathsbarAge);
 
-        jMenu2.add(jMenu7);
+        jMenuAgediagrams.add(jMenuDeathsperage);
 
-        jMenu8.setText("Restores per age ");
+        jMenuRestoresperage.setText("Restores per age ");
 
-        jMenuItem16.setText("Pie Chart");
-        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemRessPieage.setText("Pie Chart");
+        jMenuItemRessPieage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem16ActionPerformed(evt);
+                jMenuItemRessPieageActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem16);
+        jMenuRestoresperage.add(jMenuItemRessPieage);
 
-        jMenuItem17.setText("Bar Chart");
-        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemressBarAge.setText("Bar Chart");
+        jMenuItemressBarAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem17ActionPerformed(evt);
+                jMenuItemressBarAgeActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem17);
+        jMenuRestoresperage.add(jMenuItemressBarAge);
 
-        jMenu2.add(jMenu8);
+        jMenuAgediagrams.add(jMenuRestoresperage);
 
-        jMenuDiagrams.add(jMenu2);
+        jMenuDiagrams.add(jMenuAgediagrams);
 
-        jMenu3.setText("Gender");
+        jMenuGenderDiagrams.setText("Gender");
 
-        jMenu9.setText("Total cases per gender");
+        jMenuTotalpergender.setText("Total cases per gender");
 
-        jMenuItem1.setText("Pie Chart");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemPieTotal.setText("Pie Chart");
+        jMenuItemPieTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItemPieTotalActionPerformed(evt);
             }
         });
-        jMenu9.add(jMenuItem1);
+        jMenuTotalpergender.add(jMenuItemPieTotal);
 
-        jMenuItem18.setText("Bar Chart");
-        jMenuItem18.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemBarTotal.setText("Bar Chart");
+        jMenuItemBarTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem18ActionPerformed(evt);
+                jMenuItemBarTotalActionPerformed(evt);
             }
         });
-        jMenu9.add(jMenuItem18);
+        jMenuTotalpergender.add(jMenuItemBarTotal);
 
-        jMenu3.add(jMenu9);
+        jMenuGenderDiagrams.add(jMenuTotalpergender);
 
-        jMenu10.setText("Ative cases per gender");
+        jMenuActivepergender.setText("Ative cases per gender");
 
-        jMenuItem19.setText("Pie Chart");
-        jMenuItem19.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemPieActive.setText("Pie Chart");
+        jMenuItemPieActive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem19ActionPerformed(evt);
+                jMenuItemPieActiveActionPerformed(evt);
             }
         });
-        jMenu10.add(jMenuItem19);
+        jMenuActivepergender.add(jMenuItemPieActive);
 
-        jMenuItem20.setText("Bar Chart");
-        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemBarActive.setText("Bar Chart");
+        jMenuItemBarActive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem20ActionPerformed(evt);
+                jMenuItemBarActiveActionPerformed(evt);
             }
         });
-        jMenu10.add(jMenuItem20);
+        jMenuActivepergender.add(jMenuItemBarActive);
 
-        jMenu3.add(jMenu10);
+        jMenuGenderDiagrams.add(jMenuActivepergender);
 
-        jMenu11.setText("Probable cases per gender");
+        jMenuProbablepergender.setText("Probable cases per gender");
 
-        jMenuItem21.setText("Pie Chart");
-        jMenuItem21.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemPieProb.setText("Pie Chart");
+        jMenuItemPieProb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem21ActionPerformed(evt);
+                jMenuItemPieProbActionPerformed(evt);
             }
         });
-        jMenu11.add(jMenuItem21);
+        jMenuProbablepergender.add(jMenuItemPieProb);
 
-        jMenuItem22.setText("Bar Chart");
-        jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemBarProb.setText("Bar Chart");
+        jMenuItemBarProb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem22ActionPerformed(evt);
+                jMenuItemBarProbActionPerformed(evt);
             }
         });
-        jMenu11.add(jMenuItem22);
+        jMenuProbablepergender.add(jMenuItemBarProb);
 
-        jMenu3.add(jMenu11);
+        jMenuGenderDiagrams.add(jMenuProbablepergender);
 
-        jMenu12.setText("Deaths per Gender");
+        jMenuDeathspergender.setText("Deaths per Gender");
 
-        jMenuItem23.setText("Pie Chart");
-        jMenuItem23.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemPieDeaths.setText("Pie Chart");
+        jMenuItemPieDeaths.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem23ActionPerformed(evt);
+                jMenuItemPieDeathsActionPerformed(evt);
             }
         });
-        jMenu12.add(jMenuItem23);
+        jMenuDeathspergender.add(jMenuItemPieDeaths);
 
-        jMenuItem24.setText("Bar Chart");
-        jMenuItem24.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemBarDeaths.setText("Bar Chart");
+        jMenuItemBarDeaths.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem24ActionPerformed(evt);
+                jMenuItemBarDeathsActionPerformed(evt);
             }
         });
-        jMenu12.add(jMenuItem24);
+        jMenuDeathspergender.add(jMenuItemBarDeaths);
 
-        jMenu3.add(jMenu12);
+        jMenuGenderDiagrams.add(jMenuDeathspergender);
 
-        jMenu13.setText("Heals per Gender");
+        jMenuHealspergender.setText("Heals per Gender");
 
-        jMenuItem25.setText("Pie Chart");
-        jMenuItem25.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemPieHeals.setText("Pie Chart");
+        jMenuItemPieHeals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem25ActionPerformed(evt);
+                jMenuItemPieHealsActionPerformed(evt);
             }
         });
-        jMenu13.add(jMenuItem25);
+        jMenuHealspergender.add(jMenuItemPieHeals);
 
-        jMenuItem26.setText("Bar Chart");
-        jMenuItem26.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemBarHeals.setText("Bar Chart");
+        jMenuItemBarHeals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem26ActionPerformed(evt);
+                jMenuItemBarHealsActionPerformed(evt);
             }
         });
-        jMenu13.add(jMenuItem26);
+        jMenuHealspergender.add(jMenuItemBarHeals);
 
-        jMenu3.add(jMenu13);
+        jMenuGenderDiagrams.add(jMenuHealspergender);
 
-        jMenuDiagrams.add(jMenu3);
+        jMenuDiagrams.add(jMenuGenderDiagrams);
 
-        jMenuBar1.add(jMenuDiagrams);
+        Systemmenubar.add(jMenuDiagrams);
 
         jMenuOptions.setText("Options");
 
@@ -1548,9 +1557,9 @@ public class CasesSystem extends javax.swing.JFrame {
         });
         jMenuOptions.add(jMenuItem3);
 
-        jMenuBar1.add(jMenuOptions);
+        Systemmenubar.add(jMenuOptions);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(Systemmenubar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1594,16 +1603,16 @@ public class CasesSystem extends javax.swing.JFrame {
                   
             //ελεγχος εγκυρότητας δεδομένων 
             if(COUNT2==1){
-                JOptionPane.showMessageDialog(null,"This data related connected to another case..\n"
+                JOptionPane.showMessageDialog(null,"This data is related to another case..\n"
                         + "Please enter valid data");
             }else if(jTextFieldPHONENUMBER.getText().equals("") || jTextFieldNAME.getText().equals("") || jTextFieldSURNAME.getText().equals("")
                 || jTextFieldNAME.getText().equals("") || jTextFieldADDRES.getText().equals("") || jTextFieldAMKA.getText().equals("") 
-                || jComboBoxCITY.getSelectedItem().toString().equals("")){
+                || jComboBoxCITY.getSelectedItem().toString().equals("")|| gender.equals("Default")){
                 JOptionPane.showMessageDialog(null,"Please fill all fields");}
             else if (Integer.parseInt(jTextFieldAGE.getText()) <= 0 || Integer.parseInt(jTextFieldAGE.getText()) >120){
                 JOptionPane.showMessageDialog(null,"Please enter a valid age");}
             else if (String.valueOf(jTextFieldPHONENUMBER.getText()).length() != 10){
-                JOptionPane.showMessageDialog(null,"Please enter a valid phone umber");
+                JOptionPane.showMessageDialog(null,"Please enter a valid phone number");
                 }
             else if (String.valueOf(jTextFieldAMKA.getText()).length() != 12 ){
                 JOptionPane.showMessageDialog(null,"Please enter a valid AMKA");}
@@ -1853,110 +1862,11 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jDialogProbableCasesWindowClosing
 
     private void jMenuItemActiveCasesReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemActiveCasesReportActionPerformed
-        jLabel4.setText("Κρούσματα τώρα");
-        try{
-            String sql = "select avg(AGE),min(AGE),max(AGE),count(*) from CURRENTCASES";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            rs.next();
-            int avg = rs.getInt("avg(AGE)");
-            int min = rs.getInt("min(AGE)");
-            int max = rs.getInt("max(AGE)");
-            int G = rs.getInt("count(*)");
-            rs.close();
-            String ss = "select count(*) from CURRENTCASES where GENRE = 'Male'";
-            String XX = "select count(*) from CURRENTCASES where GENRE = 'Female'";
-            pst = conn.prepareStatement(ss);
-            rs = pst.executeQuery();
-            rs.next();
-            int V = rs.getInt("count(*)");
-            rs.close();
-            pst = conn.prepareStatement(XX);
-            rs = pst.executeQuery();
-            rs.next();
-            int b = rs.getInt("count(*)");
-            rs.close();
-            casescountlabel.setText("Current Count of cases: '"+G+"' ");
-            rs.close();
-            Minagecaselabel.setText("Current minimum age recorded: '"+min+"'");
-            rs.close();
-            maxagecaselabel.setText("Current Maximun age recorded: '"+max+"'");
-            rs.close();
-            AvgageofcasesLabel.setText("Current AVG age of cases:'"+avg+"'");
-            rs.close();
-            MalecasesLabel.setText("Current Count of male cases:'"+V+"'");
-            rs.close();
-            Femalecaseslabel.setText("Current Count of female cases: '"+b+"'");
-            rs.close();
-            jDialogDatadisplay.setVisible(true);
-            rs.close();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }finally{
-           try{
-             pst.close();
-            rs.close();  
-           }catch(Exception e){
-                JOptionPane.showMessageDialog(null,e);
-    
-           }
-       }
-        
-        
+        DAO.makeandshowreport("CURRENTCASES","Active cases","Active");
     }//GEN-LAST:event_jMenuItemActiveCasesReportActionPerformed
 
     private void jMenuItemTotalCasesReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTotalCasesReportActionPerformed
-        //η μεθοδος εμφανίζει 
-        jLabel4.setText("Συνολική καταγραφή");
-        try{
-            String sql = "select avg(AGE),min(AGE),max(AGE),count(*) from OVERALLCASES";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            rs.next();
-            int avg = rs.getInt("avg(AGE)");
-            int min = rs.getInt("min(AGE)");
-            int max = rs.getInt("max(AGE)");
-            int G = rs.getInt("count(*)");
-            rs.close();
-            String ss = "select count(*) from OVERALLCASES where GENRE = 'Male'";
-            String XX = "select count(*) from OVERALLCASES where GENRE = 'Female'";
-            pst = conn.prepareStatement(ss);
-            rs = pst.executeQuery();
-            rs.next();
-            int V = rs.getInt("count(*)");
-            rs.close();
-            pst = conn.prepareStatement(XX);
-            rs = pst.executeQuery();
-            rs.next();
-            int b = rs.getInt("count(*)");
-            rs.close();
-            casescountlabel.setText("Overall Count of cases: '"+G+"' ");
-            rs.close();
-            Minagecaselabel.setText("minimum Overall age recorded: '"+min+"'");
-            rs.close();
-            maxagecaselabel.setText("Maximun Overall age recorded: '"+max+"'");
-            rs.close();
-            AvgageofcasesLabel.setText("AVG age of  cases overall:'"+avg+"'");
-            rs.close();
-            MalecasesLabel.setText("Count of male cases Overall:'"+V+"'   ");
-            rs.close();
-            Femalecaseslabel.setText("Count of female cases Overall: '"+b+"'");
-            rs.close();
-            jDialogDatadisplay.setVisible(true);
-            rs.close();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }finally{
-           try{
-             pst.close();
-            rs.close();  
-           }catch(Exception e){
-                JOptionPane.showMessageDialog(null,e);
-    
-           }
-       }
+        DAO.makeandshowreport("OVERALLCASES","Total cases","Total");
     }//GEN-LAST:event_jMenuItemTotalCasesReportActionPerformed
 
     private void jDialogDatadisplayWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jDialogDatadisplayWindowClosing
@@ -1977,112 +1887,16 @@ public class CasesSystem extends javax.swing.JFrame {
         DAO.deletecASE("HEAL");
     }//GEN-LAST:event_HealButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jMenuItemPassedReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPassedReportActionPerformed
-        jLabel4.setText("Αποθανόντες");
-        try{
-            String sql = "select avg(AGE),min(AGE),max(AGE),count(*) from PASSED";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            rs.next();
-            int avg = rs.getInt("avg(AGE)");
-            int min = rs.getInt("min(AGE)");
-            int max = rs.getInt("max(AGE)");
-            int G = rs.getInt("count(*)");
-            rs.close();
-            String ss = "select count(*) from PASSED where GENRE = 'Male'";
-            String XX = "select count(*) from PASSED where GENRE = 'Female'";
-            pst = conn.prepareStatement(ss);
-            rs = pst.executeQuery();
-            rs.next();
-            int V = rs.getInt("count(*)");
-            rs.close();
-            pst = conn.prepareStatement(XX);
-            rs = pst.executeQuery();
-            rs.next();
-            int b = rs.getInt("count(*)");
-            rs.close();
-            casescountlabel.setText("Αριθμός θανάτων : "+G+" ");
-            rs.close();
-            Minagecaselabel.setText("Ελάχιστη ηλικία θανάτου: "+min+"");
-            rs.close();
-            maxagecaselabel.setText("Μέγιστη ηλικία θανάτου: "+max+"");
-            rs.close();
-            AvgageofcasesLabel.setText("Μέσος όρος ηλικίας θανάτων:"+avg+"");
-            rs.close();
-            MalecasesLabel.setText("θάνατοι αντρών:"+V+"   ");
-            rs.close();
-            Femalecaseslabel.setText("θάνατοι γυναικών : "+b+"");
-            rs.close();
-            jDialogDatadisplay.setVisible(true);
-            rs.close();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }finally{
-           try{
-             pst.close();
-            rs.close();  
-           }catch(SQLException e){
-                JOptionPane.showMessageDialog(null,e);
-    
-           }
-       }
+        DAO.makeandshowreport("PASSED","Passed","Passed");
     }//GEN-LAST:event_jMenuItemPassedReportActionPerformed
 
     private void jMenuItemRestoredReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRestoredReportActionPerformed
-        jLabel4.setText("Θεραπευμαίνοι");
-        try{
-            String sql = "select avg(AGE),min(AGE),max(AGE),count(*) from HEAL";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            rs.next();
-            int avg = rs.getInt("avg(AGE)");
-            int min = rs.getInt("min(AGE)");
-            int max = rs.getInt("max(AGE)");
-            int G = rs.getInt("count(*)");
-            rs.close();
-            String ss = "select count(*) from HEAL where GENRE = 'Male'";
-            String XX = "select count(*) from HEAL where GENRE = 'Female'";
-            pst = conn.prepareStatement(ss);
-            rs = pst.executeQuery();
-            rs.next();
-            int V = rs.getInt("count(*)");
-            rs.close();
-            pst = conn.prepareStatement(XX);
-            rs = pst.executeQuery();
-            rs.next();
-            int b = rs.getInt("count(*)");
-            rs.close();
-            casescountlabel.setText("Αριθμός ιάσεων : "+G+" ");
-            rs.close();
-            Minagecaselabel.setText("Ελάχιστη ηλικία ίασης: "+min+"");
-            rs.close();
-            maxagecaselabel.setText("Μέγιστη ηλικία ίασης: "+max+"");
-            rs.close();
-            AvgageofcasesLabel.setText("Μέσος όρος ηλικίας ιάσεων:"+avg+"");
-            rs.close();
-            MalecasesLabel.setText("Ιάσεις αντρών:"+V+"   ");
-            rs.close();
-            Femalecaseslabel.setText("Ιάσεις γυναικών : "+b+"");
-            rs.close();
-            jDialogDatadisplay.setVisible(true);
-            rs.close();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,e);
-            
-        }finally{
-           try{
-             pst.close();
-            rs.close();  
-           }catch(SQLException e){
-                JOptionPane.showMessageDialog(null,e);
-    
-           }
-       }        
+        DAO.makeandshowreport("HEAL","Restored","Restored");
     }//GEN-LAST:event_jMenuItemRestoredReportActionPerformed
 
     private void jCheckBoxCurrentCasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxCurrentCasesActionPerformed
@@ -2106,17 +1920,17 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxHealedActionPerformed
 
     private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
-        genre ="Male";
+        gender ="Male";
     }//GEN-LAST:event_jCheckBox6ActionPerformed
 
     private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
-        genre ="Female";
+        gender ="Female";
     }//GEN-LAST:event_jCheckBox7ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonDeactivateHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeactivateHelpActionPerformed
         
         JOptionPane.showMessageDialog(null,"Επιλέξτε το ID του κρούσματος\nπου επιθυμείτε να διαγράψετε από τα Ενεργά Κρούσματα\nκαι επιλέξτε αν το κρούσμα ανάρρωσε ή απεβίωσε");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonDeactivateHelpActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         DAO.DeleteAllcases();
@@ -2133,7 +1947,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         Login_Page.jPanelSignUp.setBackground(new java.awt.Color(255, 153, 0));
-        jPanelDialog.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelProbDialog.setBackground(new java.awt.Color(255, 153, 0));
         jPanelDataDisplay.setBackground(new java.awt.Color(255, 153, 0));
         jPanelDeathOrRestore.setBackground(new java.awt.Color(255, 153, 0));
         jPanelCasesSystem.setBackground(new java.awt.Color(255, 153, 0));
@@ -2150,11 +1964,13 @@ public class CasesSystem extends javax.swing.JFrame {
         jCheckBoxHealed.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox7.setBackground(new java.awt.Color(255, 153, 0));
         jCheckBox6.setBackground(new java.awt.Color(255, 153, 0));
+        jPanelManual.setBackground(new java.awt.Color(255, 153, 0));
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         Login_Page.jPanelSignUp.setBackground(new java.awt.Color(102,0,102));
-        jPanelDialog.setBackground(new java.awt.Color(102,0,102));
+        jPanelProbDialog.setBackground(new java.awt.Color(102,0,102));
+        jPanelManual.setBackground(new java.awt.Color(102, 0, 102));
         jPanelDataDisplay.setBackground(new java.awt.Color(102, 0, 102));
         jPanelDeathOrRestore.setBackground(new java.awt.Color(102,0,102));
         jPanelCasesSystem.setBackground(new java.awt.Color(102,0,102));
@@ -2175,7 +1991,8 @@ public class CasesSystem extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         Login_Page.jPanelSignUp.setBackground(new java.awt.Color(0,153,153));
-        jPanelDialog.setBackground(new java.awt.Color(0,153,153));
+        jPanelManual.setBackground(new java.awt.Color(0, 153, 153));
+        jPanelProbDialog.setBackground(new java.awt.Color(0,153,153));
         jPanelDataDisplay.setBackground(new java.awt.Color(0,153,153));
         jPanelDeathOrRestore.setBackground(new java.awt.Color(0,153,153));
         jPanelCasesSystem.setBackground(new java.awt.Color(0,153,153));
@@ -2196,7 +2013,8 @@ public class CasesSystem extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
          Login_Page.jPanelSignUp.setBackground(new java.awt.Color(255, 51, 51));
-        jPanelDialog.setBackground(new java.awt.Color(255, 51, 51));
+        jPanelProbDialog.setBackground(new java.awt.Color(255, 51, 51));
+        jPanelManual.setBackground(new java.awt.Color(255, 51, 51));
         jPanelDataDisplay.setBackground(new java.awt.Color(255, 51, 51));
         jPanelDeathOrRestore.setBackground(new java.awt.Color(255, 51, 51));
         jPanelCasesSystem.setBackground(new java.awt.Color(255, 51, 51));
@@ -2215,85 +2033,85 @@ public class CasesSystem extends javax.swing.JFrame {
         jCheckBox6.setBackground(new java.awt.Color(255, 51, 51));
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jMenuItemPieTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPieTotalActionPerformed
         DAO.createpieChartsGender("OVERALLCASES","Total cases per gender");
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jMenuItemPieTotalActionPerformed
 
-    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+    private void jMenuItemBarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBarTotalActionPerformed
         DAO.createBarChartGender("OVERALLCASES","Total cases per gender","Gender","Total cases");
-    }//GEN-LAST:event_jMenuItem18ActionPerformed
+    }//GEN-LAST:event_jMenuItemBarTotalActionPerformed
 
-    private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
+    private void jMenuItemPieActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPieActiveActionPerformed
         DAO.createpieChartsGender("CURRENTCASES","Active cases per gender");
-    }//GEN-LAST:event_jMenuItem19ActionPerformed
+    }//GEN-LAST:event_jMenuItemPieActiveActionPerformed
 
-    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+    private void jMenuItemBarActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBarActiveActionPerformed
         DAO.createBarChartGender("CURRENTCASES","Active cases per gender","Gender","Active cases");
-    }//GEN-LAST:event_jMenuItem20ActionPerformed
+    }//GEN-LAST:event_jMenuItemBarActiveActionPerformed
 
-    private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
+    private void jMenuItemPieProbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPieProbActionPerformed
         DAO.createpieChartsGender("PROB","Probable cases per Gender");
-    }//GEN-LAST:event_jMenuItem21ActionPerformed
+    }//GEN-LAST:event_jMenuItemPieProbActionPerformed
 
-    private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem22ActionPerformed
+    private void jMenuItemBarProbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBarProbActionPerformed
         DAO.createBarChartGender("PROB","Probable cases per Gender","Gender","Probable cases");
-    }//GEN-LAST:event_jMenuItem22ActionPerformed
+    }//GEN-LAST:event_jMenuItemBarProbActionPerformed
 
-    private void jMenuItem23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem23ActionPerformed
+    private void jMenuItemPieDeathsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPieDeathsActionPerformed
         DAO.createpieChartsGender("PASSED","Deaths per Gender");
-    }//GEN-LAST:event_jMenuItem23ActionPerformed
+    }//GEN-LAST:event_jMenuItemPieDeathsActionPerformed
 
-    private void jMenuItem24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem24ActionPerformed
+    private void jMenuItemBarDeathsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBarDeathsActionPerformed
         DAO.createBarChartGender("PASSED","Θάνατοι ανά φύλο","Φύλο","Αριθμός θανάτων");
-    }//GEN-LAST:event_jMenuItem24ActionPerformed
+    }//GEN-LAST:event_jMenuItemBarDeathsActionPerformed
 
-    private void jMenuItem25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem25ActionPerformed
+    private void jMenuItemPieHealsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPieHealsActionPerformed
         DAO.createpieChartsGender("HEAL","Restores per Gender");
-    }//GEN-LAST:event_jMenuItem25ActionPerformed
+    }//GEN-LAST:event_jMenuItemPieHealsActionPerformed
 
-    private void jMenuItem26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem26ActionPerformed
+    private void jMenuItemBarHealsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBarHealsActionPerformed
         DAO.createBarChartGender("HEAL","Restores per Gender","Gender","Restores"); 
-    }//GEN-LAST:event_jMenuItem26ActionPerformed
+    }//GEN-LAST:event_jMenuItemBarHealsActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void jMenuItemTotalPieAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTotalPieAgeActionPerformed
         DAO.createpieChartscasecatperage("OVERALLCASES","Total cases per age Group");
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_jMenuItemTotalPieAgeActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void jMenuItemTotalBarageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTotalBarageActionPerformed
         DAO.createbarchartsCaseCategoryPerage("Total cases per age Group","age Group","Total cases","OVERALLCASES");
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_jMenuItemTotalBarageActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+    private void jMenuItemActivePieAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemActivePieAgeActionPerformed
         DAO.createpieChartscasecatperage("CURRENTCASES","Active cases per age Group");
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
+    }//GEN-LAST:event_jMenuItemActivePieAgeActionPerformed
 
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+    private void jMenuItemActiveBarageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemActiveBarageActionPerformed
         DAO.createbarchartsCaseCategoryPerage("Active cases per age Group","age group","Active cases","CURRENTCASES");
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
+    }//GEN-LAST:event_jMenuItemActiveBarageActionPerformed
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+    private void jMenuItemProbPieageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProbPieageActionPerformed
         DAO.createpieChartscasecatperage("PROB","Probable cases per age Group");
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
+    }//GEN-LAST:event_jMenuItemProbPieageActionPerformed
 
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+    private void jMenuItemProbBarAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProbBarAgeActionPerformed
         DAO.createbarchartsCaseCategoryPerage("Probable cases per age Group","age group","Probable cases","PROB");
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
+    }//GEN-LAST:event_jMenuItemProbBarAgeActionPerformed
 
-    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+    private void jMenuItemDeathspieageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDeathspieageActionPerformed
         DAO.createpieChartscasecatperage("PASSED","Deaths per age Group");
-    }//GEN-LAST:event_jMenuItem14ActionPerformed
+    }//GEN-LAST:event_jMenuItemDeathspieageActionPerformed
 
-    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+    private void jMenuItemDeathsbarAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDeathsbarAgeActionPerformed
         DAO.createbarchartsCaseCategoryPerage("Deaths per age Group","age Group","Deaths","PASSED");
-    }//GEN-LAST:event_jMenuItem15ActionPerformed
+    }//GEN-LAST:event_jMenuItemDeathsbarAgeActionPerformed
 
-    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+    private void jMenuItemRessPieageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRessPieageActionPerformed
         DAO.createpieChartscasecatperage("HEAL","Restores per age Group");
-    }//GEN-LAST:event_jMenuItem16ActionPerformed
+    }//GEN-LAST:event_jMenuItemRessPieageActionPerformed
 
-    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+    private void jMenuItemressBarAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemressBarAgeActionPerformed
         DAO.createbarchartsCaseCategoryPerage("Restores per age Group","age Group","Restores","HEAL");
-    }//GEN-LAST:event_jMenuItem17ActionPerformed
+    }//GEN-LAST:event_jMenuItemressBarAgeActionPerformed
 
     private void jComboBoxDeleteIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDeleteIdActionPerformed
         // TODO add your handling code here:
@@ -2302,6 +2120,10 @@ public class CasesSystem extends javax.swing.JFrame {
     private void HelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpButtonActionPerformed
         jDialogManual.setVisible(true);
     }//GEN-LAST:event_HelpButtonActionPerformed
+
+    private void jMenuItemProbablesreportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProbablesreportActionPerformed
+        DAO.makeandshowreport("PROB","Probable cases","Probable");
+    }//GEN-LAST:event_jMenuItemProbablesreportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2335,21 +2157,22 @@ public class CasesSystem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AvgageofcasesLabel;
-    private javax.swing.JLabel Femalecaseslabel;
+    public static javax.swing.JLabel AvgageofcasesLabel;
+    public static javax.swing.JLabel Femalecaseslabel;
     private javax.swing.JButton HealButton;
     private javax.swing.JButton HelpButton;
-    private javax.swing.JLabel MalecasesLabel;
-    private javax.swing.JLabel Minagecaselabel;
+    public static javax.swing.JLabel MalecasesLabel;
+    public static javax.swing.JLabel Minagecaselabel;
     private javax.swing.JButton PassedButton;
+    private javax.swing.JMenuBar Systemmenubar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JLabel casescountlabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public static javax.swing.JLabel casescountlabel;
     private javax.swing.JButton jButtonAddProb;
     private javax.swing.JButton jButtonCLEAR;
     private javax.swing.JButton jButtonDELETE;
+    private javax.swing.JButton jButtonDeactivateHelp;
+    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonFinish;
     private javax.swing.JButton jButtonRemove;
     private javax.swing.JButton jButtonSAVE;
@@ -2366,24 +2189,16 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxProbCity;
     public static javax.swing.JComboBox<String> jComboBoxSEARCHID;
     private javax.swing.JComboBox<String> jComboBoxprobgenre;
-    private javax.swing.JDialog jDialogDatadisplay;
+    public static javax.swing.JDialog jDialogDatadisplay;
     private javax.swing.JDialog jDialogDeathOrRestore;
     private javax.swing.JDialog jDialogManual;
     public static javax.swing.JDialog jDialogProbableCases;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -2391,81 +2206,89 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAGE;
     private javax.swing.JLabel jLabelAMKA;
     private javax.swing.JLabel jLabelCITY;
+    private javax.swing.JLabel jLabelCaseid;
+    private javax.swing.JLabel jLabelMan1;
+    private javax.swing.JLabel jLabelMan2;
+    private javax.swing.JLabel jLabelMan3;
+    private javax.swing.JLabel jLabelMan4;
+    private javax.swing.JLabel jLabelMan5;
+    private javax.swing.JLabel jLabelMan6;
     private javax.swing.JLabel jLabelNAME;
     private javax.swing.JLabel jLabelPHONENUMBER;
     private javax.swing.JLabel jLabelSURNAME;
+    public static javax.swing.JLabel jLabelrepTitle;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
-    private javax.swing.JMenu jMenu13;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuActiveperage;
+    private javax.swing.JMenu jMenuActivepergender;
+    private javax.swing.JMenu jMenuAgediagrams;
+    private javax.swing.JMenu jMenuDeathsperage;
+    private javax.swing.JMenu jMenuDeathspergender;
     private javax.swing.JMenu jMenuDiagrams;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem19;
+    private javax.swing.JMenu jMenuGenderDiagrams;
+    private javax.swing.JMenu jMenuHealspergender;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem20;
-    private javax.swing.JMenuItem jMenuItem21;
-    private javax.swing.JMenuItem jMenuItem22;
-    private javax.swing.JMenuItem jMenuItem23;
-    private javax.swing.JMenuItem jMenuItem24;
-    private javax.swing.JMenuItem jMenuItem25;
-    private javax.swing.JMenuItem jMenuItem26;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JMenuItem jMenuItemActiveBarage;
     private javax.swing.JMenuItem jMenuItemActiveCasesReport;
+    private javax.swing.JMenuItem jMenuItemActivePieAge;
+    private javax.swing.JMenuItem jMenuItemBarActive;
+    private javax.swing.JMenuItem jMenuItemBarDeaths;
+    private javax.swing.JMenuItem jMenuItemBarHeals;
+    private javax.swing.JMenuItem jMenuItemBarProb;
+    private javax.swing.JMenuItem jMenuItemBarTotal;
+    private javax.swing.JMenuItem jMenuItemDeathsbarAge;
+    private javax.swing.JMenuItem jMenuItemDeathspieage;
     private javax.swing.JMenuItem jMenuItemPassedReport;
+    private javax.swing.JMenuItem jMenuItemPieActive;
+    private javax.swing.JMenuItem jMenuItemPieDeaths;
+    private javax.swing.JMenuItem jMenuItemPieHeals;
+    private javax.swing.JMenuItem jMenuItemPieProb;
+    private javax.swing.JMenuItem jMenuItemPieTotal;
+    private javax.swing.JMenuItem jMenuItemProbBarAge;
+    private javax.swing.JMenuItem jMenuItemProbPieage;
+    private javax.swing.JMenuItem jMenuItemProbablesreport;
+    private javax.swing.JMenuItem jMenuItemRessPieage;
     private javax.swing.JMenuItem jMenuItemRestoredReport;
+    private javax.swing.JMenuItem jMenuItemTotalBarage;
     private javax.swing.JMenuItem jMenuItemTotalCasesReport;
+    private javax.swing.JMenuItem jMenuItemTotalPieAge;
+    private javax.swing.JMenuItem jMenuItemressBarAge;
     private javax.swing.JMenu jMenuOptions;
+    private javax.swing.JMenu jMenuProbableperage;
+    private javax.swing.JMenu jMenuProbablepergender;
     private javax.swing.JMenu jMenuReports;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JMenu jMenuRestoresperage;
+    private javax.swing.JMenu jMenuTotalperAge;
+    private javax.swing.JMenu jMenuTotalpergender;
     private javax.swing.JPanel jPanelCaseInfo;
     private javax.swing.JPanel jPanelCasesSystem;
-    private javax.swing.JPanel jPanelData2;
     private javax.swing.JPanel jPanelDataDisplay;
     private javax.swing.JPanel jPanelDeathOrRestore;
-    private javax.swing.JPanel jPanelDialog;
     private javax.swing.JPanel jPanelIDSEARCH;
+    private javax.swing.JPanel jPanelManual;
+    private javax.swing.JPanel jPanelManual1;
+    private javax.swing.JPanel jPanelManual2;
+    private javax.swing.JPanel jPanelManual3;
+    private javax.swing.JPanel jPanelManual4;
+    private javax.swing.JPanel jPanelManual5;
+    private javax.swing.JPanel jPanelManual6;
+    private javax.swing.JPanel jPanelProbDialog;
     private javax.swing.JPanel jPanelProbableInfo;
+    private javax.swing.JPanel jPanelReports;
     public static javax.swing.JPanel jPaneltable;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JScrollPane jScrollPaneCasesTable;
+    private javax.swing.JScrollPane jScrollPaneMan1;
+    private javax.swing.JScrollPane jScrollPaneMan2;
+    private javax.swing.JScrollPane jScrollPaneMan3;
+    private javax.swing.JScrollPane jScrollPaneMan4;
+    private javax.swing.JScrollPane jScrollPaneMan5;
+    private javax.swing.JScrollPane jScrollPaneMan6;
+    private javax.swing.JScrollPane jScrollPaneprobtable;
+    private javax.swing.JTabbedPane jTabbedPaneManual;
     public static javax.swing.JTable jTableCases;
     public static javax.swing.JTable jTableProbableCases;
     private javax.swing.JTextArea jTextArea1;
@@ -2487,6 +2310,6 @@ public class CasesSystem extends javax.swing.JFrame {
     private static javax.swing.JTextField jTextFieldProbPhonNumbr;
     private static javax.swing.JTextField jTextFieldProbSurname;
     public static javax.swing.JTextField jTextFieldSURNAME;
-    private javax.swing.JLabel maxagecaselabel;
+    public static javax.swing.JLabel maxagecaselabel;
     // End of variables declaration//GEN-END:variables
 }
