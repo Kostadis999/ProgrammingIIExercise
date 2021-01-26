@@ -5,12 +5,6 @@
  */
 package covid;
 import java.sql.ResultSet;
-
-
-/**
- *
- * @author stefm
- */
 public class Case {
     private String ID;
     private String name;
