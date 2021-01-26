@@ -940,7 +940,7 @@
                           <Properties>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="rows" type="int" value="5"/>
-                            <Property name="text" type="java.lang.String" value="If you want to change the colour of the app&#xa;you can go to Options&gt;Change dolours&gt; and you&#xa;the colour of your preference as shown bellow."/>
+                            <Property name="text" type="java.lang.String" value="If you want to change the colour of the app&#xa;you can go to Options&gt;Change colours&gt; and you&#xa;can choose the colour of your preference as &#xa;shown bellow."/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -1000,7 +1000,7 @@
                           <Properties>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="rows" type="int" value="5"/>
-                            <Property name="text" type="java.lang.String" value="If you want to create a diagram go to the &#xa;&apos;Diagrams&apos; menu and choose the diagram of your &#xa;liking. You can make diagrams per gender and &#xa;per age, either pie or bar as shown bellow"/>
+                            <Property name="text" type="java.lang.String" value="If you want to create a diagram go to the &#xa;&apos;Diagrams&apos; menu and choose the diagram of your &#xa;liking. You can make charts related to the&#xa;cases per gender and per age,either pie or bar &#xa;as shown bellow."/>
                           </Properties>
                         </Component>
                       </SubComponents>

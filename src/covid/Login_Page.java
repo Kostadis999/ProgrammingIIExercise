@@ -393,7 +393,7 @@ public class Login_Page extends javax.swing.JFrame {
 
     private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
         JOptionPane.showMessageDialog(this," Welcome to CCMS!!! \n\n\nCCMS is a Covid Cases Management System."
-        +"\nif it is your first time using this app from this pc"
+        +"\nIf it is your first time using this app from this pc"
         +"\ncreate a user to enter the system"
         +"by pressing the Sign up button. \nOnce your user has been succesfully create you will automatically enter the system.");
     }//GEN-LAST:event_jButtonHelpActionPerformed

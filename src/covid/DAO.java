@@ -314,7 +314,7 @@ public class DAO  {
                 ,"Clearing tables",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
         if(PromptResult==JOptionPane.YES_OPTION){
             try{
-                String query= "delete * from CURRENTCASES, OVERALLASES, HEAL, PASSED, PROB ";
+                String query= "delete * from CURRENTCASES, OVERALLCASES, HEAL, PASSED, PROB ";
                 CasesSystem.pst = CasesSystem.conn.prepareStatement(query);
                 CasesSystem.pst.execute();
                 JOptionPane.showMessageDialog(null, "Data Deleted");

@@ -753,7 +753,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
-        jTextArea3.setText("If you want to change the colour of the app\nyou can go to Options>Change dolours> and you\nthe colour of your preference as shown bellow.");
+        jTextArea3.setText("If you want to change the colour of the app\nyou can go to Options>Change colours> and you\ncan choose the colour of your preference as \nshown bellow.");
         jScrollPaneMan3.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout jPanelManual3Layout = new javax.swing.GroupLayout(jPanelManual3);
@@ -783,7 +783,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jTextArea4.setColumns(20);
         jTextArea4.setRows(5);
-        jTextArea4.setText("If you want to create a diagram go to the \n'Diagrams' menu and choose the diagram of your \nliking. You can make diagrams per gender and \nper age, either pie or bar as shown bellow");
+        jTextArea4.setText("If you want to create a diagram go to the \n'Diagrams' menu and choose the diagram of your \nliking. You can make charts related to the\ncases per gender and per age,either pie or bar \nas shown bellow.");
         jScrollPaneMan4.setViewportView(jTextArea4);
 
         javax.swing.GroupLayout jPanelManual4Layout = new javax.swing.GroupLayout(jPanelManual4);
@@ -2148,15 +2148,15 @@ public class CasesSystem extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(jDialogProbableCases,""
                 + "'Register probable cases' dialog is used\n"
                 +"to register the probable cases related to the case\n "
-                +"that is curretly beig registered..\n"
+                +"that is curretly being registered..\n"
                 +"1.If you don't wish to register probable cases just press\n "
-                + "the Finish button \n"
+                + "the Finish button. \n"
                 +"2.If you want to register probable cases, fill the\n"
                 +"fields of the dialogs with the probable cases info and click add. "
-                + "\nThe case will be added to the dialogs table\n "
-                + "you can add as may probable cases as you like\n"
+                + "\nThe case will be added to the dialogs table.\n "
+                + "You can add as may probable cases as you like.\n"
                 + "Once you finish adding the Probable cases click 'Finish' to complete the process\n"
-                +"3.if you want to remove a case from the selected prob cases\n"
+                +"3.if you want to remove a probable case before saving\n"
                 + "select it from the table and click 'Remove'","Help: Register probable cases",JOptionPane.INFORMATION_MESSAGE);     
     }//GEN-LAST:event_jButton1ActionPerformed
 
