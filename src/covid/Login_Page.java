@@ -350,7 +350,7 @@ public class Login_Page extends javax.swing.JFrame {
     private void SignUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpButtonActionPerformed
         String query = "Select count(*)  from USERS where username = '"+jTextField1.getText()+"'";
         if(jPasswordField2.getText().equals("") || jPasswordField1.getText().equals("") || jTextField1.getText().equals("") || jTextField2.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"please fill all fields to continuou");
+            JOptionPane.showMessageDialog(null,"please fill all fields to continue");
         }
         else{
             try{
@@ -363,11 +363,10 @@ public class Login_Page extends javax.swing.JFrame {
                 String g = jPasswordField1.getText();
                 if (x == 0){
                     if(g.equals(i)){
-                        String q = "insert into USERS (username, password,Cpref ) values (?,?,?)";
+                        String q = "insert into USERS (username, password) values (?,?)";
                         pst = conn.prepareStatement(q);
                         pst.setString(1,jTextField1.getText());
                         pst.setString(2,jPasswordField1.getText());
-                        pst.setString(3,"DEFAULT");
                         pst.execute();
                         JOptionPane.showMessageDialog(null,"User created Succesfully");
                         CasesSystem a = new CasesSystem();
@@ -401,7 +400,7 @@ public class Login_Page extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         JOptionPane.showMessageDialog(jDialogSignUp,"fill the textfileds with your prefered credentials\n"
-                + "and press ths 'Sign Up' button για to create your user  ");
+                + "and press ths 'Sign Up' button to create your user  ");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

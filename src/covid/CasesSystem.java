@@ -147,6 +147,7 @@ public class CasesSystem extends javax.swing.JFrame {
         jButtonAddProb = new javax.swing.JButton();
         jButtonRemove = new javax.swing.JButton();
         jButtonFinish = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jDialogDatadisplay = new javax.swing.JDialog();
         jPanelDataDisplay = new javax.swing.JPanel();
         jPanelReports = new javax.swing.JPanel();
@@ -431,13 +432,22 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Help");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelProbDialogLayout = new javax.swing.GroupLayout(jPanelProbDialog);
         jPanelProbDialog.setLayout(jPanelProbDialogLayout);
         jPanelProbDialogLayout.setHorizontalGroup(
             jPanelProbDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelProbDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelProbableInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelProbDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelProbableInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGroup(jPanelProbDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelProbDialogLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -459,7 +469,10 @@ public class CasesSystem extends javax.swing.JFrame {
                     .addGroup(jPanelProbDialogLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(jPanelProbDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanelProbableInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelProbDialogLayout.createSequentialGroup()
+                                .addComponent(jPanelProbableInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1))
                             .addGroup(jPanelProbDialogLayout.createSequentialGroup()
                                 .addComponent(jScrollPaneprobtable, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -469,7 +482,7 @@ public class CasesSystem extends javax.swing.JFrame {
                         .addComponent(jButtonAddProb)
                         .addGap(33, 33, 33)
                         .addComponent(jButtonRemove)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jDialogProbableCasesLayout = new javax.swing.GroupLayout(jDialogProbableCases.getContentPane());
@@ -483,6 +496,7 @@ public class CasesSystem extends javax.swing.JFrame {
             .addComponent(jPanelProbDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jDialogDatadisplay.setTitle("Reports");
         jDialogDatadisplay.setBounds(new java.awt.Rectangle(400, 400, 400, 400));
         jDialogDatadisplay.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -586,7 +600,7 @@ public class CasesSystem extends javax.swing.JFrame {
             .addComponent(jPanelDataDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jDialogDeathOrRestore.setTitle("Διαγραφή Ενεργού Κρούσματος");
+        jDialogDeathOrRestore.setTitle("Deactivate case");
         jDialogDeathOrRestore.setBounds(new java.awt.Rectangle(400, 200, 482, 120));
 
         jPanelDeathOrRestore.setBackground(new java.awt.Color(255, 153, 0));
@@ -1756,9 +1770,9 @@ public class CasesSystem extends javax.swing.JFrame {
             tb1model.removeRow(jTableProbableCases.getSelectedRowCount());
         }else{
             if(jTableProbableCases.getRowCount() == 0 ){
-                JOptionPane.showMessageDialog(jDialogProbableCases,"Ο πίνακας είναι άδειος");
+                JOptionPane.showMessageDialog(jDialogProbableCases,"The table is empty");
             }else{
-                JOptionPane.showMessageDialog(jDialogProbableCases,"Παρακαλώ επιλέξτε μια γραμμή\n του πίνακα");
+                JOptionPane.showMessageDialog(jDialogProbableCases,"Please select one row \nat a time");
             }
         }
     }catch(ArrayIndexOutOfBoundsException e){
@@ -1776,10 +1790,10 @@ public class CasesSystem extends javax.swing.JFrame {
         String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
         if(jTableProbableCases.getRowCount() ==0){//αν δεν εχουν καταχωριθεί πιθανα κρούσματα
             String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
-            int PromptResult = JOptionPane.showOptionDialog(null,"Δεν έχετε καταχωρίσει πιθανά κρούσματα\nγια το κρούσμα με στοιχεία\n"
+            int PromptResult = JOptionPane.showOptionDialog(null,"No probable cases has been Registered \nRelated to the case with info:\n"
                     + "\nName:  "+jTextFieldNAME.getText()+
             "\nSurname: "+jTextFieldSURNAME.getText()+"\nAMKA: "+jTextFieldAMKA.getText()+"\nAge: "+jTextFieldAGE.getText()+"\nAddres: "+jTextFieldAGE.getText()+
-            "\nRegion: "+jTextFieldAGE.getText()+"\nId: "+Serial+"\n\nEίστε σίγουροι οτι θέλετε να αποθηκευθεί το κρούσμα? ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            "\nRegion: "+jTextFieldAGE.getText()+"\nId: "+Serial+"\n\nAre you sure you want to Register this case? ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION){//αν επιλεχτει το ναι
                 DAO.SaveCases();   
                 if(CasesSystem.jCheckBoxCurrentCases.isSelected()){   //αννανεώνεται ο πίνακας που είναι επιλεγμένος στο checkbox
@@ -1813,10 +1827,10 @@ public class CasesSystem extends javax.swing.JFrame {
         String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
         if (jTableProbableCases.getRowCount()== 0){
             String ObjButtons[] = {"Yes","No"};
-            int PromptResult = JOptionPane.showOptionDialog(null,"Δεν έχετε καταχωρίσει πιθανά κρούσματα\nγια το κρούσμα με στοιχεία\n"
+            int PromptResult = JOptionPane.showOptionDialog(null,"No probable cases has been Registered \nRelated to the case with info:\n"
                     + "\nName:  "+jTextFieldNAME.getText()+
-            "\nSurname: "+jTextFieldSURNAME.getText()+"\nAMKA: "+jTextFieldAMKA.getText()+"\nAge: "+jTextFieldAGE.getText()+"\nAddres: "+jTextFieldADDRES.getText()+
-            "\nRegion: "+jTextFieldCITY.getText()+"\nId: "+Serial+"\n\nEίστε σίγουροι οτι θέλετε να αποθηκευθεί το κρούσμα? ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            "\nSurname: "+jTextFieldSURNAME.getText()+"\nAMKA: "+jTextFieldAMKA.getText()+"\nAge: "+jTextFieldAGE.getText()+"\nAddres: "+jTextFieldAGE.getText()+
+            "\nRegion: "+jTextFieldAGE.getText()+"\nId: "+Serial+"\n\nAre you sure you want to Register this case? ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION)
             {
                 DAO.SaveCases();
@@ -1834,10 +1848,10 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         }else{
             String ObjButtons[] = {"Yes","No"};
-            int PromptResult = JOptionPane.showOptionDialog(null,"Θέλετε να αποθηκευτεί \nτο κρούσμα με στοιχεία\n"
+            int PromptResult = JOptionPane.showOptionDialog(null,"Are you sure you want to save \nthe case with info:\n"
             + "\nName:  "+jTextFieldNAME.getText()+
                 "\nSurname: "+jTextFieldSURNAME.getText()+"\nAMKA: "+jTextFieldAMKA.getText()+"\nAge: "+jTextFieldAGE.getText()+"\nAddres: "+jTextFieldADDRES.getText()+
-                "\nRegion: "+jTextFieldCITY.getText()+"\nId: "+Serial+"\nκαι τα πιθανά κορύσματα που σχετίζονατι με αυτο; ","Exiting",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+                "\nRegion: "+jTextFieldCITY.getText()+"\nId: "+Serial+"\nand the Probable cases related to it? ","Exiting",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION){
                 DAO.SaveCases();
                 DAO.SaveProbCases();
@@ -1888,7 +1902,12 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_HealButtonActionPerformed
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
-        dispose();
+        String ObjButtons[] = {"Yes","No"};
+        int PromptResult = JOptionPane.showOptionDialog(null,"Are you sure you want to exit\n"
+                ,"Exit",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+        if(PromptResult==JOptionPane.YES_OPTION){
+            this.dispose();
+        }
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jMenuItemPassedReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPassedReportActionPerformed
@@ -2125,6 +2144,22 @@ public class CasesSystem extends javax.swing.JFrame {
         DAO.makeandshowreport("PROB","Probable cases","Probable");
     }//GEN-LAST:event_jMenuItemProbablesreportActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(jDialogProbableCases,""
+                + "'Register probable cases' dialog is used\n"
+                +"to register the probable cases related to the case\n "
+                +"that is curretly beig registered..\n"
+                +"1.If you don't wish to register probable cases just press\n "
+                + "the Finish button \n"
+                +"2.If you want to register probable cases, fill the\n"
+                +"fields of the dialogs with the probable cases info and click add. "
+                + "\nThe case will be added to the dialogs table\n "
+                + "you can add as may probable cases as you like\n"
+                + "Once you finish adding the Probable cases click 'Finish' to complete the process\n"
+                +"3.if you want to remove a case from the selected prob cases\n"
+                + "select it from the table and click 'Remove'","Help: Register probable cases",JOptionPane.INFORMATION_MESSAGE);     
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2168,6 +2203,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     public static javax.swing.JLabel casescountlabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAddProb;
     private javax.swing.JButton jButtonCLEAR;
     private javax.swing.JButton jButtonDELETE;
