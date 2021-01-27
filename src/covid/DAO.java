@@ -103,17 +103,17 @@ public class DAO  {
             int count = CasesSystem.rs.getInt(1);
             CasesSystem.rs.close();
             if(CasesSystem.jComboBoxDeleteId.getSelectedItem().toString().equals("") ){
-                JOptionPane.showMessageDialog(null, "Select the ID of the active case\n"
-                        + "that you want to deativate");
+                JOptionPane.showMessageDialog(null, "έπελεξε το ID το κρούσματος\n"
+                        + "που θέλεις να δηλώσεις οτι πλέον δε νοσεί");
             } 
             else if (count == 0) {
-                JOptionPane.showMessageDialog(null, "ID doesn't match any case");
+                JOptionPane.showMessageDialog(null, "Το ID που έπελεξες δεν αντιστοιχεί σε καποιο κρούσμα ");
                 
             }
             else {
-                String ObjButtons[] = {"Yes","No"};
-                int PromptResult = JOptionPane.showOptionDialog(null,"Are you sure you want to deactivate \n"
-                + "this case?" //conformation to delete
+                String ObjButtons[] = {"Ναι","Οχι"};
+                int PromptResult = JOptionPane.showOptionDialog(null,"Είσαι σίγουρος ότι θέλεις να απενεργοποιηθεί \n"
+                + "το συγκεκριμένο κρούμσα;" //conformation to delete
                 ,"Deactivatig Cases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
                 if(PromptResult==JOptionPane.YES_OPTION){
                     String quer = "insert into "+Dbtable+" select * from CURRENTCASES where ID    = '"+CasesSystem.jComboBoxDeleteId.getSelectedItem().toString()+"' ";
@@ -122,7 +122,7 @@ public class DAO  {
                     String query= "delete from CURRENTCASES where ID = '" +CasesSystem.jComboBoxDeleteId.getSelectedItem().toString()+ "' ";
                     CasesSystem.pst = CasesSystem.conn.prepareStatement(query);
                     CasesSystem.pst.execute();
-                    JOptionPane.showMessageDialog(null, "Process completed");
+                    JOptionPane.showMessageDialog(null, "Διαδικασία επιτυχής");
                     CasesSystem.pst.close();	
                     if(CasesSystem.jCheckBoxCurrentCases.isSelected()){
                         fillJtableCases("CURRENTCASES","ID","Active cases","");
@@ -150,7 +150,7 @@ public class DAO  {
         int x =1;    
             if("".equals(CasesSystem.jComboBoxSEARCHID.getSelectedItem().toString())){
                 x = 0;                       //αν επιλεχτει το κενο item στο combobox εμφανίζετε μήνυμα
-                JOptionPane.showMessageDialog(null,"Please select ID ");  //και η μέθοδος σταματάει εδώ
+                JOptionPane.showMessageDialog(null,"παρακαλώ επέλεξε ID ");  //και η μέθοδος σταματάει εδώ
             }
         if (x==1){  //αλλιώς πέρνει τα στοιχεία από τη βάση και τα εμφαίζει στα textfields
             String ssql = "select * from OVERALLCASES where ID =?";
@@ -226,7 +226,7 @@ public class DAO  {
             CasesSystem.jComboBoxSEARCHID.addItem(serial);
             CasesSystem.pst.execute();
             CasesSystem.pst.close();
-            JOptionPane.showMessageDialog(null,"cases saved");
+            JOptionPane.showMessageDialog(null,"Κρούσμα αποθηκεύτηκε");
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,e);
         }
@@ -266,7 +266,7 @@ public class DAO  {
             }
             CasesSystem.pst.executeBatch();
             CasesSystem.pst.close();
-            JOptionPane.showMessageDialog(null,"Probable cases saved");
+            JOptionPane.showMessageDialog(null,"Πιθανά κρούσματα αποθηκεύτηκαν");
             CasesSystem.clearprobdialodtextfields();//clear dialog fields
             DefaultTableModel model = (DefaultTableModel) CasesSystem.jTableProbableCases.getModel();
             model.setRowCount(0);//clear table
@@ -309,15 +309,15 @@ public class DAO  {
     public static void DeleteAllcases(){
         //διαγράφει όλες τις κατηγορίες κρουσμάτων από τη βάση
         String ObjButtons[] = {"Yes","No"};
-        int PromptResult = JOptionPane.showOptionDialog(null,"Are your sure you want to empty \n"
-                + "all tables ?"
+        int PromptResult = JOptionPane.showOptionDialog(null,"Είστε σίγουροι ότι θέλετε  \n"
+                + "να διαγραφτούν όλες οι καταχωρήσεις ;"
                 ,"Clearing tables",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
         if(PromptResult==JOptionPane.YES_OPTION){
             try{
                 String query= "delete * from CURRENTCASES, OVERALLCASES, HEAL, PASSED, PROB ";
                 CasesSystem.pst = CasesSystem.conn.prepareStatement(query);
                 CasesSystem.pst.execute();
-                JOptionPane.showMessageDialog(null, "Data Deleted");
+                JOptionPane.showMessageDialog(null, "Διαγραφή επιτυχείς");
                 CasesSystem.pst.close();
             }catch(HeadlessException | SQLException e){
                 JOptionPane.showMessageDialog(null,e);

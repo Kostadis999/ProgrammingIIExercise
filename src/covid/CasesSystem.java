@@ -689,7 +689,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("If you want to save a case in CCMS you just have \nto fill the textfields with the required \ninformation of the patient and click the Save \ncase button. If the data inserted is valid you\nwill proceed to the 'Register probable cases' \ndialog to Register any Person that is related to \nthe patient and might be a also infected with \ncovid.\n\n");
+        jTextArea1.setText("Αν θέλετε να αποuηκεύσετε ένα κρούσμα στο CCMS  \nσυμπληρώστε τα πεδία με τα στοιχεία του και\nπατήστε το κουμπί 'Save case'.Στη συνέχεια θα \nεμφανιστεί ο διάλος 'Register probable cases' για\nτην καταχώρηση των ατόμων που βρίσκονται κοντά με\nτο κρούσμα και υπάρχει πιθανότητα να είναι επίσης\nφορείς του coivd 19.\n\n");
         jScrollPaneMan1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanelManual1Layout = new javax.swing.GroupLayout(jPanelManual1);
@@ -707,9 +707,8 @@ public class CasesSystem extends javax.swing.JFrame {
         jPanelManual1Layout.setVerticalGroup(
             jPanelManual1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelManual1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jScrollPaneMan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addComponent(jLabelMan1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
@@ -721,7 +720,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
-        jTextArea2.setText("If you want to deactivate a case and you press\nthe 'Deactivate case' button the deactivate case\ndialog will pop up as shown bellow. You should\nchoose the id of the case that you wish to \ndeactivate and define wether he Passed or he \nRestored from covid 19. The case will be deleted\nfrom the active cases and inserted to the Passed\nor Restored cases accordingly \n");
+        jTextArea2.setText("Αν θέλετε να δηλώσετε ότι ένα κρούσμα πλέον δε\nνοσεί πατήστε το κουμπί 'Deactivate case' και θα\nεμφανιστεί ο διάλογος που φαίνεται παρακάτω.\nΕπιλέξτε το ID του κρούσματος που επιθημείτε να \n'απενεργοποιήσετε' και δηλώστε αν απεβίωσε ή αν\nανάρρωσε χρησιμοποιώντας τα κουμπιά του διαλόγου.\n");
         jScrollPaneMan2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout jPanelManual2Layout = new javax.swing.GroupLayout(jPanelManual2);
@@ -753,7 +752,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
-        jTextArea3.setText("If you want to change the colour of the app\nyou can go to Options>Change colours> and you\ncan choose the colour of your preference as \nshown bellow.");
+        jTextArea3.setText("Για να αλλάξετε χρώμα στην εφαρμογή επιλέγετε \nτο μενου Options > Change colours> και \nδιαλέγετε το χρώμα της επιλογής σας. Όπως \nφαίνεται και στην παρακάτω εικόνα.");
         jScrollPaneMan3.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout jPanelManual3Layout = new javax.swing.GroupLayout(jPanelManual3);
@@ -783,7 +782,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jTextArea4.setColumns(20);
         jTextArea4.setRows(5);
-        jTextArea4.setText("If you want to create a diagram go to the \n'Diagrams' menu and choose the diagram of your \nliking. You can make charts related to the\ncases per gender and per age,either pie or bar \nas shown bellow.");
+        jTextArea4.setText("Για να δημιουργήσετε διαγράμματα πηγαίνετε στο\nμενού 'Diagrams' και επιλέγετε το διάγραμμα  \nπου επιθυμείτε. Μπορείτε να δημιουργήσετε είτε \nανα ηλικία είτε ανα φύλο με την κατηγορία \nκρούσματος της επιλογής σας.");
         jScrollPaneMan4.setViewportView(jTextArea4);
 
         javax.swing.GroupLayout jPanelManual4Layout = new javax.swing.GroupLayout(jPanelManual4);
@@ -813,7 +812,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jTextArea5.setColumns(20);
         jTextArea5.setRows(5);
-        jTextArea5.setText("If you want to see reports about the cases you can\ngo to the 'Reports' menu and choose the case \ncategory that you want the report to be about as \nshown bellow.");
+        jTextArea5.setText("Αν θέλετε να δείτε συμπεράσματα που έχουν προκύψει\nαπό τις καταχωρήσεις όσον αφορά μια συγκεκριμένη \nκατηγορία κρουσμάτων, πηγαίνετε στο μενού Reports\nκαι επιλέγετε την κατηγορία κρούσματος που \nεπιθυμείτε");
         jScrollPaneMan5.setViewportView(jTextArea5);
 
         javax.swing.GroupLayout jPanelManual5Layout = new javax.swing.GroupLayout(jPanelManual5);
@@ -844,7 +843,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jTextArea6.setColumns(20);
         jTextArea6.setRows(5);
-        jTextArea6.setText("If you want to delete all cases from the table\npress go to the Options menu and click Delete \ndata as shown bellow ");
+        jTextArea6.setText("Αν θέλετε να διαγράψετε όλες τις καταχωρήσεις\nπηγαίνετε στα Options και επιλέγετε Delete data.\n");
         jScrollPaneMan6.setViewportView(jTextArea6);
 
         javax.swing.GroupLayout jPanelManual6Layout = new javax.swing.GroupLayout(jPanelManual6);
@@ -1617,27 +1616,26 @@ public class CasesSystem extends javax.swing.JFrame {
                   
             //ελεγχος εγκυρότητας δεδομένων 
             if(COUNT2==1){
-                JOptionPane.showMessageDialog(null,"This data is related to another case..\n"
-                        + "Please enter valid data");
+                JOptionPane.showMessageDialog(null,"αυτά τα στοιχεία αντιστοιχούν σε άλλο κρούσμα..\n"
+                        + "Παρακαλώ εισάγετε έγκυρα δεδομένα");
             }else if(jTextFieldPHONENUMBER.getText().equals("") || jTextFieldNAME.getText().equals("") || jTextFieldSURNAME.getText().equals("")
                 || jTextFieldNAME.getText().equals("") || jTextFieldADDRES.getText().equals("") || jTextFieldAMKA.getText().equals("") 
                 || jComboBoxCITY.getSelectedItem().toString().equals("")|| gender.equals("Default")){
-                JOptionPane.showMessageDialog(null,"Please fill all fields");}
+                JOptionPane.showMessageDialog(null,"Παρακαλώ συμπληρώστε όλα τα πεδία");}
             else if (Integer.parseInt(jTextFieldAGE.getText()) <= 0 || Integer.parseInt(jTextFieldAGE.getText()) >120){
-                JOptionPane.showMessageDialog(null,"Please enter a valid age");}
+                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρη ηλικία");}
             else if (String.valueOf(jTextFieldPHONENUMBER.getText()).length() != 10){
-                JOptionPane.showMessageDialog(null,"Please enter a valid phone number");
+                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο τηλέφωνο");
                 }
             else if (String.valueOf(jTextFieldAMKA.getText()).length() != 12 ){
-                JOptionPane.showMessageDialog(null,"Please enter a valid AMKA");}
+                JOptionPane.showMessageDialog(null,"Παρακαλώ εισάγετε έγκυρο ΑΜΚΑ");}
             else if ( COUNT == 1){
-                JOptionPane.showMessageDialog(null,"This AMKA number relates\nto another patient please enter valid AMKA");}
+                JOptionPane.showMessageDialog(null,"Αυτο το ΑΜΚΑ αντιστοιχεί σε άλλο\nασθενή παρακαλώ εισάγετε έγκυρο ΑΜΚΑ");}
             else if (COUNT1 == 1) {
                 /*για να εκτελεστεί ο κώδικας που βρίσκεται σε αυτό το 'else if' σημαίνει ότι ο χρήστης έχει καταχωρίσει AMKA και τηλέφωνο 
                 που αντιστοιχεί σε κάποιο πιθανό κρούσμα, το προγραμμα θα ενημερώσει για την επιβεβαίωση του πιθανού κρούσματος*/
-                JOptionPane.showMessageDialog(null,"Probable case confirmed !!!\n\n" 
-                        + "the case that you want to insert is already present\n"
-                        +"in the probable cases");
+                JOptionPane.showMessageDialog(null,"Επιβεβαίωση πιθανού κρούσματος!!!\n\n" 
+                        + "το κρούσμα που καταχωρείτε βρίσκεται στα πιθανμά κρούσματα");
                        jDialogProbableCases.setVisible(true);
             }else{
                 jDialogProbableCases.setVisible(true);
@@ -1647,7 +1645,7 @@ public class CasesSystem extends javax.swing.JFrame {
         }catch(SQLException e ){
             JOptionPane.showMessageDialog(null,e);
         }catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null,"Please fill all fields");
+            JOptionPane.showMessageDialog(null,"Συμπληρώστε όλα τα πεδία");
             /*Αν ο χρήστης επιλέξει το κενο στοιχείο στο jComboBoxCITY η εντολή 
             'jComboBoxCITY.getSelectedItem().toString().equals("")' δημιουργεί NullPointerException
             */
@@ -1707,19 +1705,19 @@ public class CasesSystem extends javax.swing.JFrame {
         int j = jTableProbableCases.getRowCount();
         if(jTextFieldProbPhonNumbr.getText().equals("") || jTextFieldProbName.getText().equals("") || jTextFieldProbSurname.getText().equals("")
              || jTextFieldProbAge.getText().equals("") || jTextFieldProbAddres.getText().equals("") || jTextFieldProbAmka.getText().equals("")){    
-            JOptionPane.showMessageDialog(jDialogProbableCases, "Please fill all fields ");
+            JOptionPane.showMessageDialog(jDialogProbableCases, "Συμπληρώστε όλα τα πεδία");
         }
         else if (Integer.parseInt(jTextFieldProbAge.getText()) <= 0 || Integer.parseInt(jTextFieldProbAge.getText()) >120){
                
-            JOptionPane.showMessageDialog(jDialogProbableCases, "Invalid Age ");}
+            JOptionPane.showMessageDialog(jDialogProbableCases, "Μη έγκυρη ηλικία");}
         else if (String.valueOf(jTextFieldProbPhonNumbr.getText()).length() != 10){
-                JOptionPane.showMessageDialog(jDialogProbableCases,"Invalid Phone number");}
+                JOptionPane.showMessageDialog(jDialogProbableCases,"Μη έγκυρος αριθμός τηλεφώνου");}
         else if (String.valueOf(jTextFieldProbAmka.getText()).length() != 12 ){   
-            JOptionPane.showMessageDialog(jDialogProbableCases,  "Invalid AMKA");
+            JOptionPane.showMessageDialog(jDialogProbableCases,  "Μη έγκυρο ΑΜΚΑ");
                 }
         else if (b == 1|b1==1 ){
-                JOptionPane.showMessageDialog(jDialogProbableCases,"This AMKA is Related to another \n"
-                        + "patient please enter valid AMKA");}
+                JOptionPane.showMessageDialog(jDialogProbableCases,"Αυτό το ΑΜΚΑ ατιστοιχεί σε άλλο ασθενή \n"
+                        + "παρακαλώ εισάγετε έγκυρο ΑΜΚΑ");}
         else{
             try{
             String ΑΜΚΑ = jTableProbableCases.getModel().getValueAt(j-1, 5).toString();
@@ -1739,10 +1737,13 @@ public class CasesSystem extends javax.swing.JFrame {
                 tb1model.addRow(row);
             }
             else{
-               JOptionPane.showMessageDialog(jDialogProbableCases,"Please enter valid AMKA"); 
+               JOptionPane.showMessageDialog(jDialogProbableCases,"Παρακαλώ εισάγετε έγκυρο ΑΜΚΑ"); 
             }
 
             }catch(Exception e){
+                /*Στο πρώτο πιθανο κρούσμα που θα εισαχθεί στον πίνακα 
+                θα δημιουργηθεί Arrayoutofbounds exception 
+                */
                 Object[] row  = new Object[8];
                 row[0] = jTextFieldProbName.getText();
                 row[1] = jTextFieldProbSurname.getText();
@@ -1752,9 +1753,7 @@ public class CasesSystem extends javax.swing.JFrame {
                 row[5] = jTextFieldProbAmka.getText();
                 row[6] = jTextFieldProbPhonNumbr.getText();
                 row[7] = jComboBoxprobgenre.getSelectedItem().toString();
-                tb1model.addRow(row);
-                JOptionPane.showMessageDialog(jDialogProbableCases,e); 
-                //
+                tb1model.addRow(row); 
             }
 
         }
@@ -1770,9 +1769,9 @@ public class CasesSystem extends javax.swing.JFrame {
             tb1model.removeRow(jTableProbableCases.getSelectedRowCount());
         }else{
             if(jTableProbableCases.getRowCount() == 0 ){
-                JOptionPane.showMessageDialog(jDialogProbableCases,"The table is empty");
+                JOptionPane.showMessageDialog(jDialogProbableCases,"Ο πίνακας είναι άδειος");
             }else{
-                JOptionPane.showMessageDialog(jDialogProbableCases,"Please select one row \nat a time");
+                JOptionPane.showMessageDialog(jDialogProbableCases,"Παρακαλώ επιλέξτε μια γραμμή τη φορά");
             }
         }
     }catch(ArrayIndexOutOfBoundsException e){
@@ -1790,10 +1789,10 @@ public class CasesSystem extends javax.swing.JFrame {
         String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
         if(jTableProbableCases.getRowCount() ==0){//αν δεν εχουν καταχωριθεί πιθανα κρούσματα
             String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
-            int PromptResult = JOptionPane.showOptionDialog(null,"No probable cases has been Registered \nRelated to the case with info:\n"
+            int PromptResult = JOptionPane.showOptionDialog(null,"Δεν έχουν καταχωρηθεί πιθανα κρούσματα \nγια το κρούσμα με στοιχεία:\n"
                     + "\nName:  "+jTextFieldNAME.getText()+
             "\nSurname: "+jTextFieldSURNAME.getText()+"\nAMKA: "+jTextFieldAMKA.getText()+"\nAge: "+jTextFieldAGE.getText()+"\nAddres: "+jTextFieldAGE.getText()+
-            "\nRegion: "+jTextFieldAGE.getText()+"\nId: "+Serial+"\n\nAre you sure you want to Register this case? ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            "\nRegion: "+jTextFieldAGE.getText()+"\nId: "+Serial+"\n\nΕίστε σίγουροι ότι θέλετε να αποθηκεύσετε το κρούσμα; ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION){//αν επιλεχτει το ναι
                 DAO.SaveCases();   
                 if(CasesSystem.jCheckBoxCurrentCases.isSelected()){   //αννανεώνεται ο πίνακας που είναι επιλεγμένος στο checkbox
@@ -1827,10 +1826,10 @@ public class CasesSystem extends javax.swing.JFrame {
         String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
         if (jTableProbableCases.getRowCount()== 0){
             String ObjButtons[] = {"Yes","No"};
-            int PromptResult = JOptionPane.showOptionDialog(null,"No probable cases has been Registered \nRelated to the case with info:\n"
+            int PromptResult = JOptionPane.showOptionDialog(null,"Δεν έχουν καταχωρηθεί πιθανά κρούσματα \nγια το κρούσμα με στοιχεία:\n"
                     + "\nName:  "+jTextFieldNAME.getText()+
             "\nSurname: "+jTextFieldSURNAME.getText()+"\nAMKA: "+jTextFieldAMKA.getText()+"\nAge: "+jTextFieldAGE.getText()+"\nAddres: "+jTextFieldAGE.getText()+
-            "\nRegion: "+jTextFieldAGE.getText()+"\nId: "+Serial+"\n\nAre you sure you want to Register this case? ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+            "\nRegion: "+jTextFieldAGE.getText()+"\nId: "+Serial+"\n\nείστε σίγουρος ότι θέλετε να αποθηκεύσετε το κρούσμα ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION)
             {
                 DAO.SaveCases();
@@ -1848,10 +1847,11 @@ public class CasesSystem extends javax.swing.JFrame {
             }
         }else{
             String ObjButtons[] = {"Yes","No"};
-            int PromptResult = JOptionPane.showOptionDialog(null,"Are you sure you want to save \nthe case with info:\n"
+            int PromptResult = JOptionPane.showOptionDialog(null,"Είστε σίγουροι ότι θέλετε να αποθηκευέι \nτο κρούσμα με στοιχεία:\n"
             + "\nName:  "+jTextFieldNAME.getText()+
                 "\nSurname: "+jTextFieldSURNAME.getText()+"\nAMKA: "+jTextFieldAMKA.getText()+"\nAge: "+jTextFieldAGE.getText()+"\nAddres: "+jTextFieldADDRES.getText()+
-                "\nRegion: "+jTextFieldCITY.getText()+"\nId: "+Serial+"\nand the Probable cases related to it? ","Exiting",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+                "\nRegion: "+jTextFieldCITY.getText()+"\nId: "+Serial+"\nκαι τα πιθανά κρούσματα που σχετίζονται με αυτό;"
+                ,"Exiting",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
             if(PromptResult==JOptionPane.YES_OPTION){
                 DAO.SaveCases();
                 DAO.SaveProbCases();
@@ -1902,8 +1902,8 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_HealButtonActionPerformed
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
-        String ObjButtons[] = {"Yes","No"};
-        int PromptResult = JOptionPane.showOptionDialog(null,"Are you sure you want to exit\n"
+        String ObjButtons[] = {"Ναι","Οχι"};
+        int PromptResult = JOptionPane.showOptionDialog(null,"Θέλετε σίγουρα να αποχωρήσετε;"
                 ,"Exit",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
         if(PromptResult==JOptionPane.YES_OPTION){
             this.dispose();
@@ -1948,7 +1948,7 @@ public class CasesSystem extends javax.swing.JFrame {
 
     private void jButtonDeactivateHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeactivateHelpActionPerformed
         
-        JOptionPane.showMessageDialog(null,"Επιλέξτε το ID του κρούσματος\nπου επιθυμείτε να διαγράψετε από τα Ενεργά Κρούσματα\nκαι επιλέξτε αν το κρούσμα ανάρρωσε ή απεβίωσε");
+        JOptionPane.showMessageDialog(null,"Επιλέξτε το ID του κρούσματος\nπου επιθυμείτε να διαγράψετε από τα Ενεργά Κρούσματα\nκαι δηλώστε αν το κρούσμα ανάρρωσε ή απεβίωσε");
     }//GEN-LAST:event_jButtonDeactivateHelpActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -1956,16 +1956,14 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
-            int PromptResult = JOptionPane.showOptionDialog(null,"Are you sre you wat to exit the system?"
+        String ObjButtons[] = {"Ναι","Οχι"};
+            int PromptResult = JOptionPane.showOptionDialog(null,"Θέλετε σίγουρα να αποχωρήσετε;"
                    ,"Exit",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
-            if(PromptResult==JOptionPane.YES_OPTION){//αν επιλεχτει το ναι
-                dispose();
+            if(PromptResult==JOptionPane.YES_OPTION){
             }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        Login_Page.jPanelSignUp.setBackground(new java.awt.Color(255, 153, 0));
         jPanelProbDialog.setBackground(new java.awt.Color(255, 153, 0));
         jPanelDataDisplay.setBackground(new java.awt.Color(255, 153, 0));
         jPanelDeathOrRestore.setBackground(new java.awt.Color(255, 153, 0));
@@ -1987,7 +1985,6 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        Login_Page.jPanelSignUp.setBackground(new java.awt.Color(102,0,102));
         jPanelProbDialog.setBackground(new java.awt.Color(102,0,102));
         jPanelManual.setBackground(new java.awt.Color(102, 0, 102));
         jPanelDataDisplay.setBackground(new java.awt.Color(102, 0, 102));
@@ -2009,7 +2006,6 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        Login_Page.jPanelSignUp.setBackground(new java.awt.Color(0,153,153));
         jPanelManual.setBackground(new java.awt.Color(0, 153, 153));
         jPanelProbDialog.setBackground(new java.awt.Color(0,153,153));
         jPanelDataDisplay.setBackground(new java.awt.Color(0,153,153));
@@ -2031,7 +2027,6 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-         Login_Page.jPanelSignUp.setBackground(new java.awt.Color(255, 51, 51));
         jPanelProbDialog.setBackground(new java.awt.Color(255, 51, 51));
         jPanelManual.setBackground(new java.awt.Color(255, 51, 51));
         jPanelDataDisplay.setBackground(new java.awt.Color(255, 51, 51));
@@ -2146,18 +2141,18 @@ public class CasesSystem extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(jDialogProbableCases,""
-                + "'Register probable cases' dialog is used\n"
-                +"to register the probable cases related to the case\n "
-                +"that is curretly being registered..\n"
-                +"1.If you don't wish to register probable cases just press\n "
-                + "the Finish button. \n"
-                +"2.If you want to register probable cases, fill the\n"
-                +"fields of the dialogs with the probable cases info and click add. "
-                + "\nThe case will be added to the dialogs table.\n "
-                + "You can add as may probable cases as you like.\n"
-                + "Once you finish adding the Probable cases click 'Finish' to complete the process\n"
-                +"3.if you want to remove a probable case before saving\n"
-                + "select it from the table and click 'Remove'","Help: Register probable cases",JOptionPane.INFORMATION_MESSAGE);     
+                + "Ο διάλογος 'Register probable cases' χρησιμοποιείται\n"
+                +"για τη καταχώριση των πιθανών κρουσμάτων που\n"
+                +"σχετίζονται με το κρούσμα που θέλετε να εισάγετε\n"
+                +"1.Εφόσον δεν επιθημείτε να καταχωρήσετε πιθανά κρούσματα\n"
+                + "πατήστε απλά το κουμπί 'finish'.\n"
+                +"2.Εφόσον θέλετε να καταχωρίσετε, συμπληρώνετε τα πεδία\n"
+                +"του διαλόγου και πατάτε το 'add' για να προσθέσετε το πιθανό "
+                + "\nκρούσμα στον πίνακα. Μπορείτε να προθέσετε όσα θέλετε\n"
+                + "άφου έχει ολοκληρωθεί η διαδικασία της καταχώρησης πατήστε το \n"
+                + "κουμπί 'Finish' για να αποθηκευθούν τα δεδομένα.\n"
+                +"3.Αν θέλετε να αφαιρέσετε κάποιο πιθανό κρούσμα απο τον πίνακα \n"
+                + "επιλέξτε το και πατήστε 'Remove'","Help: Register probable cases",JOptionPane.INFORMATION_MESSAGE);     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
