@@ -3,7 +3,7 @@
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
   <jar>C:\Users\kosta\Documents\NetBeansProjects\ProgrammingIIExercisezz\dist\CCovidCasesProject.jar</jar>
-  <outfile>C:\Users\kosta\Desktop\ex\CCMS.exe</outfile>
+  <outfile>C:\Users\kosta\Desktop\e\CCMS.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
