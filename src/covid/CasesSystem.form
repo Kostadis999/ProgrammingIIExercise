@@ -1438,51 +1438,51 @@
             <Property name="text" type="java.lang.String" value="Options"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu1">
+            <Menu class="javax.swing.JMenu" name="jMenucolors">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Change colours"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemOrangeBlack">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Default(Orange-Black)"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemOrangeBlackActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemPurpleBlack">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Purple-Black"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemPurpleBlackActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemTealBlack">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Teal-Black"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemTealBlackActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItemRedblue">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Red-Blue"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem7ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemRedblueActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemDeletetables">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Delete data"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemDeletetablesActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
@@ -1581,9 +1581,9 @@
                                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                           <Component id="HelpButton" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
-                                              <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckBoxMale" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                              <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckBoxFemale" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -1626,8 +1626,8 @@
                                   <Component id="jTextFieldPHONENUMBER" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jCheckBox6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckBoxMale" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckBoxFemale" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -2117,7 +2117,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxMale">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="99" red="ff" type="rgb"/>
@@ -2128,10 +2128,10 @@
             <Property name="text" type="java.lang.String" value="Male"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxMaleActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox7">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxFemale">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="99" red="ff" type="rgb"/>
@@ -2142,7 +2142,7 @@
             <Property name="text" type="java.lang.String" value="Female"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxFemaleActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="HelpButton">

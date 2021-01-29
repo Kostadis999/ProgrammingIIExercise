@@ -227,8 +227,8 @@ public class CasesSystem extends javax.swing.JFrame {
         jCheckBoxTottalCases = new javax.swing.JCheckBox();
         jCheckBoxPassed = new javax.swing.JCheckBox();
         jCheckBoxHealed = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
+        jCheckBoxMale = new javax.swing.JCheckBox();
+        jCheckBoxFemale = new javax.swing.JCheckBox();
         HelpButton = new javax.swing.JButton();
         Systemmenubar = new javax.swing.JMenuBar();
         jMenuReports = new javax.swing.JMenu();
@@ -271,12 +271,12 @@ public class CasesSystem extends javax.swing.JFrame {
         jMenuItemPieHeals = new javax.swing.JMenuItem();
         jMenuItemBarHeals = new javax.swing.JMenuItem();
         jMenuOptions = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenucolors = new javax.swing.JMenu();
+        jMenuItemOrangeBlack = new javax.swing.JMenuItem();
+        jMenuItemPurpleBlack = new javax.swing.JMenuItem();
+        jMenuItemTealBlack = new javax.swing.JMenuItem();
+        jMenuItemRedblue = new javax.swing.JMenuItem();
+        jMenuItemDeletetables = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
 
         jDialogProbableCases.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -1148,21 +1148,21 @@ public class CasesSystem extends javax.swing.JFrame {
                 .addGap(232, 232, 232))
         );
 
-        jCheckBox6.setBackground(new java.awt.Color(255, 153, 0));
-        buttonGroup2.add(jCheckBox6);
-        jCheckBox6.setText("Male");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxMale.setBackground(new java.awt.Color(255, 153, 0));
+        buttonGroup2.add(jCheckBoxMale);
+        jCheckBoxMale.setText("Male");
+        jCheckBoxMale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                jCheckBoxMaleActionPerformed(evt);
             }
         });
 
-        jCheckBox7.setBackground(new java.awt.Color(255, 153, 0));
-        buttonGroup2.add(jCheckBox7);
-        jCheckBox7.setText("Female");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxFemale.setBackground(new java.awt.Color(255, 153, 0));
+        buttonGroup2.add(jCheckBoxFemale);
+        jCheckBoxFemale.setText("Female");
+        jCheckBoxFemale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
+                jCheckBoxFemaleActionPerformed(evt);
             }
         });
 
@@ -1208,9 +1208,9 @@ public class CasesSystem extends javax.swing.JFrame {
                                     .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(HelpButton)
                                         .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
-                                            .addComponent(jCheckBox6)
+                                            .addComponent(jCheckBoxMale)
                                             .addGap(49, 49, 49)
-                                            .addComponent(jCheckBox7))))))))
+                                            .addComponent(jCheckBoxFemale))))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPaneltable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
@@ -1243,8 +1243,8 @@ public class CasesSystem extends javax.swing.JFrame {
                                 .addComponent(jTextFieldPHONENUMBER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(13, 13, 13)
                                 .addGroup(jPanelCasesSystemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jCheckBox6)
-                                    .addComponent(jCheckBox7)))
+                                    .addComponent(jCheckBoxMale)
+                                    .addComponent(jCheckBoxFemale)))
                             .addGroup(jPanelCasesSystemLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jPanelCaseInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1518,49 +1518,49 @@ public class CasesSystem extends javax.swing.JFrame {
 
         jMenuOptions.setText("Options");
 
-        jMenu1.setText("Change colours");
+        jMenucolors.setText("Change colours");
 
-        jMenuItem4.setText("Default(Orange-Black)");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemOrangeBlack.setText("Default(Orange-Black)");
+        jMenuItemOrangeBlack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                jMenuItemOrangeBlackActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        jMenucolors.add(jMenuItemOrangeBlack);
 
-        jMenuItem5.setText("Purple-Black");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemPurpleBlack.setText("Purple-Black");
+        jMenuItemPurpleBlack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                jMenuItemPurpleBlackActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem5);
+        jMenucolors.add(jMenuItemPurpleBlack);
 
-        jMenuItem6.setText("Teal-Black");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemTealBlack.setText("Teal-Black");
+        jMenuItemTealBlack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                jMenuItemTealBlackActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem6);
+        jMenucolors.add(jMenuItemTealBlack);
 
-        jMenuItem7.setText("Red-Blue");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemRedblue.setText("Red-Blue");
+        jMenuItemRedblue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                jMenuItemRedblueActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem7);
+        jMenucolors.add(jMenuItemRedblue);
 
-        jMenuOptions.add(jMenu1);
+        jMenuOptions.add(jMenucolors);
 
-        jMenuItem2.setText("Delete data");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemDeletetables.setText("Delete data");
+        jMenuItemDeletetables.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItemDeletetablesActionPerformed(evt);
             }
         });
-        jMenuOptions.add(jMenuItem2);
+        jMenuOptions.add(jMenuItemDeletetables);
 
         jMenuItem3.setText("Exit");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -1787,13 +1787,13 @@ public class CasesSystem extends javax.swing.JFrame {
         /*η μεθοδος αποθηκεύει τα πιθανα κρούσματα και το κρούσμα που κατασώρισε ο χρήστης. 
         Σε περιπτωση που ο χρήστης δεν έχει καταχορίσει πιθανά κρούσματα εμφανίζεται ανάλογο μήνυμα*/
         String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
-        if(jTableProbableCases.getRowCount() ==0){//αν δεν εχουν καταχωριθεί πιθανα κρούσματα
-            String ObjButtons[] = {"Yes","No"};//ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
+        if(jTableProbableCases.getRowCount() ==0){    //αν δεν εχουν καταχωριθεί πιθανα κρούσματα
+            String ObjButtons[] = {"Yes","No"};       //ρωταει με OptionDialog αν θελει να αποθηκευτει το κρούσμα
             int PromptResult = JOptionPane.showOptionDialog(null,"Δεν έχουν καταχωρηθεί πιθανα κρούσματα \nγια το κρούσμα με στοιχεία:\n"
                     + "\nName:  "+jTextFieldNAME.getText()+
             "\nSurname: "+jTextFieldSURNAME.getText()+"\nAMKA: "+jTextFieldAMKA.getText()+"\nAge: "+jTextFieldAGE.getText()+"\nAddres: "+jTextFieldAGE.getText()+
             "\nRegion: "+jTextFieldAGE.getText()+"\nId: "+Serial+"\n\nΕίστε σίγουροι ότι θέλετε να αποθηκεύσετε το κρούσμα; ","ProbableCases",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
-            if(PromptResult==JOptionPane.YES_OPTION){//αν επιλεχτει το ναι
+            if(PromptResult==JOptionPane.YES_OPTION){                  //αν επιλεχτει το ναι
                 DAO.SaveCases();   
                 if(CasesSystem.jCheckBoxCurrentCases.isSelected()){   //αννανεώνεται ο πίνακας που είναι επιλεγμένος στο checkbox
                     DAO.fillJtableCases("CURRENTCASES","ID","Active cases","");
@@ -1801,7 +1801,7 @@ public class CasesSystem extends javax.swing.JFrame {
                 else if(CasesSystem.jCheckBoxTottalCases.isSelected()){
                     DAO.fillJtableCases("OVERALLCASES","ID","Total cases","");    
                 }   
-                clearprobdialodtextfields();     //καθαρισε τα παιδια
+                clearprobdialodtextfields();                  //καθαρισε τα παιδια
                 jDialogProbableCases.setVisible(false);      //κλείσε το διάλογο
             }else{                           
                 clearprobdialodtextfields();
@@ -1812,6 +1812,7 @@ public class CasesSystem extends javax.swing.JFrame {
             DAO.SaveCases();
             DAO.SaveProbCases();
             if(CasesSystem.jCheckBoxCurrentCases.isSelected()){
+                //Αναναιώνεται ο πινακας που είναι επιλεγμένος εκέινη τη στιγμή
                 DAO.fillJtableCases("CURRENTCASES","ID","Active cases","");
             }else if(CasesSystem.jCheckBoxTottalCases.isSelected()){
                 DAO.fillJtableCases("OVERALLCASES","ID","Total cases","");    
@@ -1823,6 +1824,8 @@ public class CasesSystem extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonFinishActionPerformed
 
     private void jDialogProbableCasesWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jDialogProbableCasesWindowClosing
+        //σε περιπτωση που ο ζρηστης κλείσει το διάλογο χωρίς να πατήσει finish το προγραμμα τον ρωτάει αν επιθημεί να αποθηκευτουν τα στοιχεία
+        //που έχει καταχωρήσει
         String Serial = "CS"+new SimpleDateFormat("ddMMyyy").format(new Date())+DAO.generateserialId();
         if (jTableProbableCases.getRowCount()== 0){
             String ObjButtons[] = {"Yes","No"};
@@ -1938,22 +1941,22 @@ public class CasesSystem extends javax.swing.JFrame {
         DAO.fillJtableCases("HEAL","ID","Restored","");
     }//GEN-LAST:event_jCheckBoxHealedActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    private void jCheckBoxMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMaleActionPerformed
         gender ="Male";
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    }//GEN-LAST:event_jCheckBoxMaleActionPerformed
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+    private void jCheckBoxFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxFemaleActionPerformed
         gender ="Female";
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    }//GEN-LAST:event_jCheckBoxFemaleActionPerformed
 
     private void jButtonDeactivateHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeactivateHelpActionPerformed
         
         JOptionPane.showMessageDialog(null,"Επιλέξτε το ID του κρούσματος\nπου επιθυμείτε να διαγράψετε από τα Ενεργά Κρούσματα\nκαι δηλώστε αν το κρούσμα ανάρρωσε ή απεβίωσε");
     }//GEN-LAST:event_jButtonDeactivateHelpActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void jMenuItemDeletetablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDeletetablesActionPerformed
         DAO.DeleteAllcases();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jMenuItemDeletetablesActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         String ObjButtons[] = {"Ναι","Οχι"};
@@ -1963,7 +1966,7 @@ public class CasesSystem extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void jMenuItemOrangeBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemOrangeBlackActionPerformed
         jPanelProbDialog.setBackground(new java.awt.Color(255, 153, 0));
         jPanelDataDisplay.setBackground(new java.awt.Color(255, 153, 0));
         jPanelDeathOrRestore.setBackground(new java.awt.Color(255, 153, 0));
@@ -1979,12 +1982,12 @@ public class CasesSystem extends javax.swing.JFrame {
         jCheckBoxPassed.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxHealed.setBackground(new java.awt.Color(0, 0, 0));
         jCheckBoxHealed.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox7.setBackground(new java.awt.Color(255, 153, 0));
-        jCheckBox6.setBackground(new java.awt.Color(255, 153, 0));
+        jCheckBoxFemale.setBackground(new java.awt.Color(255, 153, 0));
+        jCheckBoxMale.setBackground(new java.awt.Color(255, 153, 0));
         jPanelManual.setBackground(new java.awt.Color(255, 153, 0));
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_jMenuItemOrangeBlackActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jMenuItemPurpleBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPurpleBlackActionPerformed
         jPanelProbDialog.setBackground(new java.awt.Color(102,0,102));
         jPanelManual.setBackground(new java.awt.Color(102, 0, 102));
         jPanelDataDisplay.setBackground(new java.awt.Color(102, 0, 102));
@@ -2001,11 +2004,11 @@ public class CasesSystem extends javax.swing.JFrame {
         jCheckBoxPassed.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBoxHealed.setBackground(new java.awt.Color(0, 0, 0));
         jCheckBoxHealed.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox7.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox6.setBackground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+        jCheckBoxFemale.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBoxMale.setBackground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_jMenuItemPurpleBlackActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void jMenuItemTealBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTealBlackActionPerformed
         jPanelManual.setBackground(new java.awt.Color(0, 153, 153));
         jPanelProbDialog.setBackground(new java.awt.Color(0,153,153));
         jPanelDataDisplay.setBackground(new java.awt.Color(0,153,153));
@@ -2022,11 +2025,11 @@ public class CasesSystem extends javax.swing.JFrame {
         jCheckBoxPassed.setForeground(new java.awt.Color(255,255,255));
         jCheckBoxHealed.setBackground(new java.awt.Color(0, 0, 0));
         jCheckBoxHealed.setForeground(new java.awt.Color(255,255,255));
-        jCheckBox7.setBackground(new java.awt.Color(0,153,153));
-        jCheckBox6.setBackground(new java.awt.Color(0,153,153));
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+        jCheckBoxFemale.setBackground(new java.awt.Color(0,153,153));
+        jCheckBoxMale.setBackground(new java.awt.Color(0,153,153));
+    }//GEN-LAST:event_jMenuItemTealBlackActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void jMenuItemRedblueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRedblueActionPerformed
         jPanelProbDialog.setBackground(new java.awt.Color(255, 51, 51));
         jPanelManual.setBackground(new java.awt.Color(255, 51, 51));
         jPanelDataDisplay.setBackground(new java.awt.Color(255, 51, 51));
@@ -2043,9 +2046,9 @@ public class CasesSystem extends javax.swing.JFrame {
         jCheckBoxPassed.setForeground(new java.awt.Color(255,255,255));
         jCheckBoxHealed.setBackground(new java.awt.Color(0, 0, 0));
         jCheckBoxHealed.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox7.setBackground(new java.awt.Color(255, 51, 51));
-        jCheckBox6.setBackground(new java.awt.Color(255, 51, 51));
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+        jCheckBoxFemale.setBackground(new java.awt.Color(255, 51, 51));
+        jCheckBoxMale.setBackground(new java.awt.Color(255, 51, 51));
+    }//GEN-LAST:event_jMenuItemRedblueActionPerformed
 
     private void jMenuItemPieTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPieTotalActionPerformed
         DAO.createpieChartsGender("OVERALLCASES","Total cases per gender");
@@ -2208,10 +2211,10 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRemove;
     private javax.swing.JButton jButtonSAVE;
     private javax.swing.JButton jButtonSEARCHID;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
     public static javax.swing.JCheckBox jCheckBoxCurrentCases;
+    private javax.swing.JCheckBox jCheckBoxFemale;
     public static javax.swing.JCheckBox jCheckBoxHealed;
+    private javax.swing.JCheckBox jCheckBoxMale;
     public static javax.swing.JCheckBox jCheckBoxPassed;
     public static javax.swing.JCheckBox jCheckBoxProbCases;
     public static javax.swing.JCheckBox jCheckBoxTottalCases;
@@ -2248,7 +2251,6 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPHONENUMBER;
     private javax.swing.JLabel jLabelSURNAME;
     public static javax.swing.JLabel jLabelrepTitle;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenuActiveperage;
     private javax.swing.JMenu jMenuActivepergender;
     private javax.swing.JMenu jMenuAgediagrams;
@@ -2257,12 +2259,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuDiagrams;
     private javax.swing.JMenu jMenuGenderDiagrams;
     private javax.swing.JMenu jMenuHealspergender;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItemActiveBarage;
     private javax.swing.JMenuItem jMenuItemActiveCasesReport;
     private javax.swing.JMenuItem jMenuItemActivePieAge;
@@ -2273,6 +2270,8 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemBarTotal;
     private javax.swing.JMenuItem jMenuItemDeathsbarAge;
     private javax.swing.JMenuItem jMenuItemDeathspieage;
+    private javax.swing.JMenuItem jMenuItemDeletetables;
+    private javax.swing.JMenuItem jMenuItemOrangeBlack;
     private javax.swing.JMenuItem jMenuItemPassedReport;
     private javax.swing.JMenuItem jMenuItemPieActive;
     private javax.swing.JMenuItem jMenuItemPieDeaths;
@@ -2282,8 +2281,11 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemProbBarAge;
     private javax.swing.JMenuItem jMenuItemProbPieage;
     private javax.swing.JMenuItem jMenuItemProbablesreport;
+    private javax.swing.JMenuItem jMenuItemPurpleBlack;
+    private javax.swing.JMenuItem jMenuItemRedblue;
     private javax.swing.JMenuItem jMenuItemRessPieage;
     private javax.swing.JMenuItem jMenuItemRestoredReport;
+    private javax.swing.JMenuItem jMenuItemTealBlack;
     private javax.swing.JMenuItem jMenuItemTotalBarage;
     private javax.swing.JMenuItem jMenuItemTotalCasesReport;
     private javax.swing.JMenuItem jMenuItemTotalPieAge;
@@ -2295,6 +2297,7 @@ public class CasesSystem extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuRestoresperage;
     private javax.swing.JMenu jMenuTotalperAge;
     private javax.swing.JMenu jMenuTotalpergender;
+    private javax.swing.JMenu jMenucolors;
     private javax.swing.JPanel jPanelCaseInfo;
     private javax.swing.JPanel jPanelCasesSystem;
     private javax.swing.JPanel jPanelDataDisplay;
